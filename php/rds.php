@@ -7,5 +7,5 @@ $dbname = $_SERVER['RDS_DB_NAME'];
 $username = $_SERVER['RDS_USERNAME'];
 $password = $_SERVER['RDS_PASSWORD'];
 
-$dbh = new PDO($dsn, $username, $password);
+#$dbh = new PDO($dsn, $username, $password);
 ?>
