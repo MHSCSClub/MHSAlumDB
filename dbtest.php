@@ -1,5 +1,5 @@
 <?php
-    include( $_SERVER['DOCUMENT_ROOT'] . '/php/rds.php' )
+    include( $_SERVER['DOCUMENT_ROOT'] . '/php/rds.php' );
     $conn = new mysqli($dbhost, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
