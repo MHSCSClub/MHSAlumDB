@@ -1,12 +1,8 @@
 <?php
-$dbhost = $_SERVER['RDS_HOSTNAME'];
-$dbport = $_SERVER['RDS_PORT'];
-#$dbname = $_SERVER['RDS_DB_NAME'];
-$dbname = "alumni";
+    $dbhost = $_SERVER['RDS_HOSTNAME'];
+    $dbport = $_SERVER['RDS_PORT'];
+    $dbname = "alumni";
 
-#$dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname}";
-$username = $_SERVER['RDS_USERNAME'];
-$password = $_SERVER['RDS_PASSWORD'];
-
-#$dbh = new PDO($dsn, $username, $password);
+    $username = $_SERVER['RDS_USERNAME'];
+    $password = $_SERVER['RDS_PASSWORD'];
 ?>

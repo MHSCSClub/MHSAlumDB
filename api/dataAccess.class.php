@@ -1,8 +1,8 @@
 <?php
 
-	require_once("secret.class.php");
 	require_once("signal.class.php");
 	require_once("exception.class.php");
+	require_once("rds.php")
 
 	/*
 		Database interface
@@ -86,7 +86,7 @@
 		}
 
 		private static function getConnection() {
-			$db = new mysqli(self::$ip, Secret::$username, Secret::$password, self::$dbName);
+			$db = new mysqli($dbhost, $username, $password, $dbname);
 
 			if($db->connect_error)
 				throw new DBConnectException();
