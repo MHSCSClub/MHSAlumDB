@@ -3,26 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MHS Alum DB - Log-in</title>
-	<link rel='stylesheet' href='css/jquery-ui.css'>
-	<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+	<link rel='stylesheet' href='/css/jquery-ui.css'>
+	<link rel="stylesheet" href="/css/style.css" media="screen" type="text/css" />
 	<!-- A Pen created at CodePen.io. You can find this one at http://codepen.io/Mongeed/pen/IuBLt. -->
 	<!-- A simple log-in screen I pretty much made out of boredom. Style is based on google's login which is one of my favorite login's. Tried to keep it minimalistic, I think it worked. -->
 </head>
 
 <body>
-	<div class="login-card">
-		<img src="img/msf.png"><br>
+	<div class="card">
+		<img src="/img/msf.png"><br>
 		<form method="post">
 			<input type="text" name="username" placeholder="Username">
 			<input type="password" name="password" placeholder="Password">
 			<!-- ERROR -->
-			<input type="submit" name="login" class="login login-submit" value="login">
+			<input type="submit" name="button" class="button button-submit" value="Login">
 		</form>
-		<div class="login-help">
-			<a href="?action=register">Register</a> • <a href="?action=forgot">Forgot Password</a>
+		<div class="help">
+			<a href="../register/">Register</a> • <a href="../forgot/">Forgot Password</a>
 		</div>
 	</div>
-	<script src='js/jquery_and_jqueryui.js'/>
+	<script src='/js/jquery_and_jqueryui.js'/>
 </body>
 
 </html>

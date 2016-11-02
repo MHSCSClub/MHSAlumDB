@@ -1,5 +1,5 @@
 <?php
-    include( 'rds.php' );
+    include( '../php/rds.php' );
 
 
     $conn = new mysqli($dbhost, $username, $password, $dbname);
@@ -20,7 +20,7 @@
     } else {
         echo "0 results";
     }
-    echo tableme($result);
+    
     $conn->close();
 
    
