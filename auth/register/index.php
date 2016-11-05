@@ -1,40 +1,50 @@
 <?php
-
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      include("../../php/signal.class.php");
-      include("../../php/auth.php");
-      
-      session_start();
-      // username and password sent from form 
-      //echo("test");
-
-      
-      if($_POST['password1'] === $_POST['password2']){
-        //echo ("testtest");
-      $resp = auth::register($_POST['email'], $_POST['password1']);
-      //print(json_encode($resp->toArray()));
-      //print(json_encode($resp->getData()));
-        if($resp->isError()){
-           $error = "Username already registered or password does not meet minimum requirements";
-         //replace 
-         $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
-         $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
-         die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
-        } else {
-         header("location: /auth/login/");
+    include("../../php/signal.class.php");
+    include("../../php/auth.php");
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        session_start();
+        if(!is_null($_GET["key"]) && !is_null($GET("email"))){    //Part 2 of register
+          if($_POST['password1'] === $_POST['password2']){        //Check if passwords match
+            //Call register in auth
+            $resp = auth::register($_GET['email'], $_POST['password1'],$_GET["key"]);
+            if($resp->isError()){
+              $resp->getMessage();
+              //$error = "Username already registered or password does not meet minimum requirements";
+              //replace 
+              $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
+              $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
+              die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
+            } else {
+              header("location: /auth/login/");
+            }
+          } else {
+            $error = "Passwords do not match";
+            //replace 
+            $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
+            $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
+            die(str_replace("<!-- ERROR -->", $e_string, $reghtm)); 
         }
-      
-    
-    
-      
-      }else {
-         $error = "Passwords do not match";
-         //replace 
-         $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
-         $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
-         die(str_replace("<!-- ERROR -->", $e_string, $reghtm)); 
+      } else {
+          $resp = auth::start_register($_POST['email']);
+            if($resp->isError()){
+              $resp->getMessage();
+              //$error = "Username already registered or password does not meet minimum requirements";
+              //replace 
+              $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
+              $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
+              die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
+            } else {
+              readfile("register-email.html");
+              //header("location: /auth/login/");
+            }
       }
-   } else {
-     readfile("register2.html");
+    } else {
+      if($_SERVER["REQUEST_METHOD"] == "GET"){
+        if(!is_null($_GET["email"]) && !is_null($_GET["key"])){
+          readfile("register2.html");          
+        }
+      } else {
+        readfile("register.html");
+     }
    }
  ?>

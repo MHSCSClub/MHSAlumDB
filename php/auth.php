@@ -11,8 +11,8 @@
 			});
 		}
         public static function start_register($email) {
-			return self::run(function() use ($username, $password) {
-				return auth::start_real_register($username, $password);
+			return self::run(function() use ($email) {
+				return auth::start_real_register($email);
 			});
 		}
         public static function register($username, $password) {
@@ -50,7 +50,6 @@
 
 			if($db->connect_error)
 				throw new DBConnectException();
-
 			return $db;
 		}
 
@@ -152,7 +151,7 @@
 			return Signal::success()->setData($userid);
 		}
 
-        private static function REAL_register($username, $password) {
+        private static function REAL_register($username, $password, $key) {
 			$db = self::getConnection();
 
 			//Verify basic UN + Pass checks
@@ -161,12 +160,13 @@
 				throw new Exception("Parameter length error");
 
 			//Check if user exists
-			$stmt = $db->prepare('SELECT userid FROM users WHERE username=?');
-			$stmt->bind_param('s', $username);
+			$stmt = $db->prepare('SELECT * FROM setupusers WHERE username=? AND key=?');
+			$stmt->bind_param('ss', $username, $key);
 			$stmt->execute();
 			$res = $stmt->get_result();
-			if($res->num_rows > 0)
-				throw new Exception("Username already taken");
+			if($res->num_rows == 0){
+				throw new Exception("Invalid key");
+			}
 			$stmt->close();
 
 			//Process password: generate salt and hash pwd + salt
@@ -179,44 +179,57 @@
 			$stmt->bind_param('sss', $username, $hshpass, $salt);
 			$stmt->execute();
 			$stmt->close();
+
+			$stmt = $db->prepare('DELETE FROM setupusers WHERE username=? AND key=?');
+			$stmt->bind_param('ss', $username, $key);
+			$stmt->execute();
+
 			return Signal::success();
 		}
 
-         private static function start_real_register($username, $password) {
+         private static function start_real_register($email) {
 			$db = self::getConnection();
 
-			//Verify basic UN + Pass checks
-			//UN >= 4 chars, Pass >= 8 chars
-			if(strlen($username) < 5 || strlen($password) < 8)
-				throw new Exception("Parameter length error");
+			//Check if email is valid
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+				throw new Exception("Email is invalid");
+			}
 
 			//Check if user exists
 			$stmt = $db->prepare('SELECT userid FROM users WHERE username=?');
-			$stmt->bind_param('s', $username);
+			$stmt->bind_param('s', $email);
 			$stmt->execute();
 			$res = $stmt->get_result();
 			if($res->num_rows > 0)
 				throw new Exception("Username already taken");
 			$stmt->close();
 
+
 			//Process password: generate salt and hash pwd + salt
-			$random = openssl_random_pseudo_bytes(64);
-			$salt = self::hash($random);
-			$hshpass = self::hashPass($password, $salt);
+			$random = openssl_random_pseudo_bytes(256);
+			$key = self::hash($random);
+			
 
 			//Insert user into database
-			$stmt = $db->prepare('INSERT INTO setupusers VALUES (null, ?, ?, ?)');
-			$stmt->bind_param('sss', $username, $salt);
+			$stmt = $db->prepare('INSERT INTO setupusers VALUES (null, ?, ?)');
+			$stmt->bind_param('ss', $username, $key);
 			$stmt->execute();
 			$stmt->close();
             
-            self::sendmail_register($username, $salt);
+            self::sendmail_register($username, $key);
 
 			return Signal::success();
 		}
         private static function sendmail_register($username, $key)
         {
-            sendmail($username, 'Amazon SES test (SMTP interface accessed using PHP)', 'This email was sent through the Amazon SES SMTP interface by using PHP.');
+			$base_url =  "https://{$_SERVER['HTTP_HOST']}/auth/register";
+
+			$escaped_base_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+			
+			$full_url = $escaped_base_url . "?email={$username}&key={$key}";
+			$SUBJECT = 'Registration confirmation for MHS Alumni Database';
+			$BODY = "Thank you for registering for the MHS Alumni Database! To finish setting up your account, please copy and paste this link into your browser {$full_url}";
+            sendmail($username, $SUBJECT, $BODY);
         }
         
         private static function GET_verify($db, $userid) {
