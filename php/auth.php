@@ -15,9 +15,9 @@
 				return auth::start_real_register($email);
 			});
 		}
-        public static function register($username, $password) {
-			return self::run(function() use ($username, $password) {
-				return auth::REAL_register($username, $password);
+        public static function register($username, $password, $key) {
+			return self::run(function() use ($username, $password, $key) {
+				return auth::REAL_register($username, $password, $key);
 			});
 		}
 
@@ -155,12 +155,12 @@
 			$db = self::getConnection();
 
 			//Verify basic UN + Pass checks
-			//UN >= 4 chars, Pass >= 8 chars
-			if(strlen($username) < 5 || strlen($password) < 8)
-				throw new Exception("Parameter length error");
+			//Pass >= 8 chars
+			if(strlen($password) < 8)
+				throw new Exception("Password does not meet minimum length requirement (8)");
 
 			//Check if user exists
-			$stmt = $db->prepare('SELECT * FROM setupusers WHERE username=? AND key=?');
+			$stmt = $db->prepare("SELECT * FROM setupusers WHERE username=? AND authkey=?");
 			$stmt->bind_param('ss', $username, $key);
 			$stmt->execute();
 			$res = $stmt->get_result();
@@ -175,12 +175,12 @@
 			$hshpass = self::hashPass($password, $salt);
 
 			//Insert user into database
-			$stmt = $db->prepare('INSERT INTO users VALUES (null, ?, ?, ?)');
+			$stmt = $db->prepare('INSERT INTO users (username, password, salt) VALUES (?, ?, ?)');
 			$stmt->bind_param('sss', $username, $hshpass, $salt);
 			$stmt->execute();
 			$stmt->close();
 
-			$stmt = $db->prepare('DELETE FROM setupusers WHERE username=? AND key=?');
+			$stmt = $db->prepare("DELETE FROM setupusers WHERE username=? AND authkey=?");
 			$stmt->bind_param('ss', $username, $key);
 			$stmt->execute();
 
@@ -191,9 +191,12 @@
 			$db = self::getConnection();
 
 			//Check if email is valid
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-				throw new Exception("Email is invalid");
+			
+			if(strlen($username) < 5 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+				throw new Exception("Email is invalid (too short or not an email address)");
 			}
+
+			$email = mysqli_real_escape_string($db,$email);
 
 			//Check if user exists
 			$stmt = $db->prepare('SELECT userid FROM users WHERE username=?');
@@ -201,22 +204,22 @@
 			$stmt->execute();
 			$res = $stmt->get_result();
 			if($res->num_rows > 0)
-				throw new Exception("Username already taken");
+				throw new Exception("You have already registered. Please login or reset your password.");
 			$stmt->close();
 
 
 			//Process password: generate salt and hash pwd + salt
-			$random = openssl_random_pseudo_bytes(256);
+			$random = openssl_random_pseudo_bytes(20);
 			$key = self::hash($random);
 			
 
 			//Insert user into database
-			$stmt = $db->prepare('INSERT INTO setupusers VALUES (null, ?, ?)');
-			$stmt->bind_param('ss', $username, $key);
+			$stmt = $db->prepare("INSERT INTO setupusers (username, authkey) VALUES (?, ?)");
+			$stmt->bind_param('ss', $email, $key);
 			$stmt->execute();
 			$stmt->close();
             
-            self::sendmail_register($username, $key);
+            self::sendmail_register($email, $key);
 
 			return Signal::success();
 		}
@@ -224,12 +227,12 @@
         {
 			$base_url =  "https://{$_SERVER['HTTP_HOST']}/auth/register";
 
-			$escaped_base_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+			$escaped_base_url = htmlspecialchars( $base_url, ENT_QUOTES, 'UTF-8' );
 			
 			$full_url = $escaped_base_url . "?email={$username}&key={$key}";
 			$SUBJECT = 'Registration confirmation for MHS Alumni Database';
-			$BODY = "Thank you for registering for the MHS Alumni Database! To finish setting up your account, please copy and paste this link into your browser {$full_url}";
-            sendmail($username, $SUBJECT, $BODY);
+			$BODY = "Thank you for registering for the MHS Alumni Database! To finish setting up your account, please click this link or copy and paste it into your browser {$full_url}";
+            self::sendmail($username, $SUBJECT, $BODY);
         }
         
         private static function GET_verify($db, $userid) {
