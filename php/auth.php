@@ -133,7 +133,7 @@
 			//Check if user in auth table
 			$res = $db->query("SELECT authcode FROM auth WHERE userid=$userid");
 
-			/*//Generate a random authcode
+			//Generate a random authcode
 			$random = openssl_random_pseudo_bytes(64);
 			$authcode = self::hash($random);
 
@@ -147,8 +147,8 @@
 
 			//Return success with data
 			$data = array("authcode" => $authcode);
-			return Signal::success()->setData($data);*/
-			return Signal::success()->setData($userid);
+			return Signal::success()->setData($data);
+			//return Signal::success()->setData($userid);
 		}
 
         private static function REAL_register($username, $password, $key) {
@@ -192,7 +192,7 @@
 
 			//Check if email is valid
 			
-			if(strlen($username) < 5 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+			if(strlen($email) < 5 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
 				throw new Exception("Email is invalid (too short or not an email address)");
 			}
 

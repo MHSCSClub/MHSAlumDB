@@ -25,7 +25,8 @@
          $reghtm = file_get_contents('./login.html', FILE_USE_INCLUDE_PATH);
          die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
         } else {
-         header("location: /ui/");
+          setcookie("alumdbauth", $resp->getData(),0, "/");
+          header("location: /ui/");
         }
     
     /*
