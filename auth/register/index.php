@@ -2,7 +2,7 @@
     include("../../php/signal.class.php");
     include("../../php/auth.php");
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-      if(!(isset($_GET["key"]) && isset($_GET["email"]))){    //Part 2 of register
+      if(!(isset($_GET["key"]) || isset($_GET["email"]))){    //Part 2 of register
         session_start();
         $resp = auth::start_register($_POST['email']);
         if($resp->isError()){
@@ -10,7 +10,7 @@
           //$error = "Username already registered or password does not meet minimum requirements";
           //replace 
           $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
-          $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
+          $reghtm = file_get_contents('./register.html', FILE_USE_INCLUDE_PATH);
           die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
         } else {
           readfile("register-email.html");
@@ -42,7 +42,9 @@
     } else {
       if($_SERVER["REQUEST_METHOD"] == "GET"){
         if(isset($_GET["email"]) && isset($_GET["key"])){
-          readfile("register2.html");          
+          $email_form = "<input type=\"text\" name=\"email\" placeholder=\"{$_GET['email']}\" disabled>";
+          $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
+          die(str_replace("<!-- email -->", $email_form, $reghtm));  
         } else {
           readfile("register.html");
         }
