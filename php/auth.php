@@ -87,6 +87,7 @@
 
 		private static function updateAuthExpiration($db, $userid) {
 			$db->query("UPDATE auth SET expire=DATE_ADD(NOW(), INTERVAL 1 MONTH) WHERE userid=$userid");
+			return strtotime("+1 month", time()); 
 		}
 
 		//Creates a JSON array out of multiple results
@@ -143,10 +144,10 @@
 				//Set temporary expiration date and then update
 				$db->query("INSERT INTO auth VALUES (null, $userid, '$authcode', NOW() )");
 			}
-			self::updateAuthExpiration($db, $userid);
+			$expire = self::updateAuthExpiration($db, $userid);
 
 			//Return success with data
-			$data = array("authcode" => $authcode);
+			$data = array("authcode" => $authcode, "expire" => $expire);
 			return Signal::success()->setData($data);
 			//return Signal::success()->setData($userid);
 		}
