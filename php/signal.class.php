@@ -77,9 +77,6 @@
 		public static function authError() {
 			return new ISignal("error", NULL, "Authentication error");
 		}
-		public static function imgError() {
-			return new ISignal("error", NULL, "Image error", "IMG");
-		}
 
 		public static function success() {
 			return new ISignal("success", NULL, "Generic success");

@@ -21,6 +21,12 @@
 			});
 		}
 
+		public static function check_auth($authcode) {
+			return self::run(function() use ($authcode) {
+				return auth::GET_verify($authcode);
+			});
+		}
+
 
         /*
 			Private methods
@@ -107,6 +113,9 @@
         private static function REAL_login($username, $password) {
 			$db = self::getConnection();
 
+			$username = mysqli_real_escape_string($db, $username);
+			$password = mysqli_real_escape_string($db, $password);
+			
 			//Fetch salt + check if user exists
 			$stmt = $db->prepare('SELECT username, salt FROM users WHERE username=?');
 			$stmt->bind_param('s', $username);
@@ -155,6 +164,9 @@
         private static function REAL_register($username, $password, $key) {
 			$db = self::getConnection();
 
+			$username = mysqli_real_escape_string($db, $username);
+			$password = mysqli_real_escape_string($db, $password);
+
 			//Verify basic UN + Pass checks
 			//Pass >= 8 chars
 			if(strlen($password) < 8)
@@ -166,7 +178,7 @@
 			$stmt->execute();
 			$res = $stmt->get_result();
 			if($res->num_rows == 0){
-				throw new Exception("Invalid key");
+				throw new Exception("Invalid registration key");
 			}
 			$stmt->close();
 
@@ -236,9 +248,18 @@
             self::sendmail($username, $SUBJECT, $BODY);
         }
         
-        private static function GET_verify($db, $userid) {
-			//If userid exists, it means that authcode is valid already
-			return Signal::success();
+        private static function GET_verify($db, $authcode) {
+			$db = self::getConnection();
+			$authcode = mysqli_real_escape_string($db, $authcode);
+
+			$res = $db->query("SELECT expire FROM auth WHERE authcode=$authcode");
+			if($res->num_rows > 0){
+				$expire = $res->fetch_assoc()["expire"];
+				if(expire < time()){
+					return Signal::success();
+				}
+			}
+			return Signal::authError();			
 		}
 
 		private static function GET_info($db, $userid) {
