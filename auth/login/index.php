@@ -1,5 +1,4 @@
 <?php
-
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       include("../../php/signal.class.php");
       include("../../php/auth.php");
@@ -20,7 +19,6 @@
         header("location: /ui/");
       }
    } else {
-      echo $_SERVER['SERVER_NAME'];
      readfile("login.html");
    }
  ?>
