@@ -248,18 +248,21 @@
             self::sendmail($username, $SUBJECT, $BODY);
         }
         
-        private static function GET_verify($db, $authcode) {
+        private static function GET_verify($authcode) {
 			$db = self::getConnection();
 			$authcode = mysqli_real_escape_string($db, $authcode);
 
-			$res = $db->query("SELECT expire FROM auth WHERE authcode=$authcode");
+			$smst = $db->prepare("SELECT expire FROM auth WHERE authcode=?");
+			$smst->bind_param('s',$authcode);
+			$smst->execute();
+			$res = $smst->get_result();
 			if($res->num_rows > 0){
 				$expire = $res->fetch_assoc()["expire"];
-				if(expire < time()){
+				if($expire < time()){
 					return Signal::success();
 				}
 			}
-			return Signal::authError();			
+			return Signal::authError();	
 		}
 
 		private static function GET_info($db, $userid) {

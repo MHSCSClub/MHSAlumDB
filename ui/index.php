@@ -3,12 +3,10 @@
     include("../php/signal.class.php");
     include("../php/auth.php");
     session_start();
-    echo "test";
     if(!isset($_COOKIE['alumdbauth'])){
         header("location: /auth/");
         exit;
     } else {
-        
         $resp = auth::check_auth($_COOKIE['alumdbauth']);
         if($resp->isError()){
             header("location: /auth/");
