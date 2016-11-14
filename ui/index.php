@@ -1,3 +1,10 @@
+<html>
+<head>
+<title>Alumni Database</title>
+</head>
+<body>
+<a href="/auth/logout">Logout</a><br>
+
 <?php
     include( '../php/rds.php' );
     include("../php/signal.class.php");
@@ -34,3 +41,5 @@
         }
     }   
 ?>
+</body>
+</html>

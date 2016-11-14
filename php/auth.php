@@ -26,6 +26,11 @@
 				return auth::GET_verify($authcode);
 			});
 		}
+		public static function logout($authcode) {
+			return self::run(function() use ($authcode) {
+				return auth::GET_logout($authcode);
+			});
+		}
 
 
         /*
@@ -266,6 +271,8 @@
 		}
 
 		private static function GET_info($db, $userid) {
+			
+
 			//Username
 			$res = $db->query("SELECT username FROM users WHERE userid=$userid");
 			$username = $res->fetch_assoc()["username"];
@@ -275,9 +282,16 @@
 			return Signal::success()->setData($data);
 		}
 
-        private static function GET_logout($db, $userid) {
+        private static function GET_logout($authcode) {
+			$db = self::getConnection();
+			$authcode = mysqli_real_escape_string($db, $authcode);
+			
 			//Remove authcode from table
-			$db->query("DELETE FROM auth WHERE userid=$userid");
+			
+			$smst = $db->prepare("DELETE FROM auth WHERE authcode=?");
+			$smst->bind_param('s',$authcode);
+			$smst->execute();
+			
 			return Signal::success();
 		}
 
