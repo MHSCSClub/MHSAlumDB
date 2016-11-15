@@ -1,10 +1,3 @@
-<html>
-<head>
-<title>Alumni Database</title>
-</head>
-<body>
-<a href="/auth/logout">Logout</a><br>
-
 <?php
     include( '../php/rds.php' );
     include("../php/signal.class.php");
@@ -25,21 +18,27 @@
             }
             $sql = "SELECT * FROM alum_info";
             $result = $conn->query($sql);
+
+             
+
     
+            $tablecode = "";
             if ($result->num_rows > 0) {
                 // output data of each row
-                echo "<table style=\"width:100%\" border=\"1\"><tr><th>Firstname</th><th>Lastname</th><th>Graduation Year</th></tr>";
+                $tablecode = "<table style=\"width:100%\" border=\"1\"><tr><th>Firstname</th><th>Lastname</th><th>Graduation Year</th></tr>";
                 while($row = $result->fetch_assoc()) {
                     
-                    echo "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["graduationYear"]. "</td></tr>";
+                    $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["graduationYear"]. "</td></tr>";
                 }
-                echo "</table>";
+                $tablecode . "</table>";
+                        //replace error placeholder
+                
             } else {
-                echo "0 results";
+                $tablecode = "No Results!";
             }
+            $reghtm = file_get_contents('./ui.html', FILE_USE_INCLUDE_PATH);
+                echo str_replace("<!-- table -->", $tablecode, $reghtm);
             $conn->close();
         }
     }   
 ?>
-</body>
-</html>
