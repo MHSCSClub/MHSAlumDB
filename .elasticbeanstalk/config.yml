@@ -1,18 +1,31 @@
-version: 0.1
-os: linux
+branch-defaults:
+  master:
+    environment: mhsalumdb
+environment-defaults:
+  mhsalumdb:
+    branch: null
+    repository: null
 files:
-    source:
-    destinaiton: /var/www/html/
+  destinaiton: /var/www/html/
+  source: null
+global:
+  application_name: MHSAlumDB
+  default_ec2_keyname: aws-eb
+  default_platform: 64bit Amazon Linux 2016.09 v2.2.0 running PHP 7.0
+  default_region: us-east-1
+  profile: eb-cli
+  sc: git
 hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
   ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
-
+  - location: scripts/stop_server
+    runas: root
+    timeout: 300
+  BeforeInstall:
+  - location: scripts/install_dependencies
+    runas: root
+    timeout: 300
+  - location: scripts/start_server
+    runas: root
+    timeout: 300
+os: linux
+version: 0.2

@@ -219,3 +219,8 @@ pip-log.txt
 *.sql
 *.db
 db/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
