@@ -107,3 +107,7 @@ body {
   text-align: center;
   font-size: 12px;
 }
+.row-padding {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
