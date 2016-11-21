@@ -85,7 +85,12 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-4">
-                        <input type="search" id="search" value="" class="form-control" placeholder="Search">
+                        <div class="form-control">
+
+                        <form method="GET">
+                            <input type="text" id="search" class="form-control"  name="search" placeholder="Search"/>
+                            <input type="submit" class="button button-submit" value="Submit"/>
+                        </form> </div>
                     </div>
                 </div>
                 <div class="row">
@@ -128,7 +133,8 @@
                             $query = $query .  " ORDER BY graduationYear LIMIT {$start}, 1000";
                             $result = $conn->query($query);           
                             $tablecode = "";
-                            if ($result->num_rows > 0) {
+                            $num_rows = $result->num_rows;
+                            if ($num_rows > 0) {
                                 // output data of each row
                                 $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thread><tr><th>Firstname</th><th>Lastname</th><th>Graduation Year</th></tr></thread><tbody>";
                                 while($row = $result->fetch_assoc()) {
@@ -159,7 +165,7 @@
 
     <!-- jQuery -->
     <script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery.searchable-1.0.0.min.js"></script>
+    <script src="../js/jquery.searchable-1.0.0.min.j1s"></script>
 	<script src="../js/search.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
