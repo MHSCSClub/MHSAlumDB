@@ -1,0 +1,60 @@
+EnvironmentConfigurationMetadata:
+  DateCreated: '1479691600000'
+  DateModified: '1479691600000'
+SolutionStack: 64bit Amazon Linux 2016.09 v2.2.0 running PHP 7.0
+OptionSettings:
+  aws:elasticbeanstalk:container:php:phpini:
+    display_errors: 'On'
+    document_root: /
+    memory_limit: 768M
+  aws:elasticbeanstalk:application:environment:
+    PMA_VER: 4.6.4
+    msfemail: changeme
+    ses_user: changeme
+    ses_password: changeme+0pYdAH
+  aws:elasticbeanstalk:application:
+    Application Healthcheck URL: /healthcheck.php
+  aws:rds:dbinstance:
+    DBEngineVersion: 5.6.27
+    DBPassword: changeme
+    DBAllocatedStorage: '10'
+    DBInstanceClass: db.t2.micro
+    DBEngine: mysql
+    DBUser: root
+    MultiAZDatabase: false
+    DBDeletionPolicy: Snapshot
+    DBSnapshotIdentifier: changeme
+  aws:autoscaling:asg:
+    Availability Zones: Any 1
+    Custom Availability Zones: us-east-1a
+    MaxSize: '1'
+  aws:elasticbeanstalk:managedactions:
+    ManagedActionsEnabled: true
+    PreferredStartTime: SUN:05:00
+  aws:elasticbeanstalk:managedactions:platformupdate:
+    UpdateLevel: minor
+  aws:elasticbeanstalk:sns:topics:
+    Notification Endpoint: changeme
+  aws:elasticbeanstalk:hostmanager:
+    LogPublicationControl: true
+  aws:elb:loadbalancer:
+    LoadBalancerHTTPSPort: '443'
+    LoadBalancerHTTPPort: '80'
+    SSLCertificateId: changeme
+  aws:elasticbeanstalk:environment:
+    ServiceRole: aws-elasticbeanstalk-service-role
+    EnvironmentType: LoadBalanced
+  aws:elasticbeanstalk:healthreporting:system:
+    SystemType: enhanced
+  aws:autoscaling:launchconfiguration:
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    InstanceType: t2.micro
+    EC2KeyName: aws-eb
+EnvironmentTier:
+  Type: Standard
+  Name: WebServer
+Extensions:
+  RDS.EBConsoleSnippet:
+    Order: null
+    SourceLocation: https://s3-external-1.amazonaws.com/elasticbeanstalk-env-resources-us-east-1/eb_snippets/rds/rds.json
+AWSConfigurationTemplateVersion: 1.1.0.0
