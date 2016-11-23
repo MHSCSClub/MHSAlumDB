@@ -24,6 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
     <meta name="description" content=""></meta>
     <meta name="author" content=""></meta>
+    <link rel="shortcut icon" href="/favicon.ico" />
 
     <title>Alumni Database</title>
 
@@ -165,7 +166,7 @@
 
     <!-- jQuery -->
     <script src="../js/jquery.min.js"></script>
-    <script src="../js/jquery.searchable-1.0.0.min.j1s"></script>
+    <script src="../js/jquery.searchable-1.0.0.min.js"></script>
 	<script src="../js/search.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
