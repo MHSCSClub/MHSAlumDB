@@ -111,3 +111,12 @@ body {
     margin-top: 25px;
     margin-bottom: 25px;
 }
+
+.t_footer {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #000;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #fff;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
