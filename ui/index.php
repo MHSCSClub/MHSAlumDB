@@ -85,11 +85,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-lg-offset-4">
-                        <form class="form-control" method="GET">
-                            <input type="text" id="search" class="form-control"  name="search" placeholder="Search"/>
-                            <input type="submit" class="button button-submit" value="Submit"/>
-                    </div>
+                    
+                        <form class="" method="GET">
+                            <div class="col-lg-4 col-lg-offset-4 form-group">
+                                <input type="text" id="search" class=""  name="search" placeholder="Search"/>
+                                <input type="submit" class="" value="Submit"/>
+                            </div>
+                        </form>
+                    
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
@@ -156,11 +159,11 @@
                             }
                             echo $tablecode;
                             $res_str = "<div class=\"t_footer\"><br>{$num_rows_full} Result";
-                                if($result->num_rows != 1){
-                                    $res_str = $res_str . "s";
-                                }
+                            if($result->num_rows != 1){
+                                $res_str = $res_str . "s";
+                            }
 
-                                $res_str = $res_str . ", {$num_rows} shown (page {$page} of " . $max_pages . ")<br>";
+                            $res_str = $res_str . ", {$num_rows} shown (page {$page} of " . $max_pages . ")<br>";
                                 
 
                                 $base_url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . "?page=";
