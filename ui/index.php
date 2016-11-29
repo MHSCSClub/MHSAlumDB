@@ -85,15 +85,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    
-                        <form class="" method="GET">
-                            <div class="col-lg-4 col-lg-offset-4 form-group">
-                                <input type="text" id="search" class=""  name="search" placeholder="Search"/>
-                                <input type="submit" class="" value="Submit"/>
-                            </div>
+                    <div class="col-lg-4 col-lg-offset-4">
+                        <form class="input-group" method="GET">
+                                <input type="text" id="search" class="form-control"  name="search" placeholder="Search"/>
+                                <span class="input-group-btn">
+                                    <input type="submit" class="form-control button" value="Submit"/>
+                                </span>
                         </form>
-                    
+                    </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-lg-12">
                         <?php
@@ -210,11 +211,6 @@
         </a>
     </div>
     
-
-    <!-- jQuery -->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/jquery.searchable-1.0.0.min.js"></script>
-	<script src="../js/search.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
