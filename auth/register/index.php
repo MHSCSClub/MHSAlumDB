@@ -9,6 +9,7 @@
           $error = $resp->getMessage();
           //$error = "Username already registered or password does not meet minimum requirements";
           //replace 
+          
           $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
           $reghtm = file_get_contents('./register.html', FILE_USE_INCLUDE_PATH);
           die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
