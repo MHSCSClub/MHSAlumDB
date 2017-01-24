@@ -121,6 +121,10 @@ body {
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
+.error{
+  display: inline-block;
+}
+
   tr:nth-child(even) {background: #CCC}
   tr:nth-child(odd) {background: #FFF}
   thead {background: #AAA}

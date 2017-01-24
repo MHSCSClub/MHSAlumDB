@@ -59,7 +59,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <header>
-                <a class="navbar-brand" href="#page-top"><Mamaroneck Alumni Database</a>
+                <a class="navbar-brand" href="#page-top">Mamaroneck Alumni Database</a>
                 </header>
             </div>
 

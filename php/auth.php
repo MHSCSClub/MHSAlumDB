@@ -232,8 +232,8 @@
 			
 
 			//Insert user into database
-			$stmt = $db->prepare("INSERT INTO setupusers (username, authkey) VALUES (?, ?)");
-			$stmt->bind_param('ss', $email, $key);
+			$stmt = $db->prepare("INSERT INTO setupusers (username, authkey) VALUES (?, ?) ON DUPLICATE KEY UPDATE authkey = ?");
+			$stmt->bind_param('sss', $email, $key, $key);
 			$stmt->execute();
 			$stmt->close();
             
