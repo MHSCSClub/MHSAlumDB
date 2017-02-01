@@ -10,7 +10,7 @@ files:
   source: null
 global:
   application_name: MHSAlumDB
-  default_ec2_keyname: aws-eb
+  default_ec2_keyname: null
   default_platform: 64bit Amazon Linux 2016.09 v2.2.0 running PHP 7.0
   default_region: us-east-1
   profile: eb-cli
