@@ -149,7 +149,7 @@
 			$res = $db->query("SELECT authcode FROM auth WHERE userid=$userid");
 
 			//Generate a random authcode
-			$random = openssl_random_pseudo_bytes(64);
+			$random = openssl_random_pseudo_bytes(256);
 			$authcode = self::hash($random);
 
 			if($res->num_rows >= 1) {
@@ -188,7 +188,7 @@
 			$stmt->close();
 
 			//Process password: generate salt and hash pwd + salt
-			$random = openssl_random_pseudo_bytes(64);
+			$random = openssl_random_pseudo_bytes(256);
 			$salt = self::hash($random);
 			$hshpass = self::hashPass($password, $salt);
 
@@ -227,7 +227,7 @@
 
 
 			//Process password: generate salt and hash pwd + salt
-			$random = openssl_random_pseudo_bytes(20);
+			$random = openssl_random_pseudo_bytes(256);
 			$key = self::hash($random);
 			
 
