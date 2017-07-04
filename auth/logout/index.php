@@ -2,7 +2,6 @@
         include( '../../php/rds.php' );
         include("../../php/signal.class.php");
         include("../../php/auth.php");
-        session_start();
 ?>
 <html>
     <head>
@@ -22,6 +21,7 @@
                 // empty value and expiration one hour before
                 $res = setcookie($cookie_name, null, -1, '/');
                 echo "Logged out successfully";
+                session_destroy();
                 exit;
             }
         ?>
