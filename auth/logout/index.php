@@ -1,10 +1,21 @@
 <?php
-        include( '../../php/rds.php' );
+       /* include( '../../php/rds.php' );
         include("../../php/signal.class.php");
         include("../../php/auth.php");
-        session_start();
+        session_start();*/
+        // Inialize session
+session_start();
+
+// Delete certain session
+unset($_SESSION['username']);
+// Delete all session variables
+// session_destroy();
+
+// Jump to login page
+header('Location: index.php');
+        
 ?>
-<html>
+<!--<html>
     <head>
         <title>Logged out</title>
     </head>
@@ -31,4 +42,4 @@
             t1 = window.setTimeout(function(){ window.location = "/auth/login"; },3000);
         </script>
     </body>
-</html>
+</html>-->
