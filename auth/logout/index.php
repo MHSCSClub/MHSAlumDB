@@ -1,21 +1,10 @@
 <?php
-       /* include( '../../php/rds.php' );
+        include( '../../php/rds.php' );
         include("../../php/signal.class.php");
         include("../../php/auth.php");
-        session_start();*/
-        // Inialize session
-session_start();
-
-// Delete certain session
-unset($_SESSION['username']);
-// Delete all session variables
-// session_destroy();
-
-// Jump to login page
-header('Location: index.php');
-        
+        session_start();
 ?>
-<!--<html>
+<html>
     <head>
         <title>Logged out</title>
     </head>
@@ -33,7 +22,6 @@ header('Location: index.php');
                 // empty value and expiration one hour before
                 $res = setcookie($cookie_name, null, -1, '/');
                 echo "Logged out successfully";
-                
                 exit;
             }
         ?>
@@ -42,4 +30,4 @@ header('Location: index.php');
             t1 = window.setTimeout(function(){ window.location = "/auth/login"; },3000);
         </script>
     </body>
-</html>-->
+</html>
