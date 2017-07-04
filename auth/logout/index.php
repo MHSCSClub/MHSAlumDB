@@ -22,12 +22,11 @@
                 // empty value and expiration one hour before
                 $res = setcookie($cookie_name, null, -1, '/');
                 echo "Logged out successfully";
-                
+                exit;
             }
-            
         ?>
 
-
+        
         <p>Redirecting to login</p>
         <script type="text/javascript">
             t1 = window.setTimeout(function(){ window.location = "/auth/login"; },3000);
