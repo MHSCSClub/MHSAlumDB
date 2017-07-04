@@ -26,7 +26,7 @@
                 
                 
                 echo "Logged out successfully";
-                exit;
+                
             
         ?>
         <p>Redirecting to login</p>
