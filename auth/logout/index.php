@@ -10,7 +10,7 @@
     </head>
     <body>
         <?php
-            if(!isset($_COOKIE['alumdbauth'])){
+            /*if(!isset($_COOKIE['alumdbauth'])){
                 die("You have already logged out");
             } else {
                 $resp = auth::logout($_COOKIE['alumdbauth']);
@@ -23,7 +23,9 @@
                 $res = setcookie($cookie_name, null, -1, '/');
                 echo "Logged out successfully";
                 exit;
-            }
+            }*/
+            echo "Logged out successfully";
+            exit;
         ?>
         <p>Redirecting to login</p>
         <script type="text/javascript">
