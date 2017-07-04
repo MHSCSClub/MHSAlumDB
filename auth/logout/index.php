@@ -24,7 +24,7 @@
                 echo "Logged out successfully";
                 
             }
-            exit;
+            
         ?>
 
 
