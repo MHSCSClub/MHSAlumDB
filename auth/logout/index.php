@@ -22,11 +22,9 @@
                 unset($_COOKIE[$cookie_name]);
                 // empty value and expiration one hour before
                 $res = setcookie($cookie_name, null, -1, '/');
-                unset($_SESSION['username'];
-                
-                
+               
                 echo "Logged out successfully";
-                
+                exit;
             
         ?>
         <p>Redirecting to login</p>
