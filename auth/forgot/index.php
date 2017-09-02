@@ -1,4 +1,5 @@
 <?php
+    readfile("forgot.html");
    if($_SERVER["REQUEST_METHOD"] == "POST") {
     include("../../php/signal.class.php");
     include("../../php/auth.php");
