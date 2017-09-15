@@ -17,6 +17,42 @@ if (isset($_POST["ForgotPassword"])) {
 		echo "email is not valid";
 		exit;
 	}
-	auth::reset_password($_POST['email']);	
+	$db = self::getConnection();
+	// Check to see if a user exists with this e-mail
+	$query = $db->prepare('SELECT email FROM users WHERE email = :email');
+	$query->bindParam(':email', $email);
+	$query->execute();
+	$res = $stmt->get_result();
+
+	if ($res->num_rows > 0)
+	{
+	// Create a unique salt. This will never leave PHP unencrypted.
+	$salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
+
+	// Create the unique user password reset key
+	$password = hash('sha512', $salt.$userExists["email"]);
+
+	// Create a url which we will direct them to reset their password
+	$pwrurl = "www.yoursitehere.com/reset_password.php?q=".$password;
+
+	// Mail them their key
+	$mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
+	mail($userExists["email"], "www.yoursitehere.com - Password Reset", $mailbody);
+	echo "Your password recovery key has been sent to your e-mail address.";
+
+	}
+	else
+		echo "No user with that e-mail address exists.";
+}
+private static function sendmail_register($username, $key)
+{
+	$base_url =  "https://{$_SERVER['HTTP_HOST']}/auth/register";
+
+	$escaped_base_url = htmlspecialchars( $base_url, ENT_QUOTES, 'UTF-8' );
+	
+	$full_url = $escaped_base_url . "?email={$username}&key={$key}";
+	$SUBJECT = 'Registration confirmation for MHS Alumni Database';
+	$BODY = "Thank you for registering for the MHS Alumni Database! To finish setting up your account, please click this link or copy and paste it into your browser {$full_url}";
+	self::sendmail($username, $SUBJECT, $BODY);
 }
 ?>
