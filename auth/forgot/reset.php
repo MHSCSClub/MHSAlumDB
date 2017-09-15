@@ -1,12 +1,13 @@
 <?php
 ini_set('display_errors', 1);
+$db = self::getConnection();
 // Connect to MySQL
     $username = "username"; 
     $password = "password"; 
     $host = "localhost"; 
     $dbname = "databasename"; 
 try {
-$conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password);
+
 }
 catch(PDOException $ex) 
     { 
@@ -15,7 +16,7 @@ catch(PDOException $ex)
 
 // Was the form submitted?
 if (isset($_POST["ForgotPassword"])) {
-	
+	$conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password);
 	// Harvest submitted e-mail address
 	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 		$email = $_POST["email"];
@@ -45,7 +46,7 @@ if (isset($_POST["ForgotPassword"])) {
 		
 		// Mail them their key
 		$mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
-		mail($userExists["email"], "www.yoursitehere.com - Password Reset", $mailbody);
+		sendmail($userExists["email"], "www.yoursitehere.com - Password Reset", $mailbody);
 		echo "Your password recovery key has been sent to your e-mail address.";
 		
 	}
