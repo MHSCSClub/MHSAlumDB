@@ -17,6 +17,7 @@ catch(PDOException $ex)
 // Was the form submitted?
 if (isset($_POST["ForgotPassword"])) {
 	
+	
 	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 		$email = $_POST["email"];
 		

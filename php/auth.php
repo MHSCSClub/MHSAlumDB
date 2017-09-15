@@ -266,6 +266,7 @@
 			sendmail($userExists["email"], "www.yoursitehere.com - Password Reset", $mailbody);
 			echo "Your password recovery key has been sent to your e-mail address.";
 			}
+		}
 		
 	}
 	else
