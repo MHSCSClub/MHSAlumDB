@@ -19,7 +19,8 @@ ini_set('display_errors', 1);
 				echo "email is not valid";
 		exit;
 		}
-	$db = self::getConnection();
+	
+	$db = getConnection();
 	// Check to see if a user exists with this e-mail
 	$query = $db->prepare('SELECT email FROM users WHERE email = :email');
 	$query->bindParam(':email', $email);
