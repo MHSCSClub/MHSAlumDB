@@ -29,5 +29,5 @@ if (isset($_POST["ForgotPassword"])) {
 
 	
 }
-sendmail_reset($email);
+auth::sendmail_reset($_POST(["email"]));
 ?>
