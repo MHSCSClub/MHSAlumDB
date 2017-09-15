@@ -27,10 +27,10 @@ if (isset($_POST["ForgotPassword"])) {
 	}
 
 	// Check to see if a user exists with this e-mail
-	$query = $conn->prepare('SELECT email FROM users WHERE email = :email');
-	$query->bindParam(':email', $email);
-	$query->execute();
-	$userExists = $query->fetch(PDO::FETCH_ASSOC);
+	$stmt = $db->prepare('SELECT email FROM users WHERE email = :email');
+	$stmt->bind_param(':emails', $email);
+	$stmt->execute();
+	$userExists = $stmt->fetch(PDO::FETCH_ASSOC);
 	$conn = null;
 	
 	if ($userExists["email"])
