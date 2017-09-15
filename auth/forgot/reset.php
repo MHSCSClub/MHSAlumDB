@@ -16,7 +16,7 @@ catch(PDOException $ex)
 
 // Was the form submitted?
 if (isset($_POST["ForgotPassword"])) {
-	$db = self::getConnection();
+	
 	$conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password);
 	// Harvest submitted e-mail address
 	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -28,7 +28,7 @@ if (isset($_POST["ForgotPassword"])) {
 	}
 
 	// Check to see if a user exists with this e-mail
-	$stmt = $db->prepare('SELECT email FROM users WHERE email = :email');
+	$stmt = $conn->prepare('SELECT email FROM users WHERE email = :email');
 	$stmt->bind_param(':emails', $email);
 	$stmt->execute();
 	$userExists = $stmt->fetch(PDO::FETCH_ASSOC);
