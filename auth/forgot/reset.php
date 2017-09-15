@@ -6,17 +6,19 @@ ini_set('display_errors', 1);
     $host = "localhost"; 
     $dbname = "databasename"; 
 
-// Was the form submitted?
-if (isset($_POST["ForgotPassword"])) {
+	// Was the form submitted?
+	if (isset($_POST["ForgotPassword"])) {
 	
-	// Harvest submitted e-mail address
-	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+		// Harvest submitted e-mail address
+		if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) 
+		{
 		$email = $_POST["email"];
 		
-	}else{
-		echo "email is not valid";
+			}
+			else{
+				echo "email is not valid";
 		exit;
-	}
+		}
 	$db = self::getConnection();
 	// Check to see if a user exists with this e-mail
 	$query = $db->prepare('SELECT email FROM users WHERE email = :email');
@@ -44,15 +46,5 @@ if (isset($_POST["ForgotPassword"])) {
 	else
 		echo "No user with that e-mail address exists.";
 }
-private static function sendmail_register($username, $key)
-{
-	$base_url =  "https://{$_SERVER['HTTP_HOST']}/auth/register";
 
-	$escaped_base_url = htmlspecialchars( $base_url, ENT_QUOTES, 'UTF-8' );
-	
-	$full_url = $escaped_base_url . "?email={$username}&key={$key}";
-	$SUBJECT = 'Registration confirmation for MHS Alumni Database';
-	$BODY = "Thank you for registering for the MHS Alumni Database! To finish setting up your account, please click this link or copy and paste it into your browser {$full_url}";
-	self::sendmail($username, $SUBJECT, $BODY);
-}
 ?>
