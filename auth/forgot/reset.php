@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-$db = self::getConnection();
+
 // Connect to MySQL
     $username = "username"; 
     $password = "password"; 
@@ -16,6 +16,7 @@ catch(PDOException $ex)
 
 // Was the form submitted?
 if (isset($_POST["ForgotPassword"])) {
+	$db = self::getConnection();
 	$conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password);
 	// Harvest submitted e-mail address
 	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
