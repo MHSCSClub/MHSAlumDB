@@ -26,7 +26,7 @@ ini_set('display_errors', 1);
 	$password = $_SERVER['RDS_PASSWORD'];
 	$db = new mysqli($dbhost, $username, $password, $dbname);
 	print $db->connect_error;
-	die();
+	
 	if($db->connect_errno){
 		throw new Exception($db->connect_error);
 	}
