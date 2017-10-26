@@ -9,12 +9,12 @@ include("../../php/auth.php");
 		// Harvest submitted e-mail address
 		if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) 
 		{
-		$email = $_POST["email"];
+			$email = $_POST["email"];
 		
-			}
-			else{
-				echo "email is not valid";
-		exit;
+		}
+		else{
+			echo "email is not valid";
+			exit;
 		}
 	
 	$db = auth::getConnection();
@@ -22,7 +22,7 @@ include("../../php/auth.php");
 	$query = $db->prepare('SELECT email FROM users WHERE email = :email');
 	$query->bindParam(':email', $email);
 	$query->execute();
-	$res = $stmt->get_result();
+	$res = $query->get_result();
 
 	if ($res->num_rows == 1)
 	{
