@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-include("../../php/auth.php");
+//include("../../php/auth.php");
 	
 
 	// Was the form submitted?
