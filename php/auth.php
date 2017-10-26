@@ -57,7 +57,7 @@
 			}
 		}
 
-        private static function getConnection() {
+        public static function getConnection() {
 			include("rds.php");
 			$db = new mysqli($dbhost, $username, $password, $dbname);
 
