@@ -58,11 +58,17 @@
 		}
 
         public static function getConnection() {
-			include("rds.php");
+			$dbhost = $_SERVER['RDS_HOSTNAME'];
+			$dbport = $_SERVER['RDS_PORT'];
+			$dbname = "alumni";
+		
+			$username = $_SERVER['RDS_USERNAME'];
+			$password = $_SERVER['RDS_PASSWORD'];
 			$db = new mysqli($dbhost, $username, $password, $dbname);
 
-			if($db->connect_error)
-				throw new DBConnectException();
+			if($db->connect_errno){
+				throw new DBConnectException($db->connect_error);
+			}
 			return $db;
 		}
 
