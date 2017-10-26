@@ -25,7 +25,8 @@ include("../../php/auth.php");
 	$username = $_SERVER['RDS_USERNAME'];
 	$password = $_SERVER['RDS_PASSWORD'];
 	$db = new mysqli($dbhost, $username, $password, $dbname);
-
+	print $db->connect_error;
+	die();
 	if($db->connect_errno){
 		throw new Exception($db->connect_error);
 	}
