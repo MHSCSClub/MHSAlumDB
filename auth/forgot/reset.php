@@ -32,8 +32,8 @@ ini_set('display_errors', 1);
 	}
 	// Check to see if a user exists with this e-mail
 
-	$query = $db->prepare('SELECT username FROM users WHERE username = :email');
-	$query->bindParam(':email', $email);
+	$query = $db->prepare('SELECT username FROM users WHERE username = ?');
+	$query->bind_param('s', $email);
 	$query->execute();
 	$res = $query->get_result();
 
@@ -49,7 +49,7 @@ ini_set('display_errors', 1);
 	$pwrurl = "www.yoursitehere.com/reset_password.php?q=".$password_hash;
 	
 	$squery = $db->prepare('UPDATE users SET password_reset_hash = :password_reset_hash, reset_expiration_timestamp = NOW(), is_password_reset_active = 1');
-	$squery->bindParam(':password_reset_hash', $password_hash);
+	$squery->bind_param(':password_reset_hash', $password_hash);
 	$squery->execute();
 
 
