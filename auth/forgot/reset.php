@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-//include("../../php/auth.php");
+include("../../php/auth.php");
 	
 
 	// Was the form submitted?
@@ -17,8 +17,8 @@ ini_set('display_errors', 1);
 			exit;
 		}
 	
-	//$db = auth::getConnection();
-	$dbhost = $_SERVER['RDS_HOSTNAME'];
+	$db = auth::getConnection();
+	/*$dbhost = $_SERVER['RDS_HOSTNAME'];
 	$dbport = $_SERVER['RDS_PORT'];
 	$dbname = "alumni";
 
@@ -29,7 +29,7 @@ ini_set('display_errors', 1);
 	
 	if($db->connect_errno){
 		throw new Exception($db->connect_error);
-	}
+	}*/
 	// Check to see if a user exists with this e-mail
 
 	$query = $db->prepare('SELECT username FROM users WHERE username = ?');
@@ -56,7 +56,7 @@ ini_set('display_errors', 1);
 
 	// Mail them their key
 	$mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
-	mail($userExists["email"], "www.yoursitehere.com - Password Reset", $mailbody);
+	mail($email, "www.yoursitehere.com - Password Reset", $mailbody);
 	echo "Your password recovery key has been sent to your e-mail address.";
 
 	}
