@@ -51,7 +51,7 @@ include("../../php/auth.php");
 	$squery = $db->prepare('UPDATE users SET password_reset_hash = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
 	$squery->bind_param('s', $password_hash);
 	$squery->execute();
-
+	die("hello");
 
 
 	// Mail them their key
