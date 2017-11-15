@@ -62,6 +62,7 @@ include("../../php/auth.php");
 	}
 	else
 		echo "No user with that e-mail address exists.";
+	}
 }
 
 ?>
