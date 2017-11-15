@@ -56,7 +56,7 @@ include("../../php/auth.php");
 
 	// Mail them their key
 	$mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
-	mail($email, "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset_password.php"- Password Reset, $mailbody);
+	mail($email, "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset_password.php - Password Reset", $mailbody);
 	echo "Your password recovery key has been sent to your e-mail address.";
 	header("Location: https://alumdb.mamaroneckschoolsfoundation.org/index.php");
 	}
