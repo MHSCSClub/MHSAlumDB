@@ -48,10 +48,10 @@ include("../../php/auth.php");
 	// Create a url which we will direct them to reset their password
 	$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset_password.php?q=".$password_hash;
 	
-	$squery = $db->prepare('UPDATE users SET password_reset_hash = ?, reset_expiration_timestamp = NOW(), is_password_reset_active = 1');
+	$squery = $db->prepare('UPDATE users SET password_reset_hash = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
 	$squery->bind_param('s', $password_hash);
 	$squery->execute();
-	die("hello");
+	
 
 
 	// Mail them their key
@@ -62,7 +62,7 @@ include("../../php/auth.php");
 	}
 	else
 		echo "No user with that e-mail address exists.";
-	}
+	}	
 }
 
 ?>
