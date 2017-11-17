@@ -40,14 +40,14 @@ include("../../php/auth.php");
 		// Create the unique user password reset key
 		$password_hash = hash('sha512', $salt.$email);
 		// Create a url which we will direct them to reset their password
-		$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/forgot/reset_password.php?q=".$password_hash;
+		$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset_password.php?q=".$password_hash;
 		
 		$squery = $db->prepare('UPDATE users SET password_reset_hash = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
 		$squery->bind_param('s', $password_hash);
 		$squery->execute();
 		// Mail them their key
 		$mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website <alumdb class="mamaroneckschoolsfoundation org"></alumdb>\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nMamaroneck Schools Foundation";
-		mail($email, "MHS ALUMNI DATABASE - Password Reset", $mailbody);
+		mail($email, "alumdb.com - Password Reset", $mailbody);
 		echo "Your password recovery key has been sent to your e-mail address.";
 	}
 	else{
