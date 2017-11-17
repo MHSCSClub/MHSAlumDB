@@ -4,7 +4,7 @@ include("../../php/auth.php");
 
 if (isset($_GET["q"])) {
 echo $_GET["q"];
-
+	$db = auth::getConnection();
 
 	//Make database call to see if pw token is valid
 	$password_hash=$_GET["q"];
@@ -38,3 +38,5 @@ echo $_GET["q"];
 //If valid then display password reset form
 
 ?>
+
+//check to see if valid email, otherwise redirect to page, make sure form displays, submit to page to update password, 
