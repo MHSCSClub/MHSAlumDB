@@ -28,7 +28,7 @@
                 $password = hash('sha512', $salt.$password);
 
                 // Update the user's password
-                    $query = $db->prepare('UPDATE users SET password = '$password' WHERE user = '$email'');
+                    $query = $db->prepare('UPDATE users SET password = '$password' WHERE username = '$email'');
                     $query->bindParam('s', $password);
                     $query->bindParam('s', $email);
                     $query->execute();
