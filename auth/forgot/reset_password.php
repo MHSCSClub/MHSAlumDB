@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 include("../../php/auth.php");
 
 
-	$db = auth::getConnection();
+	
 
 	//Make database call to see if pw token is valid
 	/*$password_hash=$_GET["q"];
@@ -13,7 +13,8 @@ include("../../php/auth.php");
 	*/
 	if (isset($_POST["ResetPasswordForm"]))
 	{
-		
+		echo("welcom");
+		$db = auth::getConnection();
 		// Gather the post data
 		$email = $_POST["email"];
 		$password = $_POST["password"];
