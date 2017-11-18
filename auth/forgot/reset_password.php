@@ -32,7 +32,7 @@
                     $query->bindParam(':password', $password);
                     $query->bindParam(':email', $email);
                     $query->execute();
-                    $conn = null;
+                    $db = null;
                 echo "Your password has been successfully reset.";
             }
             else
