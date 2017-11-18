@@ -14,6 +14,7 @@ if (isset($_GET["q"])) {
 	*/
 	if (isset($_POST["ResetPasswordForm"]))
 	{
+		echo("welcome");
 		// Gather the post data
 		$email = $_POST["email"];
 		$password = $_POST["password"];
