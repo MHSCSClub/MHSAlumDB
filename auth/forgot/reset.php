@@ -36,12 +36,11 @@ include("../../php/auth.php");
 		if ($res->num_rows == 1)
 		{
 			// Create a unique salt. This will never leave PHP unencrypted.
-			//$salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
+			$salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
 			// Create the unique user password reset key
-			//$password_hash = hash('sha512', $salt.$email);
-			$password_hash = hash('sha512', $email);
+			$password_hash = hash('sha512', $salt.$email);
 			// Create a url which we will direct them to reset their password
-			$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset_password.php?q=".$password_hash;
+			$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/forgot/reset_password_form.php?q=".$password_hash;
 			
 			$squery = $db->prepare('UPDATE users SET password_reset_hash = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
 			$squery->bind_param('s', $password_hash);
