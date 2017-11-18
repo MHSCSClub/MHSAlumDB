@@ -7,7 +7,8 @@ if (isset($_GET["q"])) {
 	$db = auth::getConnection();
 
 	//Make database call to see if pw token is valid
-	$password_hash=$_GET["q"];
+	$password_h=$_GET["q"];
+	$password_hash=$resetkey = hash('sha512', $salt.$email);	
 	$squery = $db->prepare('SELECT userid FROM users WHERE password_reset_hash = ? AND reset_expiration_timestamp <= NOW() AND is_password_reset_active = 1');
 	$squery->bind_param('s', $password_hash);
 	$squery->execute();
