@@ -2,8 +2,7 @@
 ini_set('display_errors', 1);
 include("../../php/auth.php");
 
-if (isset($_GET["q"])) {
-	echo $_GET["q"];
+
 	$db = auth::getConnection();
 
 	//Make database call to see if pw token is valid
@@ -14,7 +13,7 @@ if (isset($_GET["q"])) {
 	*/
 	if (isset($_POST["ResetPasswordForm"]))
 	{
-		echo("welcome");
+		
 		// Gather the post data
 		$email = $_POST["email"];
 		$password = $_POST["password"];
@@ -50,7 +49,7 @@ if (isset($_GET["q"])) {
 			echo "Your password reset key is invalid.";
 	}
 
-}
+
 
 
 //If not valid then redirect to have password email send again
