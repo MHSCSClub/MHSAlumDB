@@ -28,9 +28,9 @@
                 $password = hash('sha512', $salt.$password);
 
                 // Update the user's password
-                    $query = $db->prepare('UPDATE users SET password = :password WHERE email = :email');
-                    $query->bindParam(':password', $password);
-                    $query->bindParam(':email', $email);
+                    $query = $db->prepare('UPDATE users SET password = '$password' WHERE user = '$email'');
+                    $query->bindParam('s', $password);
+                    $query->bindParam('s', $email);
                     $query->execute();
                     $db = null;
                 echo "Your password has been successfully reset.";
