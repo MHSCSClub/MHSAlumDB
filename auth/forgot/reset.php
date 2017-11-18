@@ -40,7 +40,7 @@ include("../../php/auth.php");
 			// Create the unique user password reset key
 			$password_hash = hash('sha512', $salt.$email);
 			// Create a url which we will direct them to reset their password
-			$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/forgot/reset_password_form.php?q=".$password_hash;
+			$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset/reset_password_form.php?q=".$password_hash;
 			
 			$squery = $db->prepare('UPDATE users SET password_reset_hash = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
 			$squery->bind_param('s', $password_hash);
