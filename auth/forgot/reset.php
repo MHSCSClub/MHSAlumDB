@@ -50,8 +50,5 @@ include("../../php/auth.php");
 			echo "No user with that e-mail address exists.";
 		}
     }
-    else{
-        readfile("forgot.html");
-    }
 ?>
 
