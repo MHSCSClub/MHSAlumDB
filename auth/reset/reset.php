@@ -27,12 +27,14 @@ if (isset($_POST["ResetPasswordForm"]))
 		if ($password == $confirmpassword)
 		{
 			//hash and secure the password
-			$password = hash('sha512', $salt.$password);
+			$password = hash('sha256', $password.$salt);
 
 			// Update the user's password
-				$query = $db->prepare("UPDATE users SET password = '$password' WHERE username = '$email'");
+				$query = $db->prepare("UPDATE users SET password = '$password', salt = '$salt', WHERE username = '$email'"); //update salt
 				$query->execute();
-				echo "hello";
+
+
+				
 				$db = null;
 			echo "Your password has been successfully reset.";
 		}
