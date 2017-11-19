@@ -6,6 +6,7 @@ $db = auth::getConnection();
 // Was the form submitted?
 if (isset($_POST["ResetPasswordForm"]))
 {
+	
 	// Gather the post data
 	$email = $_POST["email"];
 	$password = $_POST["password"];
@@ -18,6 +19,8 @@ if (isset($_POST["ResetPasswordForm"]))
 	// Generate the reset key
 	$resetkey = hash('sha512', $salt.$email);
 
+	
+
 	// Does the new reset key match the old one?
 	if ($resetkey == $hash)
 	{
@@ -27,8 +30,7 @@ if (isset($_POST["ResetPasswordForm"]))
 			$password = hash('sha512', $salt.$password);
 
 			// Update the user's password
-				$query = $db->prepare('UPDATE users SET password = '$password' WHERE username = '$email'');
-				
+				$query = $db->prepare("UPDATE users SET password = '$password' WHERE username = '$email'");
 				$query->execute();
 				$db = null;
 			echo "Your password has been successfully reset.";
