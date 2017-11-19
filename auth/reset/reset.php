@@ -32,6 +32,7 @@ if (isset($_POST["ResetPasswordForm"]))
 			// Update the user's password
 				$query = $db->prepare("UPDATE users SET password = '$password' WHERE username = '$email'");
 				$query->execute();
+				echo "hello";
 				$db = null;
 			echo "Your password has been successfully reset.";
 		}
