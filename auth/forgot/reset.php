@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 include("../../php/auth.php");
 	
 	// Was the form submitted?
-	if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (isset($_POST["ForgotPassword"])) {
 		
 		// Harvest submitted e-mail address
 		if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) 
@@ -49,6 +49,6 @@ include("../../php/auth.php");
 		else{
 			echo "No user with that e-mail address exists.";
 		}
-    }
+	}
 ?>
 
