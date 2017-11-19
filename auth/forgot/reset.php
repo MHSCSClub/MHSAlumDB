@@ -17,7 +17,11 @@ include("../../php/auth.php");
 		}
 		
 		$db = auth::getConnection();
-		
+		/*$dbhost = $_SERVER['RDS_HOSTNAME'];
+		$dbport = $_SERVER['RDS_PORT'];
+		$dbname = "alumni";
+		$username = $_SERVER['RDS_USERNAME'];
+		$password = $_SERVER['RDS_PASSWORD'];
 		$db = new mysqli($dbhost, $username, $password, $dbname);
 		print $db->connect_error;
 		
@@ -51,4 +55,3 @@ include("../../php/auth.php");
 		}
 	}
 ?>
-
