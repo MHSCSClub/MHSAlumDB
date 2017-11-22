@@ -156,7 +156,7 @@
                                 // output data of each row
                                 $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>Graduation Year</th></tr></thead><tbody>";
                                 while($row = $result->fetch_assoc()) {
-                                    $tablecode = $tablecode . '<tr><td><href="individualalumni.php?id=' . $row["alumnitable_id"]. '">' . $row["firstName"]. '</href></td><td>' . $row["lastName"]. "</td><td>" . $row["graduationYear"]. "</td></tr>";
+                                    $tablecode = $tablecode . '<tr><td><a href="individualalumni.php?id=' . $row["alumnitable_id"]. '">' . $row["firstName"]. '</a></td><td>' . $row["lastName"]. "</td><td>" . $row["graduationYear"]. "</td></tr>";
                                 }
                                 $tablecode = $tablecode . "</tbody></table>";
                             }
