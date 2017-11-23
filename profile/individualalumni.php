@@ -62,6 +62,7 @@
         <!-- /.container-fluid -->
     </nav>
     <?php
+        ini_set('display_errors', 1);
         include ('../php/rds.php');
         $conn = new mysqli($dbhost, $username, $password, $dbname);
         if ($conn->connect_error) {
@@ -69,11 +70,11 @@
         }
 
         $alumnitable_id = $_POST["alumniid"];
-        $query = "SELECT state,country FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
+        $query = "SELECT state, country FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
         var_dump($result);
-        
+
         if ($num_rows == 1) { 
             // output data of each row
             
@@ -86,4 +87,4 @@
 
     ?>
 </body>
-        
+</html>
