@@ -29,13 +29,14 @@ if (isset($_GET["q"])) {
         E-mail Address: <input type="text" name="email" size="20" /> 
 		New Password: <input type="password" name="password" size="20" /> 
 		Confirm Password: <input type="password" name="confirmpassword" size="20" /> 
+		<input type="submit" name="ResetPasswordForm" value="Reset Password" />
 		
 		<input type="hidden" name="q" value="";
 			if (isset($_GET["q"])) {
 				echo $_GET["q"];
 			}		
 
-		<input type="submit" name="ForgotPassword" value="Request Reset" />
+		
         <div class="help">
 			<a href="../login/">Log In</a> • <a href="../register/">Register</a>
 		</div>
