@@ -69,7 +69,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $alumnitable_id = $_POST["alumniid"];
+        $alumnitable_id = $_GET["alumniid"];
         $query = "SELECT state, country FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
