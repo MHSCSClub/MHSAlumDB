@@ -72,10 +72,13 @@
         $query = "SELECT state,country FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
+        var_dump($result);
+        
         if ($num_rows == 1) { 
             // output data of each row
-            echo(row["state"]);
-            echo(row["country"]);
+            
+            echo row["state"];
+            echo row["country"];
         }
         else{
             trigger_error("error");
