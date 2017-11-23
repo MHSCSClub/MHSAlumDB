@@ -65,17 +65,12 @@
 			<div class="container">
 	            <div class="row">
                     <div class="col-lg-12">
-                        <h3>Use the Searchbar below to search for people you know.</h3>
+                        <h3>Profile Page</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-4">
-                        <form class="input-group" method="GET">
-                                <input type="text" id="search" class="form-control"  name="search" placeholder="Search"/>
-                                <span class="input-group-btn">
-                                    <input type="submit" class="form-control button" value="Submit"/>
-                                </span>
-                        </form>
+                       
                     </div>
                 </div>
                 <br>
