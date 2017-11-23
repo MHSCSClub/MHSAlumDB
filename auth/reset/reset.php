@@ -44,6 +44,10 @@ if (isset($_POST["ResetPasswordForm"]))
 	else
 		echo "Your password reset key is invalid.";
 }
-
 ?>
-
+<html>
+	<p>Redirecting to login</p>
+		<script type="text/javascript">
+			t1 = window.setTimeout(function(){ window.location = "/auth/login"; },3000);
+		</script>
+</html>
