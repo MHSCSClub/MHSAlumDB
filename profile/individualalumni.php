@@ -90,7 +90,7 @@
         }
 
         $alumnitable_id = $_GET["alumniid"];
-        $query = "SELECT state, country FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
+        $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -98,8 +98,8 @@
         if ($num_rows == 1) { 
             // output data of each row
             $row = $result->fetch_assoc();
-            $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>State</th><th>Country</th></tr></thead><tbody>";
-            $tablecode = $tablecode . "<tr><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
+            $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
+            $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
             echo  $tablecode = $tablecode . "</tbody></table>";
         }
         else{
