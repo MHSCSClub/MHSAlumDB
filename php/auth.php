@@ -233,6 +233,10 @@
 				throw new Exception("You have already registered. Please login or reset your password.");
 			$stmt->close();
 
+			//Check if user isn't in aluminfo
+			
+
+
 
 			//Process password: generate salt and hash pwd + salt
 			$random = openssl_random_pseudo_bytes(256);
