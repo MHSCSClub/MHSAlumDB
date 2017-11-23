@@ -14,7 +14,7 @@ if (isset($_POST["ResetPasswordForm"]))
 	$hash = $_POST["q"];
 
 	// Use the same salt from the forgot_password.php file
-	$salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
+	$salt = "486641d0c512a59e49f66b152843481ac4b436dc05aa0ab5e97859df597aecd4";
 
 	// Generate the reset key
 	$resetkey = hash('sha512', $salt.$email);

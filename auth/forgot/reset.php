@@ -36,7 +36,7 @@ include("../../php/auth.php");
 		if ($res->num_rows == 1)
 		{
 			// Create a unique salt. This will never leave PHP unencrypted.
-			$salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
+			$salt = "486641d0c512a59e49f66b152843481ac4b436dc05aa0ab5e97859df597aecd4";
 			// Create the unique user password reset key
 			$password_hash = hash('sha512', $salt.$email);
 			// Create a url which we will direct them to reset their password
