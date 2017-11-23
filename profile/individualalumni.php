@@ -61,6 +61,26 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <section>
+			<div class="container">
+	            <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Use the Searchbar below to search for people you know.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4">
+                        <form class="input-group" method="GET">
+                                <input type="text" id="search" class="form-control"  name="search" placeholder="Search"/>
+                                <span class="input-group-btn">
+                                    <input type="submit" class="form-control button" value="Submit"/>
+                                </span>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
     <?php
         ini_set('display_errors', 1);
         include ('../php/rds.php');
@@ -87,5 +107,44 @@
         }
 
     ?>
+    <hr>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+    <a class="btn btn-primary" href="#page-top">
+    <i class="fa fa-chevron-up"></i>
+    </a>
+    </div>
+
+<script>
+//http://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
+function findGetParameter(parameterName) {
+var result = null,
+tmp = [];
+var items = location.search.substr(1).split("&");
+for (var index = 0; index < items.length; index++) {
+tmp = items[index].split("=");
+if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+}
+return result;
+}
+
+document.getElementById('search').value=findGetParameter(search); 
+</script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+<!-- Theme JavaScript -->
+<script src="../js/freelancer.min.js"></script>
+
 </body>
+
 </html>
