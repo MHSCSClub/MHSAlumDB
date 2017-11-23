@@ -146,7 +146,7 @@
                             }
 
 
-                            $pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset/reset_password_form.php?q=".$password_hash;
+                           
 
                             $query = $query .  " ORDER BY graduationYear LIMIT {$start}, 100";
                             $result = $conn->query($query);           
@@ -156,7 +156,7 @@
                                 // output data of each row
                                 $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>Graduation Year</th></tr></thead><tbody>";
                                 while($row = $result->fetch_assoc()) {
-                                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/ui/individualalumni.php?alumniid=' . $row["alumnitable_id"]. '">' . $row["firstName"]. '</a></td><td>' . $row["lastName"]. "</td><td>" . $row["graduationYear"]. "</td></tr>";
+                                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/profile/individualalumni.php?alumniid=' . $row["alumnitable_id"]. '">' . $row["firstName"]. '</a></td><td>' . $row["lastName"]. "</td><td>" . $row["graduationYear"]. "</td></tr>";
                                 }
                                 $tablecode = $tablecode . "</tbody></table>";
                             }
