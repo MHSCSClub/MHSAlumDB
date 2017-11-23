@@ -77,7 +77,7 @@
 
         if ($num_rows == 1) { 
             // output data of each row
-            $row = $result->fetch_assoc()
+            $row = $result->fetch_assoc();
             echo $row["state"];
             echo $row["country"];
         }
