@@ -84,7 +84,15 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $user_id = $_GET["userid"];
+        $stmt = $db->prepare("SELECT userid FROM users WHERE username = $username");
+        $stmt->execute();
+        $res = $stmt->get_result();
+        $stmt->close();
+
+        if($res->num_rows != 1)
+            throw new AuthException();
+
+        $userid = $res->fetch_assoc()['userid'];
         $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $user_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
