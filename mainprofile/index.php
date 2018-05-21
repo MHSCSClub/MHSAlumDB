@@ -84,7 +84,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $db->prepare("SELECT userid FROM users WHERE username = $username");
+        $stmt = $conn->prepare("SELECT userid FROM users WHERE username = $username");
         $stmt->execute();
         $res = $stmt->get_result();
         $stmt->close();
