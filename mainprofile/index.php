@@ -84,7 +84,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT userid FROM users WHERE username = $username");
+        /*$stmt = $conn->prepare("SELECT userid FROM users WHERE username = $username");
         $stmt->execute();
         $res = $stmt->get_result();
         $stmt->close();
@@ -96,7 +96,7 @@
         $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $user_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
-        //var_dump($result);
+        //var_dump($result);*/
 
         if ($num_rows == 1) { 
             // output data of each row
