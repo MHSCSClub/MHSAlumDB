@@ -77,6 +77,7 @@
                 <div class="row">
                     <div class="col-lg-12">
     <?php
+        session_start();
         ini_set('display_errors', 1);
         include ('../php/rds.php');
         $conn = new mysqli($dbhost, $username, $password, $dbname);
