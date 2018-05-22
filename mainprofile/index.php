@@ -87,20 +87,38 @@
         $indivUser = $_SESSION['individual'];
         echo "Welcome '" . $indivUser . "'";
 
-        $sql = "SELECT userid, username FROM users WHERE username = '$indivUser'";
+        $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        echo "id: " . $row["userid"]. ;
-
         
+
+        $id;
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "id: " . $row["userid"]. " - Name: " . $row["username"]. "<br>";
+                $id = $row["userid"];
+                echo "id: " . $id . "<br>";
             }
         } else {
             echo "0 results";
         }
+
+        echo $id;
+        $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $result = $conn->query($query); 
+        $num_rows = $result->num_rows;
+        //var_dump($result);
+
+        if ($num_rows == 1) { 
+            // output data of each row
+            $row = $result->fetch_assoc();
+            $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
+            $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
+            echo  $tablecode = $tablecode . "</tbody></table>";
+        }
+        else{
+            trigger_error("error");
+        }
+
         $conn->close();
 
         
