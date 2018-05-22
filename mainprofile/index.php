@@ -91,7 +91,7 @@
         $result = $conn->query($sql);
         
 
-        
+        $id;
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
@@ -101,6 +101,9 @@
         } else {
             echo "0 results";
         }
+
+        echo $id;
+        
         $conn->close();
 
         
