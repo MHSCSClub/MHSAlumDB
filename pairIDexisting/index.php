@@ -1,5 +1,6 @@
 <?php
     echo "Pairing account to previously entered info";
+    session_start();
     include ('../php/rds.php');
     $conn = new mysqli($dbhost, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -7,14 +8,10 @@
     }
     $alumnitable_id = $_GET["alumniid"];
     $indivUser = $_SESSION['individual'];
-    $stmt = $conn->prepare('UPDATE users SET userid = ?, firstLogin=? WHERE username=?');
-    $stmt->bindParams('sis', $alumnitable_id, 0, $indivUser);
-    //remember to close later
-    if(!$stmt->execute()) {
-        die($statement->error);
-    }
-    $stmt->close();
-    $conn->close();
+    $conn->query("UPDATE 'users' SET userid = $alumnitable_id WHERE username ='$indivUser'");
+    $conn->query("UPDATE 'users' SET firstLogin = 0 WHERE username ='$indivUser");
+    
+    
 ?>
 
 <html>
