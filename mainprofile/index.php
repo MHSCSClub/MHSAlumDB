@@ -87,9 +87,19 @@
         $indivUser = $_SESSION['individual'];
         echo "Welcome '" . $indivUser . "'";
 
-        $result = $conn->query("SELECT userid FROM users WHERE username = $indivUser");
-        $row = $result->fetch_assoc();
-        echo "id: " . $row["id"]. ;
+        $sql = "SELECT userid, username FROM users WHERE username = '$indivUser";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "id: " . $row["userid"]. " - Name: " . $row["username"]. "<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+
         
         
 
