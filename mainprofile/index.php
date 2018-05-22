@@ -95,7 +95,8 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "id: " . $row["userid"]. "<br>";
+                $id = $row["userid"];
+                echo "id: " . $id . "<br>";
             }
         } else {
             echo "0 results";
