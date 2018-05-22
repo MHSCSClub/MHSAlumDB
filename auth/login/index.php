@@ -6,6 +6,7 @@
       session_start();
       // username and password sent from form 
       $resp = auth::login($_POST['username'], $_POST['password']);
+      $_SESSION['individual'] = $_POST['username'];
       //print(json_encode($resp->toArray()));
       //print(json_encode($resp->getData()));
       if($resp->isError()){

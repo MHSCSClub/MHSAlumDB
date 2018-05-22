@@ -83,8 +83,8 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
-        echo "Welcome '" . $username . "'";
+        $indivUser = $_SESSION['individual'];
+        echo "Welcome '" . $indivUser . "'";
 
         $result = $conn->query("SELECT userid FROM users WHERE username = $username");
         
