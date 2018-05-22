@@ -206,9 +206,25 @@
 			$stmt->execute();
 			$stmt->close();
 
+			
+
 			$stmt = $db->prepare("DELETE FROM setupusers WHERE username=? AND authkey=?");
 			$stmt->bind_param('ss', $username, $key);
 			$stmt->execute();
+
+			//stuff to do
+			/*
+			update user ID based off selection from db table, or if non-existent, create new ID over 29000.	
+			
+			if(user==null){
+				
+			}
+			
+			
+			
+			
+			*/
+			
 
 			return Signal::success();
 		}

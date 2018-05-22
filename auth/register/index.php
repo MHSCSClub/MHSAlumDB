@@ -13,11 +13,13 @@
           $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
           $reghtm = file_get_contents('./register.html', FILE_USE_INCLUDE_PATH);
           die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
-        } else {
+        } 
+        else {
           readfile("register-email.html");
           //header("location: /auth/login/");
         }
-      } else {
+      } 
+      else {
         session_start();
         if($_POST['password1'] === $_POST['password2']){        //Check if passwords match
             //Call register in auth
@@ -29,10 +31,12 @@
               $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
               $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
               die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
-          } else {
+            } 
+            else {
               header("location: /auth/login/");
-          }
-        } else {
+            }
+        } 
+        else {
           $error = "Passwords do not match";
           //replace 
           $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
@@ -40,13 +44,15 @@
           die(str_replace("<!-- ERROR -->", $e_string, $reghtm)); 
         }
       }
-    } else {
+    } 
+    else {
       if($_SERVER["REQUEST_METHOD"] == "GET"){
         if(isset($_GET["email"]) && isset($_GET["key"])){
           $email_form = "<input type=\"text\" name=\"email\" placeholder=\"{$_GET['email']}\" disabled>";
           $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
           die(str_replace("<!-- email -->", $email_form, $reghtm));  
-        } else {
+        } 
+        else {
           readfile("register.html");
         }
       }
