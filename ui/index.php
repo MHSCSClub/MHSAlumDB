@@ -37,6 +37,10 @@
     } else {
         echo "0 results";
     }
+
+    if($firstlog===1){
+        header("location: /userIDselection/");
+    }
     
 
 
