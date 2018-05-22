@@ -87,7 +87,7 @@
         $indivUser = $_SESSION['individual'];
         echo "Welcome '" . $indivUser . "'";
 
-        $sql = "SELECT userid, username FROM users WHERE username = '$indivUser'";
+        $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
         
 
@@ -95,8 +95,7 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                
-                echo "id: " . $row["userid"]. " - Name: " . $row["username"]. "<br>";
+                echo "id: " . $row["userid"]. "<br>";
             }
         } else {
             echo "0 results";
