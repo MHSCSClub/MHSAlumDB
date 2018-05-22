@@ -88,13 +88,10 @@
         echo "Welcome '" . $indivUser . "'";
 
         $user_id = $conn->query("SELECT userid FROM users WHERE username = $indivUser");
-        
         echo $user_id;
-       
-        $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $user_id;
-        $result = $conn->query($query); 
+        
+        $result = $conn->query("SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $user_id); 
         $num_rows = $result->num_rows;
-        var_dump($result);
 
         if ($num_rows > 0) { 
             // output data of each row
