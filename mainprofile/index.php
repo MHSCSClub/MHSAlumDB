@@ -89,14 +89,13 @@
 
         $sql = "SELECT userid, username FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        echo "id: " . $row["userid"]. ;
+        
 
         
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "id: " . $row["userid"]. " - Name: " . $row["username"]. "<br>";
+                echo "id: " . $row["userid"]. ;
             }
         } else {
             echo "0 results";
