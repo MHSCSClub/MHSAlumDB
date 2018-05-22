@@ -40,7 +40,7 @@
 
     echo $firstlog; 
 
-    if($firstlog===1){
+    if($firstlog == '1'){
         header("location: /mainprofile/");
     }
     
