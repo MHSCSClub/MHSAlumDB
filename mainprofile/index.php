@@ -87,21 +87,16 @@
         $indivUser = $_SESSION['individual'];
         echo "Welcome '" . $indivUser . "'";
 
-        $result = $conn->query("SELECT userid FROM users WHERE username = $username");
+        $user_id = $conn->query("SELECT userid FROM users WHERE username = $indivUser");
         
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-            }
-        } 
+        echo $user_id;
        
         $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $user_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
         var_dump($result);
 
-        if ($num_rows == 1) { 
+        if ($num_rows > 0) { 
             // output data of each row
             $row = $result->fetch_assoc();
             $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
