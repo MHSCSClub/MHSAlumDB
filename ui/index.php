@@ -38,6 +38,8 @@
         echo "0 results";
     }
 
+    echo $firstlog; 
+
     if($firstlog===1){
         header("location: /userIDselection/");
     }
