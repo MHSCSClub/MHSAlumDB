@@ -7,19 +7,9 @@
     }
     $alumnitable_id = $_GET["alumniid"];
     $indivUser = $_SESSION['individual'];
-    $query = "UPDATE 'users' SET userid = '$alumnitable_id' WHERE username = '$indivUser'";
+    $conn->query("UPDATE users SET userid = $alumnitable_id WHERE userid=$indivUser");
+    $conn->query("UPDATE users SET firstLogin = 0 WHERE userid=$indivUser"); 
     
-    if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . $conn->error;
-    }
-    $query = "UPDATE 'users' SET firstLogin = 0 WHERE username = '$indivUser'";
-    if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . $conn->error;
-    }
 ?>
 
 <html>
