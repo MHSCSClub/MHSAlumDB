@@ -13,6 +13,8 @@
     } else {
         echo "Error updating record: " . $conn->error;
     }
+    $query = "UPDATE users SET firstLogin = 0 WHERE username = " . $indivUser;
+
 
 ?>
 
@@ -23,7 +25,7 @@
     <body>
         <p>Redirecting to UI...Welcome to the MHS Alumni Database</p>
         <script type="text/javascript">
-            t1 = window.setTimeout(function(){ window.location = "/auth/login"; },3000);
+            t1 = window.setTimeout(function(){ window.location = "/ui"; },3000);
         </script>
     </body>
 </html>
