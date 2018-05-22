@@ -84,19 +84,21 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        /*$stmt = $conn->prepare("SELECT userid FROM users WHERE username = $username");
-        $stmt->execute();
-        $res = $stmt->get_result();
-        $stmt->close();
+        echo "Welcome '" . $username . "'";
 
-        if($res->num_rows != 1)
-            throw new AuthException();
-
-        $userid = $res->fetch_assoc()['userid'];
+        $result = $conn->query("SELECT userid FROM users WHERE username = $username");
+        
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+            }
+        } 
+       
         $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $user_id;
         $result = $conn->query($query); 
         $num_rows = $result->num_rows;
-        //var_dump($result);*/
+        var_dump($result);
 
         if ($num_rows == 1) { 
             // output data of each row
