@@ -7,9 +7,9 @@
     }
     $alumnitable_id = $_GET["alumniid"];
     $indivUser = $_SESSION['individual'];
-    $conn->query("UPDATE 'users' SET userid = $alumnitable_id WHERE username ='$indivUser'");
-    $conn->query("UPDATE 'users' SET firstLogin = 0 WHERE username ='$indivUser'");
-    
+    $stmt = $conn->prepare('UPDATE users SET userid = ?, firstLogin=? WHERE username=?');
+    $stmt->bindParams('sis', $alumnitable_id, 0, $indivUser);
+    //remember to close later
     
 ?>
 
