@@ -10,7 +10,11 @@
     $stmt = $conn->prepare('UPDATE users SET userid = ?, firstLogin=? WHERE username=?');
     $stmt->bindParams('sis', $alumnitable_id, 0, $indivUser);
     //remember to close later
-    
+    if(!$stmt->execute()) {
+        die($statement->error);
+    }
+    $stmt->close();
+    $conn->close();
 ?>
 
 <html>
