@@ -87,8 +87,9 @@
         $indivUser = $_SESSION['individual'];
         echo "Welcome '" . $indivUser . "'";
 
-        $user_id = $conn->query("SELECT userid FROM users WHERE username = $indivUser");
-        echo $user_id;
+        $result = $conn->query("SELECT userid FROM users WHERE username = $indivUser");
+        $row = $result->fetch_assoc();
+        echo "id: " . $row["id"]. ;
         
         
 
