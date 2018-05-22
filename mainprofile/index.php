@@ -84,12 +84,14 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
         $indivUser = $_SESSION['individual'];
         echo "Welcome '" . $indivUser . "'";
 
         $sql = "SELECT userid, username FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        echo "id: " . $row["userid"]. ;
+
         
         if ($result->num_rows > 0) {
             // output data of each row
