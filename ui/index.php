@@ -14,6 +14,32 @@
         }
           
     }
+
+    ini_set('display_errors', 1);
+
+    $conn = new mysqli($dbhost, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $indivUser = $_SESSION['individual'];
+    echo "Welcome '" . $indivUser . "'";
+    $sql = "SELECT firstLogin FROM users WHERE username = '$indivUser'";
+    $result = $conn->query($sql);
+    
+
+    $firstlog;
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $firstlog = $row["firstLogin"];
+            echo "id: " . $firstlog . "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+    
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
