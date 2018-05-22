@@ -37,9 +37,11 @@
     } else {
         echo "0 results";
     }
-
+    echo $firstlog;
     if($firstlog===1){
-        header("location: /userIDselection/");
+        echo $firstlog;
+        header("location: /userIDselection/");\
+        echo "found";
     }
     
 
