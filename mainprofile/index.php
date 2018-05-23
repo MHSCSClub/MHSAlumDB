@@ -109,16 +109,24 @@
         //var_dump($result);
 
         if ($num_rows == 1) { 
-            // output data of each row
+            // assign info in array to variables
             $row = $result->fetch_assoc();
-            $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
+            $firstname= $row["firstName"];
+            $lastname= $row["lastname"];
+            $state= $row["state"];
+            $country= $row["country"];
+            /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
             $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
-            echo  $tablecode = $tablecode . "</tbody></table>";
+            echo  $tablecode = $tablecode . "</tbody></table>";*/
         }
         else{
             trigger_error("error");
         }
-
+        echo $firstname;
+        echo $lastname;
+        echo $state;
+        echo $country;
+        
         $conn->close();
 
         
