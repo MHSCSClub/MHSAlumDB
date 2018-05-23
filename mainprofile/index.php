@@ -117,13 +117,13 @@
                         </i></cite></small>
                         <p>
                             <!--name-->
-                            <i class="glyphicon glyphicons-group"></i><?php echo $firstname . " " . $lastname; ?>
+                            <i class="glyphicon glyphicons-group"></i><font size = "2"><?php echo $firstname . " " . $lastname; ?></font>
                             <br />
                             <!--Email?-->
                             <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.co">www.jquery2dotnet.com</a>
                             <br />
                             <!--Graduation year-->
-                            <i class="glyphicon glyphicon-gift"></i><?php echo $gyear; ?></p>
+                            <i class="glyphicon glyphicon-gift"></i><font size = "2"><?php echo $gyear; ?></font></p>
                         <!-- Split button -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
