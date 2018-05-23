@@ -321,7 +321,7 @@
 			$stmt->execute();
 			$stmt->close();
             
-            //self::sendmail_register($email, $key); to be placed in admin function
+            self::sendmail_register($email, $key); 
 
 			return Signal::success();
 		}
