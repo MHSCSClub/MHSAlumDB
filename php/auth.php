@@ -317,7 +317,7 @@
 
 			//Insert user into database
 			$stmt = $db->prepare("INSERT INTO setupusers (username, firstname, lastname, graduationyear, authkey) VALUES (?, ?) ON DUPLICATE KEY UPDATE authkey = ?");
-			$stmt->bind_param('sssiss', $email, $firstname, $lastname, $gyear, $key, $key);
+			$stmt->bind_param('ssssss', $email, $firstname, $lastname, $gyear, $key, $key);
 			$stmt->execute();
 			$stmt->close();
             
