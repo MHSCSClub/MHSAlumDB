@@ -16,7 +16,7 @@
         $reghtm = file_get_contents('./adminlogin.html', FILE_USE_INCLUDE_PATH);
         die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
       } else {
-        setcookie("alumdbauth", $resp->getData()["authcode"],$resp->getData()["expire"], "/", $_SERVER['SERVER_NAME'], true);
+        setcookie("alumdbauth_admin", $resp->getData()["authcode"],$resp->getData()["expire"], "/", $_SERVER['SERVER_NAME'], true);
         header("location: /admin/");
       }
    } else {
