@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4>
-                            Bhaumik Patel</h4>
+                             <?php echo $firstname . " " . $lastname; ?></h4>
                         <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
                         </i></cite></small>
                         <p>
