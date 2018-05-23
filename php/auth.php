@@ -15,9 +15,9 @@
 				return auth::REAL_adminlogin($username, $password);
 			});
 		}
-        public static function start_register($email) {
-			return self::run(function() use ($email) {
-				return auth::start_real_register($email);
+        public static function start_register($email, $firstname, $lastname, $gyear) {
+			return self::run(function() use ($email, $firstname, $lastname, $gyear) {
+				return auth::start_real_register($email, $firstname, $lastname, $gyear);
 			});
 		}
         public static function register($username, $password, $key) {
@@ -287,7 +287,7 @@
 			return Signal::success();
 		}
 
-         private static function start_real_register($email) {
+         private static function start_real_register($email, $firstname, $lastname, $gyear) {
 			$db = self::getConnection();
 
 			//Check if email is valid
@@ -306,8 +306,6 @@
 			if($res->num_rows > 0)
 				throw new Exception("You have already registered. Please login or reset your password.");
 			$stmt->close();
-
-			//Check if user isn't in aluminfo
 			
 
 
@@ -318,12 +316,12 @@
 			
 
 			//Insert user into database
-			$stmt = $db->prepare("INSERT INTO setupusers (username, authkey) VALUES (?, ?) ON DUPLICATE KEY UPDATE authkey = ?");
-			$stmt->bind_param('sss', $email, $key, $key);
+			$stmt = $db->prepare("INSERT INTO setupusers (username, firstname, lastname, graduationyear, authkey) VALUES (?, ?) ON DUPLICATE KEY UPDATE authkey = ?");
+			$stmt->bind_param('sssiss', $email, $firstname, $lastname, $gyear, $key, $key);
 			$stmt->execute();
 			$stmt->close();
             
-            self::sendmail_register($email, $key);
+            //self::sendmail_register($email, $key); to be placed in admin function
 
 			return Signal::success();
 		}
