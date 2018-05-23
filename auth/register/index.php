@@ -4,7 +4,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
       if(!(isset($_GET["key"]) || isset($_GET["email"]))){    //Part 2 of register
         session_start();
-        $resp = auth::start_register($_POST['email']);
+        $resp = auth::start_register($_POST['email'], $_POST['firstname'], $_POST['lastname'], $_POST['gyear']);
         if($resp->isError()){
           $error = $resp->getMessage();
           //$error = "Username already registered or password does not meet minimum requirements";
