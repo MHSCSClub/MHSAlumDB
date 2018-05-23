@@ -14,6 +14,7 @@
 		$res = $stmt->get_result();
         
 		if($res->num_rows == 1){
+            echo "hello";
             $row = $res->fetch_assoc();
             $key = $row['authkey'];
             auth::sendmail_register($username, $key);
@@ -32,7 +33,7 @@
     <body>
         <p>Redirecting to main admin page</p>
         <script type="text/javascript">
-            t1 = window.setTimeout(function(){ window.location = "/admin/index"; },3000);
+            t1 = window.setTimeout(function(){ window.location = "/admin/index.php"; },3000);
         </script>
     </body>
 </html>
