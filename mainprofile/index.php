@@ -118,7 +118,7 @@
                         </i></cite></small>
                         <p>
                             <!--name-->
-                            <i class="glyphicon glyphicons-group"></i><font size = "3"><?php echo " " . $firstname . " " . $lastname; ?></font>
+                            <i class="glyphicon glyphicon-group"></i><font size = "3"><?php echo " " . $firstname . " " . $lastname; ?></font>
                             <br />
                             <!--Email?-->
                             <i class="glyphicon glyphicon-globe"></i><font size = "3"><a href="http://www.jquery2dotnet.co">www.jquery2dotnet.com</a></font>
@@ -132,6 +132,7 @@
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 <span class="caret"></span><span class="sr-only">Social</span>
                             </button>
+                            <input type=button onClick="window.location.href='editProfile.html'" value='click here'>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Twitter</a></li>
                                 <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
