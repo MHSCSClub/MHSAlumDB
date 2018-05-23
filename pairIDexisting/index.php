@@ -11,7 +11,13 @@
     echo $alumnitable_id;
     echo $indivUser;
 
-    $sql = "UPDATE `users` SET firstLogin = 0 WHERE username = '$indivuser'";
+    $sql = "UPDATE `users` SET firstLogin = 0 WHERE username = '$indivUser'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
+    $sql = "UPDATE `users` SET userid = $alumnitable_id WHERE username = '$indivUser'";
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
     } else {
