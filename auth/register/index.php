@@ -1,6 +1,7 @@
 <?php
     include("../../php/signal.class.php");
     include("../../php/auth.php");
+    ini_set('display_errors', 1);
     if($_SERVER["REQUEST_METHOD"] == "POST") {
       if(!(isset($_GET["key"]) || isset($_GET["email"]))){    //Part 2 of register
         session_start();
