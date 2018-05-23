@@ -110,20 +110,20 @@
                     <div class="col-sm-6 col-md-4">
                         <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
                     </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4>
-                             <?php echo $firstname . " " . $lastname; ?></h4>
+                    <div class="container-fluid">
+                        <h3>
+                             <?php echo $firstname . " " . $lastname; ?></h3>
                         <small><cite title=<?php echo $state . ", " . $country; ?>><?php echo $state . ", " . $country; ?> <i class="glyphicon glyphicon-map-marker">
                         </i></cite></small>
                         <p>
                             <!--name-->
-                            <i class="glyphicon glyphicons-group"></i><font size = "2"><?php echo $firstname . " " . $lastname; ?></font>
+                            <i class="glyphicon glyphicons-group"></i><font size = "3"><?php echo $firstname . " " . $lastname; ?></font>
                             <br />
                             <!--Email?-->
-                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.co">www.jquery2dotnet.com</a>
+                            <i class="glyphicon glyphicon-globe"></i><font size = "3"><a href="http://www.jquery2dotnet.co">www.jquery2dotnet.com</a></font>
                             <br />
                             <!--Graduation year-->
-                            <i class="glyphicon glyphicon-gift"></i><font size = "2"><?php echo $gyear; ?></font></p>
+                            <i class="glyphicon glyphicon-gift"></i><font size = "3"><?php echo $gyear; ?></font></p>
                         <!-- Split button -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
