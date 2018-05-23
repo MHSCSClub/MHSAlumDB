@@ -1,5 +1,8 @@
 <!-- Redirect to userid selection at some point -->
+<?php
 
+echo "hello";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
