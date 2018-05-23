@@ -6,13 +6,11 @@
     include("../php/auth.php");
     session_start();
     if(!isset($_COOKIE['alumdbauth_admin'])){
-        header("location: /auth/");
-        exit;
+        echo "you do not have access to this page";
     } else {
         $resp = auth::check_auth($_COOKIE['alumdbauth_admin']);
         if($resp->isError()){
-            header("location: /auth/");
-            exit;
+            echo "you do not have access to this page";
         }
           
     }
