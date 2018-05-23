@@ -21,16 +21,6 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-            //access saltUser from admin data
-            
-            $stmt = $conn->prepare('SELECT saltUser FROM admin WHERE username = ?');
-            $stmt->bind_param('s', $username);
-            $stmt->execute();
-            $res = $stmt->get_result();
-			$stmt->close();
-            
-            $row = $res->fetch_assoc();
-			$salt = $row['saltUser'];
 
             $query = "SELECT username,firstname,lastname,graduationyear, confirmkey FROM `setupusers`";
             $result = $conn->query($query);           

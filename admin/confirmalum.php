@@ -8,8 +8,8 @@
 
         $username = $_GET["userName"];
         echo $username;
-        $stmt = $conn->query('SELECT username, authkey FROM `setupusers` WHERE username = ?');
-        $stmt->bind_param('s', $username);
+        $stmt = $conn->prepare('SELECT username, authkey FROM setupusers WHERE username=?');
+		$stmt->bind_param('s', $username);
         $stmt->execute();
 		$res = $stmt->get_result();
         
