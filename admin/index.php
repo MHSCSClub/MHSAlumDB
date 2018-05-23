@@ -1,4 +1,5 @@
 <?php
+    ini_set('display_errors', 1);
     echo 'You have successfully logged into the admin page';
     <?php
     include( '../php/rds.php' );
@@ -17,7 +18,7 @@
           
     }
 
-    ini_set('display_errors', 1);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,13 +54,14 @@
 
 </head>
         <?php
+            ini_set('display_errors', 1);
             include ('../php/rds.php');
             $conn = new mysqli($dbhost, $username, $password, $dbname);
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $query = "SELECT username,firstName,lastName,graduationYear FROM `setupusers`";
+            $query = "SELECT username,firstname,lastname,graduationyear FROM `setupusers`";
             $result = $conn->query($query);           
             $num_rows_full = $result->num_rows;
             $max_pages = ceil($num_rows_full/100);
