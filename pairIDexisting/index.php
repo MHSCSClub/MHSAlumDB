@@ -10,9 +10,13 @@
     $indivUser = $_SESSION['individual'];
     echo $alumnitable_id;
     echo $indivUser;
-    
-    $conn->query("UPDATE users SET firstLogin = 0 WHERE username = $indivUser");
-    $conn->close;
+
+    $sql = "UPDATE `users` SET firstLogin = 0 WHERE username = " . $indivuser;
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
 ?>
 
 <html>
