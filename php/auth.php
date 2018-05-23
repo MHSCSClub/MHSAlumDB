@@ -313,11 +313,10 @@
 			//Process password: generate salt and hash pwd + salt
 			$random = openssl_random_pseudo_bytes(256);
 			$key = self::hash($random);
-			$confirmkey = self::hash($random);
 
 			//Insert user into database
-			$stmt = $db->prepare("INSERT INTO setupusers (username, firstname, lastname, graduationyear, confirmkey, authkey) VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE authkey = ?");
-			$stmt->bind_param('ssssss', $email, $firstname, $lastname, $gyear, $confirmkey, $key, $key);
+			$stmt = $db->prepare("INSERT INTO setupusers (username, firstname, lastname, graduationyear, authkey) VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE authkey = ?");
+			$stmt->bind_param('ssssss', $email, $firstname, $lastname, $gyear, $key, $key);
 			$stmt->execute();
 			$stmt->close();
             
