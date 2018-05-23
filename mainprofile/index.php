@@ -116,13 +116,13 @@
                         <small><cite title=<?php echo $state . ", " . $country; ?>><?php echo $state . ", " . $country; ?> <i class="glyphicon glyphicon-map-marker">
                         </i></cite></small>
                         <p>
-                            // name
-                            <i class="glyphicon glyphicon-envelope"></i><?php echo $firstname . " " . $lastname; ?>
+                            <!--name-->
+                            <i class="glyphicon glyphicons-group"></i><?php echo $firstname . " " . $lastname; ?>
                             <br />
-                            // Email?
+                            <!--Email?-->
                             <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.co">www.jquery2dotnet.com</a>
                             <br />
-                            // Graduation year
+                            <!--Graduation year-->
                             <i class="glyphicon glyphicon-gift"></i><?php echo $gyear; ?></p>
                         <!-- Split button -->
                         <div class="btn-group">
