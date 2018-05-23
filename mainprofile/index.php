@@ -73,9 +73,8 @@
                 } else {
                     echo "0 results";
                 }
-
                 echo $id;
-                $query = "SELECT firstName, lastName, state, country FROM `alum_info` WHERE alumnitable_id = " . $id;
+                $query = "SELECT firstName, lastName, state, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $id;
                 $result = $conn->query($query);
                 $num_rows = $result->num_rows;
                 //var_dump($result);
@@ -87,6 +86,7 @@
                     $lastname= $row["lastName"];
                     $state= $row["state"];
                     $country= $row["country"];
+                    $gyear = $row["graduationYear"];
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
                     echo  $tablecode = $tablecode . "</tbody></table>";*/
@@ -98,6 +98,7 @@
                 echo $lastname;
                 echo $state;
                 echo $country;
+                echo $gyear;
 
                 $conn->close();
             ?>
@@ -112,14 +113,17 @@
                     <div class="col-sm-6 col-md-8">
                         <h4>
                              <?php echo $firstname . " " . $lastname; ?></h4>
-                        <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
+                        <small><cite title=<?php echo $state . ", " . $country; ?>><?php echo $state . ", " . $country; ?> <i class="glyphicon glyphicon-map-marker">
                         </i></cite></small>
                         <p>
+                            // name
                             <i class="glyphicon glyphicon-envelope"></i><?php echo $firstname . " " . $lastname; ?>
                             <br />
+                            // Email?
                             <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.co">www.jquery2dotnet.com</a>
                             <br />
-                            <i class="glyphicon glyphicon-gift"></i></p>
+                            // Graduation year
+                            <i class="glyphicon glyphicon-gift"></i><?php echo $gyear; ?></p>
                         <!-- Split button -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
