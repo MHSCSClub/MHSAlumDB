@@ -43,10 +43,9 @@
     if($firstlog == '1'){
         header("location: /userIDselection/");
     }
-    
-
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
