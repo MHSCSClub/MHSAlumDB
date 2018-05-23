@@ -1,3 +1,5 @@
+<!-- Redirect to userid selection at some point -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
