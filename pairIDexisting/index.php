@@ -11,7 +11,7 @@
     echo $alumnitable_id;
     echo $indivUser;
     
-    $conn->query("UPDATE users SET userid = $alumnitable_id, firstLogin = 0 WHERE username = $indivUser");
+    $conn->query("UPDATE users SET firstLogin = 0 WHERE username = $indivUser");
     $conn->close;
 ?>
 
