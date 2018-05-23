@@ -39,6 +39,14 @@
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
       <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <header>
+            <a class="navbar-brand" href="#page-top">Mamaroneck Alumni Database</a>
+            </header>
+        </div>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">
@@ -80,14 +88,7 @@
 </div>
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <header>
-                <a class="navbar-brand" href="#page-top">Mamaroneck Alumni Database</a>
-                </header>
-            </div>
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
