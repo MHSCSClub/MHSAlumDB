@@ -33,7 +33,7 @@
     <body>
         <p>Redirecting to UI...Welcome to the MHS Alumni Database</p>
         <script type="text/javascript">
-            t1 = window.setTimeout(function(){ window.location = "/ui"; },20000);
+            t1 = window.setTimeout(function(){ window.location = "/ui"; },3000);
         </script>
     </body>
 </html>
