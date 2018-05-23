@@ -22,7 +22,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-            $query = "SELECT username,firstname,lastname,graduationyear FROM `setupusers`";
+            $query = "SELECT username,firstname,lastname,graduationyear, confirmkey FROM `setupusers`";
             $result = $conn->query($query);           
             $num_rows_full = $result->num_rows;
             $max_pages = ceil($num_rows_full/100);
@@ -39,11 +39,13 @@
             $result = $conn->query($query);           
             $tablecode = "";
             $num_rows = $result->num_rows;
+
+
             if ($num_rows > 0) {
                 // output data of each row
                 $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>Graduation Year</th></tr></thead><tbody>";
                 while($row = $result->fetch_assoc()) {
-                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/profile/individualalumni.php?username=' . $row["username"]. '">' . $row["username"]. '</a></td><td>' . $row["firstname"]. "</td><td>" . $row["lastname"]. "</td><td>" . $row["graduationyear"]. "</td></tr>";
+                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/admin/confirmalum.php?userName=' . $row["username"]. '">' . $row["username"]. '</a></td><td>' . $row["firstname"]. "</td><td>" . $row["lastname"]. "</td><td>" . $row["graduationyear"]. "</td></tr>";
                 }
                 $tablecode = $tablecode . "</tbody></table>";
             }
