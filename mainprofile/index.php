@@ -57,7 +57,8 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
                 $indivUser = $_SESSION['individual'];
-                echo "Welcome '" . $indivUser . "'";
+                //echo "Welcome '" . $indivUser . "'";
+                echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
 
                 $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
                 $result = $conn->query($sql);
@@ -117,13 +118,13 @@
                         </i></cite></small>
                         <p>
                             <!--name-->
-                            <i class="glyphicon glyphicons-group"></i><font size = "3"><?php echo $firstname . " " . $lastname; ?></font>
+                            <i class="glyphicon glyphicons-group"></i><font size = "3"><?php echo " " . $firstname . " " . $lastname; ?></font>
                             <br />
                             <!--Email?-->
                             <i class="glyphicon glyphicon-globe"></i><font size = "3"><a href="http://www.jquery2dotnet.co">www.jquery2dotnet.com</a></font>
                             <br />
                             <!--Graduation year-->
-                            <i class="glyphicon glyphicon-gift"></i><font size = "3"><?php echo $gyear; ?></font></p>
+                            <i class="glyphicon glyphicon-gift"></i><font size = "3"><?php echo " " . $gyear; ?></font></p>
                         <!-- Split button -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
