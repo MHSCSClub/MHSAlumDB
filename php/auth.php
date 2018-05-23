@@ -10,6 +10,11 @@
 				return auth::REAL_login($username, $password);
 			});
 		}
+		public static function adminlogin($username, $password) { 
+			return self::run(function() use ($username, $password) {
+				return auth::REAL_adminlogin($username, $password);
+			});
+		}
         public static function start_register($email) {
 			return self::run(function() use ($email) {
 				return auth::start_real_register($email);
@@ -173,6 +178,59 @@
 			return Signal::success()->setData($data);
 			//return Signal::success()->setData($userid);
 		}
+		//make changes here
+		private static function REAL_adminlogin($username, $password) {
+			$db = self::getConnection();
+
+			$username = mysqli_real_escape_string($db, $username);
+			$password = mysqli_real_escape_string($db, $password);
+			
+			//Fetch salt + check if user exists
+			$stmt = $db->prepare('SELECT username, salt FROM admin WHERE username=?');
+			$stmt->bind_param('s', $username);
+			$stmt->execute();
+			$res = $stmt->get_result();
+			$stmt->close();
+
+			//User found (note same error)
+			if($res->num_rows != 1)
+				throw new Exception("Invalid credentials error");
+
+			$row = $res->fetch_assoc();
+			$username = $row['username']; //username is safe now: no risk of sql injection
+			$salt = $row['salt'];
+
+			//Salt password
+			$hshpass = self::hashPass($password, $salt); //hshpass also safe, no sql injection in a hash
+			$res = $db->query("SELECT userid FROM admin WHERE username='$username' AND password='$hshpass'");
+			//here
+
+
+			//Authentication
+			if($res->num_rows != 1)
+				throw new Exception("Invalid credentials error");
+			$userid = $res->fetch_assoc()["userid"];
+
+			//Check if user in auth table
+			$res = $db->query("SELECT authcode FROM auth WHERE userid=$userid");
+
+			//Generate a random authcode
+			$random = openssl_random_pseudo_bytes(256);
+			$authcode = self::hash($random);
+
+			if($res->num_rows >= 1) {
+				$authcode = $res->fetch_assoc()['authcode'];
+			} else {
+				//Set temporary expiration date and then update
+				$db->query("INSERT INTO auth VALUES (null, $userid, '$authcode', NOW() )");
+			}
+			$expire = self::updateAuthExpiration($db, $userid);
+
+			//Return success with data
+			$data = array("authcode" => $authcode, "expire" => $expire);
+			return Signal::success()->setData($data);
+			//return Signal::success()->setData($userid);
+		}
 
         private static function REAL_register($username, $password, $key) {
 			$db = self::getConnection();
@@ -269,7 +327,7 @@
 
 			return Signal::success();
 		}
-        private static function sendmail_register($username, $key)
+        public static function sendmail_register($username, $key)
         {
 			$base_url =  "https://{$_SERVER['HTTP_HOST']}/auth/register";
 
