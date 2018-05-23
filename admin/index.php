@@ -7,10 +7,14 @@
     session_start();
     if(!isset($_COOKIE['alumdbauth_admin'])){
         echo "you do not have access to this page";
+        header("location: /auth/");
+            exit;
     } else {
         $resp = auth::check_auth($_COOKIE['alumdbauth_admin']);
         if($resp->isError()){
             echo "you do not have access to this page";
+            header("location: /auth/");
+            exit;
         }
           
     }
