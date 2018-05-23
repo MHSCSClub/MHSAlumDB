@@ -132,7 +132,7 @@
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 <span class="caret"></span><span class="sr-only">Social</span>
                             </button>
-                            <input type=button onClick="window.location.href='editProfile.html'" value='click here'>
+                            <input type=button onClick="window.location.href='editProfile.php'" value='click here'>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Twitter</a></li>
                                 <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
