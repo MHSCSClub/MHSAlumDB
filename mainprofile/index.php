@@ -57,8 +57,8 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
                 $indivUser = $_SESSION['individual'];
-                //echo "Welcome '" . $indivUser . "'";
-                echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
+                echo "Welcome '" . $indivUser . "'";
+                //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
 
                 $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
                 $result = $conn->query($sql);
