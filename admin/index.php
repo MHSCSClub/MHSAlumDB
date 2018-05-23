@@ -27,6 +27,13 @@
             $num_rows_full = $result->num_rows;
             $max_pages = ceil($num_rows_full/100);
             $page = 1;
+
+
+    if($max_pages == 0){
+        echo "No users waiting for confirmation";
+    }
+    else{
+
             if(isset($_GET["page"])){
                 $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
             }
@@ -87,6 +94,7 @@
             echo $res_str;
              
             $conn->close();
+    }
 ?>
     
     
