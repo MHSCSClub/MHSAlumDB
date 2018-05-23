@@ -1,5 +1,5 @@
 <?php
-    <?php
+    
     echo "Pairing account to previously entered info";
     session_start();
     include ('../php/rds.php');
@@ -37,4 +37,3 @@
         </script>
     </body>
 </html>
-?>
