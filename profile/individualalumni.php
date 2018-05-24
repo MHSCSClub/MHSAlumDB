@@ -22,7 +22,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     $alumnitable_id = $_GET["alumniid"];
-        $query = "SELECT firstName, lastName, currentstate, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
+        $query = "SELECT firstName, lastName, currentstate, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -34,7 +34,6 @@
             $state= $row["currentstate"];
             $country= $row["country"];
             $gyear = $row["graduationYear"];
-            $phonenumber = $row["phoneNumber"];
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
                     echo  $tablecode = $tablecode . "</tbody></table>";*/
@@ -106,7 +105,7 @@
       <hr>
 
       <ul class="nav nav-pills flex-column">
-        <p><?php echo "Phone number: " . $phonenumber; ?></p>
+        <p><?php echo "Phone number: " ?></p>
       </ul>
       <hr class="d-sm-none">
     </div>
