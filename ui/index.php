@@ -73,9 +73,9 @@
 
 <body id="page-top" class="index">
     <div class="jumbotron text-center" style="margin-bottom:0">
-    <h1><?php echo $firstname . " " . $lastname . "'s Profile"; ?></h1>
+    <h1>Mamaroneck Alumni Database</h1>
         <li class="nav-item">
-            <a class="nav-link" href="/auth/logout">Link</a>
+            <a class="nav-link" href="/auth/logout">Logout</a>
         </li>    
     </div>
     <!-- This is the table -->
