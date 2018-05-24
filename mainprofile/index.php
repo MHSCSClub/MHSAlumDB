@@ -98,7 +98,8 @@
 </nav>
 
 <div class="container" style="margin-top:30px">
-  <div class="row">  
+  <div class="row">
+    <div class="col-sm-8">
       <h5>Profile</h5>
       <div class="fakeimg">Fake Image</div>
       <p><?php echo "Graduated in " . $gyear; ?></p>
@@ -119,6 +120,7 @@
         </li>
       </ul>
       <hr class="d-sm-none">
+    </div>
   </div>
 </div>
 
