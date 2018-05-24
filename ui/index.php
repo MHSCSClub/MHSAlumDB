@@ -83,7 +83,7 @@
             </li>    
                
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/auth/logout">Logout</a>
                 </li> 
