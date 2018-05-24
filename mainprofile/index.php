@@ -24,11 +24,8 @@
     $indivUser = $_SESSION['individual'];
     
     //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
-
     $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
     $result = $conn->query($sql);
-
-
     $id;
         if ($result->num_rows > 0) {
                     // output data of each row
@@ -39,17 +36,16 @@
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, currentstate, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, state, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
-
         if ($num_rows == 1) {
             // assign info in array to variables
             $row = $result->fetch_assoc();
             $firstname= $row["firstName"];
             $lastname= $row["lastName"];
-            $state= $row["currentstate"];
+            $state= $row["state"];
             $country= $row["country"];
             $gyear = $row["graduationYear"];
             $phonenumber = $row["phoneNumber"];
@@ -60,7 +56,7 @@
         else{
             trigger_error("error");
         }
-
+        echo $state;
     $conn->close();
 ?>
 <!DOCTYPE html>
@@ -117,8 +113,6 @@
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Graduated in: " . $gyear; ?></p>
         <p><?php echo "Current employer: "  ?></p>
-        <p><?php echo "Lives in: " . $state . ", " $country; ?></p>
-        
         <p> Additional information: </p>
       </ul>
       <hr>
