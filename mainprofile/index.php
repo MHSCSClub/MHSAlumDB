@@ -73,8 +73,8 @@
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1> <?php echo $firstname . ' ' . $lastname; ?>'s profile </h1>
-  <p>My information</p> 
+  <h1> <?php echo $firsname; ?></h1>
+  <p>Resize this responsive page to see the effect!</p> 
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -101,11 +101,9 @@
   <div class="row">
     <div class="col-sm-4">
       <h2>About Me</h2>
-      <h5>Profile picture:</h5>
+      <h5>Photo of me:</h5>
       <div class="fakeimg">Fake Image</div>
-      <p>My name: <?php echo $firstname . ' ' . echo $lastname ?></p>
-      <p>My graduation year: <?php echo $gyear ?> </p>
-      <p>My state: <?php echo $state?> </p>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
       <h3>Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
       <ul class="nav nav-pills flex-column">
