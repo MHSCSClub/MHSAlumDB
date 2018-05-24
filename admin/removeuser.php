@@ -11,9 +11,8 @@
   }
   $username = $_GET["userName"];
   echo "username : " . $username;
-  $stmt = $conn->prepare('IF  EXISTS (SELECT * FROM setupusers WHERE username = ?)
-  DROP USER [?]');
-  $stmt->bind_param('s', $username);
+  $stmt = $conn->prepare('IF  EXISTS (SELECT * FROM setupusers WHERE username = ?) DROP USER [?]');
+  $stmt->bind_param('ss', $username, $username);
   $stmt->execute();
   echo $username . " removed.";
 
