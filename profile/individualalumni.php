@@ -13,9 +13,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"></link>
-
-    <!-- Theme CSS -->
-    <link href="../css/freelancer.min.css" rel="stylesheet"></link>
 	<!-- Custom CSS -->
 	<link href="../css/style.css" rel="stylesheet"></link>
     <!-- Custom Fonts -->
