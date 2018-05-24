@@ -22,7 +22,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     $indivUser = $_SESSION['individual'];
-    echo "Welcome '" . $indivUser . "'";
+    
     $sql = "SELECT firstLogin FROM users WHERE username = '$indivUser'";
     $result = $conn->query($sql);
     
@@ -32,7 +32,6 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
             $firstlog = $row["firstLogin"];
-            echo "id: " . $firstlog . "<br>";
         }
     } else {
         echo "0 results";
@@ -73,10 +72,8 @@
 
 <body id="page-top" class="index">
     <div class="jumbotron text-center" style="margin-bottom:0">
-    <h1>Mamaroneck Alumni Database</h1>
-        <li class="nav-item">
-            <a class="nav-link" href="/auth/logout">Logout</a>
-        </li>    
+        <h1>Mamaroneck Alumni Database</h1>
+        <a class="nav-link" href="/auth/logout">Logout</a>
     </div>
     <!-- This is the table -->
     <section>
