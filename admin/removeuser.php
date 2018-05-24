@@ -10,10 +10,9 @@
       die("Connection failed: " . $conn->connect_error);
   }
   $username = $_GET["userName"];
-  $username = implode("", $username);
   echo "username : " . $username;
   $stmt = $conn->prepare('IF  EXISTS (SELECT * FROM setupusers WHERE username = ?) DROP USER [?]');
-  echo "error list : " . $conn->error_list;
+  echo "error list : " . $conn->error_list . " end.";
   $stmt->bind_param('ss', $username, $username);
   $stmt->execute();
   echo $username . " removed.";
