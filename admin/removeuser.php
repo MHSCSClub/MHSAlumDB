@@ -12,7 +12,7 @@
   $username = $_GET["userName"];
   echo "USERname : " . $username;
   $stmt = $conn->prepare('IF  EXISTS (SELECT * FROM setupusers WHERE username = ?) DROP USER [?]');
-  echo '<pre/>'; print_r($array); echo '</pre>';
+  echo '<pre/>'; print_r($conn->error_list); echo '</pre>';
   $stmt->bind_param('ss', $username, $username);
   $stmt->execute();
   echo $username . " removed.";
