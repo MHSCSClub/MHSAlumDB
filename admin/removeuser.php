@@ -10,10 +10,9 @@
   }
   $username = $_GET["userName"];
   echo "UseRname : " . $username;
-  if ($stmt = $conn->prepare('USE [setupusers]; GO; DROP USER [?]; GO;')) {
+  $stmt = $conn->prepare('USE [setupusers]; GO; DROP USER [?]; GO;')
      echo "remove worked ";
      $stmt->bind_param('s', $username);
      $stmt->execute();
-   }
   echo $username . " removed.";
 ?>
