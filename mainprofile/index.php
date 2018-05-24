@@ -22,7 +22,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     $indivUser = $_SESSION['individual'];
-    echo "Welcome '" . $indivUser . "'";
+    
     //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
 
     $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
@@ -34,12 +34,11 @@
                     // output data of each row
             while($row = $result->fetch_assoc()) {
                 $id = $row["userid"];
-                echo "id: " . $id . "<br>";
             }
         } else {
             echo "0 results";
         }
-        echo $id;
+        
         $query = "SELECT firstName, lastName, state, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
@@ -61,11 +60,6 @@
         else{
             trigger_error("error");
         }
-            echo $firstname;
-            echo $lastname;
-            echo $state;
-            echo $country;
-            echo $gyear;
 
     $conn->close();
 ?>
@@ -91,7 +85,7 @@
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/mainprofile">Profile</a>
+                    <a class="nav-link" href="/ui">Directory</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -108,6 +102,7 @@
                 </ul>
             </div>  
         </nav>
+
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1><?php echo $firstname . " " . $lastname . "'s Profile"; ?></h1>
   <p>My information</p> 
@@ -135,10 +130,5 @@
     </div>
   </div>
 </div>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
-
 </body>
 </html>

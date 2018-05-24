@@ -66,42 +66,40 @@
 
 
 <body id="page-top" class="index">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">MHS Alumni Database</a>
-        </div>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/mainprofile">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>    
-               
-            </ul>
-            <ul class="nav navbar-nav ml-auto">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MHS Alumni Database</a>
+            </div>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/auth/logout">Logout</a>
-                </li> 
-            </ul>
-        </div>  
-    </nav>
+                    <a class="nav-link" href="/mainprofile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>    
+                
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">Logout</a>
+                    </li> 
+                </ul>
+            </div>  
+        </nav>
 
     <section>
 			<div class="container">
 	            <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Use the Searchbar below to search for people you know.</h3>
-                    </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-4">
                         <form class="input-group" method="GET">
-                                <input type="text" id="search" class="form-control"  name="search" placeholder="Search"/>
+                                <input type="text" id="search" class="form-control"  name="search" placeholder="Search for people you know"/>
                                 <span class="input-group-btn">
                                     <input type="submit" class="form-control button" value="Submit"/>
                                 </span>
