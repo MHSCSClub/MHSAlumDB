@@ -56,9 +56,9 @@
 
             if ($num_rows > 0) {
                 // output data of each row
-                $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>Graduation Year</th><th>Remove User</th></tr></thead><tbody>";
+                $tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Username</th><th>First Name</th><th>Last Name</th><th>Graduation Year</th><th>Remove User</th></tr></thead><tbody>";
                 while($row = $result->fetch_assoc()) {
-                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/admin/confirmalum.php?userName=' . $row["username"]. '">' . $row["username"]. '</a></td><td>' . $row["firstname"]. "</td><td>" . $row["lastname"]. "</td><td>" . $row["graduationyear"]. "</td><form action='removeuser.php' method='post'><input type='submit' name='remove' value='GO'/></form></tr>";
+                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/admin/confirmalum.php?userName=' . $row["username"]. '">' . $row["username"]. '</a></td><td>' . $row["firstname"]. "</td><td>" . $row["lastname"]. "</td><td>" . $row["graduationyear"]. "</td><td><form action='removeuser.php' method='post'><input type='submit' name='remove' value='GO'/></form></td></tr>";
                 }
                 $tablecode = $tablecode . "</tbody></table>";
             }
