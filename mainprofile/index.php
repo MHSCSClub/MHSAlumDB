@@ -40,7 +40,7 @@
             echo "0 results";
         }
         echo $id;
-        $query = "SELECT firstName, lastName, state, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, state, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -53,13 +53,19 @@
             $state= $row["state"];
             $country= $row["country"];
             $gyear = $row["graduationYear"];
+            $phonenumber = $row["phoneNumber"];
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
                     echo  $tablecode = $tablecode . "</tbody></table>";*/
-            }
-            else{
-                trigger_error("error");
-            }
+        }
+        else{
+            trigger_error("error");
+        }
+
+
+
+
+
             echo $firstname;
             echo $lastname;
             echo $state;
@@ -115,26 +121,21 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-8">
-      <h5>Profile</h5>
       <div class="fakeimg">Fake Image</div>
+      <hr>
       <h3> About me </h3>  
       <hr>
-      <p><?php echo "Graduated in " . $gyear; ?></p>
-      <h3>Some Links</h3>
+      <ul class="nav nav-pills flex-column">
+        <p><?php echo "Graduated in: " . $gyear; ?></p>
+        <p><?php echo "Current employer: "  ?></p>
+        <p> Additional information: </p>
+      </ul>
+      <hr>
+      <h3> Contact information </h3>
+      <hr>
       <p>Lorem ipsum dolor sit ame.</p>
       <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
+        <p><?php echo "Phone number: " . $phonenumber; ?></p>
       </ul>
       <hr class="d-sm-none">
     </div>
