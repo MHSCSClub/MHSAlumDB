@@ -84,12 +84,10 @@
             </ul>
         </div>  
     </nav>
-    <div class="jumbotron" style="margin-bottom:0">
+    <div class="jumbotron" style="margin-bottom:1">
         <h1> Mamaroneck Alumni Database</h1>
     </div>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark"></nav>
-    <!-- This is the table -->
-    <hr>
+
     <section>
 			<div class="container">
 	            <div class="row">
