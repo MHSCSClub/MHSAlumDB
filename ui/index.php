@@ -70,9 +70,6 @@
 
 
 <body id="page-top" class="index">
-    <div class="jumbotron" style="margin-bottom:0">
-        <h1> Mamaroneck Alumni Database</h1>
-    </div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
@@ -91,6 +88,10 @@
             </ul>
         </div>  
     </nav>
+    <div class="jumbotron" style="margin-bottom:0">
+        <h1> Mamaroneck Alumni Database</h1>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark"></nav>
     <!-- This is the table -->
     <hr>
     <section>
