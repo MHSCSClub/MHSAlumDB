@@ -39,7 +39,7 @@
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, state, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, currentstate, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -49,7 +49,7 @@
             $row = $result->fetch_assoc();
             $firstname= $row["firstName"];
             $lastname= $row["lastName"];
-            $state= $row["state"];
+            $state= $row["currentstate"];
             $country= $row["country"];
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
