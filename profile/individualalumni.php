@@ -21,29 +21,11 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $indivUser = $_SESSION['individual'];
-    
-    //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
-
-    $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
-    $result = $conn->query($sql);
-
-
-    $id;
-        if ($result->num_rows > 0) {
-                    // output data of each row
-            while($row = $result->fetch_assoc()) {
-                $id = $row["userid"];
-            }
-        } else {
-            echo "0 results";
-        }
-        
-        $query = "SELECT firstName, lastName, currentstate, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $id;
+    $alumnitable_id = $_GET["alumniid"];
+        $query = "SELECT firstName, lastName, currentstate, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
-
         if ($num_rows == 1) {
             // assign info in array to variables
             $row = $result->fetch_assoc();
@@ -51,6 +33,8 @@
             $lastname= $row["lastName"];
             $state= $row["currentstate"];
             $country= $row["country"];
+            $gyear = $row["graduationYear"];
+            $phonenumber = $row["phoneNumber"];
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
                     echo  $tablecode = $tablecode . "</tbody></table>";*/
@@ -58,7 +42,7 @@
         else{
             trigger_error("error");
         }
-
+        
     $conn->close();
 ?>
 <!DOCTYPE html>
@@ -103,7 +87,7 @@
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1><?php echo $firstname . " " . $lastname . "'s Profile"; ?></h1>
-  <p><?php echo "Graduated in: " . $gyear; ?></p> 
+  <p>My information</p> 
 </div>
 
 <div class="container" style="margin-top:30px">
@@ -113,8 +97,8 @@
       <h3> About me </h3>  
       <hr>
       <ul class="nav nav-pills flex-column">
+        <p><?php echo "Graduated in: " . $gyear; ?></p>
         <p><?php echo "Current employer: "  ?></p>
-        <p><?php echo "Lives in: " . $state . ", " $country; ?></p>
         <p> Additional information: </p>
       </ul>
       <hr>
@@ -122,7 +106,7 @@
       <hr>
 
       <ul class="nav nav-pills flex-column">
-        <p><?php echo "Phone number: " ?></p>
+        <p><?php echo "Phone number: " . $phonenumber; ?></p>
       </ul>
       <hr class="d-sm-none">
     </div>
