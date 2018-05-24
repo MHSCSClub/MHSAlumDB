@@ -61,11 +61,6 @@
         else{
             trigger_error("error");
         }
-
-
-
-
-
             echo $firstname;
             echo $lastname;
             echo $state;

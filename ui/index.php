@@ -69,11 +69,12 @@
 </head>
 
 <body id="page-top" class="index">
-    <div class="jumbotron-custom1" style="margin-bottom:0">
-        <h1 style="color:white;"> Mamaroneck Alumni Database</h1>
+    <div class="jumbotron" style="margin-bottom:0">
+        <h1> Mamaroneck Alumni Database</h1>
         <a class="nav-link" href="/auth/logout">Logout</a>
     </div>
     <!-- This is the table -->
+    <hr>
     <section>
 			<div class="container">
 	            <div class="row">
