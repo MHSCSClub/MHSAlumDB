@@ -78,13 +78,9 @@ echo "hello";
                         </p>
                         </form>
                         <!-- Split button -->
-
-
-
                           		<input type="text" name="lastname" placeholder="Last Name">
                           		<input type="text" name="gyear" placeholder="Graduation Year">
                     			<input type="submit" name="register" class="button button-submit" value="Register">
-
                         <div class="btn-group">
                             <!--add buttons-->
 

@@ -7,7 +7,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
                 $indivUser = $_SESSION['individual'];
-                echo "Welcome '" . $indivUser . "'";
+                //echo "Welcome '" . $indivUser . "'";
                 //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
 
                 $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
@@ -45,18 +45,18 @@
                 else{
                     trigger_error("error");
                 }
-                echo $firstname;
+                /*echo $firstname;
                 echo $lastname;
                 echo $state;
                 echo $country;
-                echo $gyear;
+                echo $gyear;*/
 
     $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 4 Website Example</title>
+  <title>My Profile Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -66,15 +66,15 @@
   <style>
   .fakeimg {
       height: 200px;
-      background: #aaa;
+      background: #ff5733;
   }
   </style>
 </head>
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>My First Bootstrap 4 Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+  <h1> <?php echo $firsname . ' ' . $lastname; ?>'s profile </h1>
+  <p>My information</p> 
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -101,9 +101,11 @@
   <div class="row">
     <div class="col-sm-4">
       <h2>About Me</h2>
-      <h5>Photo of me:</h5>
+      <h5>Profile picture:</h5>
       <div class="fakeimg">Fake Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <p>My name: <?php echo $firstname . ' ' . echo $lastname ?></p>
+      <p>My graduation year: <?php echo $gyear ?> </p>
+      <p>My state: <?php echo $state?> </p>
       <h3>Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
       <ul class="nav nav-pills flex-column">
