@@ -1,55 +1,66 @@
 <?php
     session_start();
     ini_set('display_errors', 1);
-                include ('../php/rds.php');
-                $conn = new mysqli($dbhost, $username, $password, $dbname);
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                $indivUser = $_SESSION['individual'];
-                echo "Welcome '" . $indivUser . "'";
-                //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
+    if(!isset($_COOKIE['alumdbauth'])){
+        header("location: /auth/");
+        exit;
+    } else {
+        $resp = auth::check_auth($_COOKIE['alumdbauth']);
+        if($resp->isError()){
+            header("location: /auth/");
+            exit;
+        }
+          
+    }
+    include ('../php/rds.php');
+    $conn = new mysqli($dbhost, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $indivUser = $_SESSION['individual'];
+    echo "Welcome '" . $indivUser . "'";
+    //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
 
-                $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
-                $result = $conn->query($sql);
+    $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
+    $result = $conn->query($sql);
 
 
-                $id;
-                if ($result->num_rows > 0) {
+    $id;
+        if ($result->num_rows > 0) {
                     // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        $id = $row["userid"];
-                        echo "id: " . $id . "<br>";
-                    }
-                } else {
-                    echo "0 results";
-                }
-                echo $id;
-                $query = "SELECT firstName, lastName, state, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $id;
-                $result = $conn->query($query);
-                $num_rows = $result->num_rows;
-                //var_dump($result);
+            while($row = $result->fetch_assoc()) {
+                $id = $row["userid"];
+                echo "id: " . $id . "<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+        echo $id;
+        $query = "SELECT firstName, lastName, state, country, graduationYear FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $result = $conn->query($query);
+        $num_rows = $result->num_rows;
+        //var_dump($result);
 
-                if ($num_rows == 1) {
-                    // assign info in array to variables
-                    $row = $result->fetch_assoc();
-                    $firstname= $row["firstName"];
-                    $lastname= $row["lastName"];
-                    $state= $row["state"];
-                    $country= $row["country"];
-                    $gyear = $row["graduationYear"];
+        if ($num_rows == 1) {
+            // assign info in array to variables
+            $row = $result->fetch_assoc();
+            $firstname= $row["firstName"];
+            $lastname= $row["lastName"];
+            $state= $row["state"];
+            $country= $row["country"];
+            $gyear = $row["graduationYear"];
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
                     echo  $tablecode = $tablecode . "</tbody></table>";*/
-                }
-                else{
-                    trigger_error("error");
-                }
-                echo $firstname;
-                echo $lastname;
-                echo $state;
-                echo $country;
-                echo $gyear;
+            }
+            else{
+                trigger_error("error");
+            }
+            echo $firstname;
+            echo $lastname;
+            echo $state;
+            echo $country;
+            echo $gyear;
 
     $conn->close();
 ?>
@@ -85,7 +96,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="https://alumdb.mamaroneckschoolsfoundation.org/ui/">Directory</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -102,6 +113,8 @@
     <div class="col-sm-8">
       <h5>Profile</h5>
       <div class="fakeimg">Fake Image</div>
+      <h3> About me </h3>  
+      <hr>
       <p><?php echo "Graduated in " . $gyear; ?></p>
       <h3>Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
