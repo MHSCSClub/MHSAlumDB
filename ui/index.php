@@ -72,35 +72,12 @@
 </head>
 
 <body id="page-top" class="index">
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <header>
-                <a class="navbar-brand" href="#page-top">Mamaroneck Alumni Database</a>
-                </header>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <li>
-        <a href="/auth/logout">Logout</a>
-    </li>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+    <h1><?php echo $firstname . " " . $lastname . "'s Profile"; ?></h1>
+        <li class="nav-item">
+            <a class="nav-link" href="/auth/logout">Link</a>
+        </li>    
+    </div>
     <!-- This is the table -->
     <section>
 			<div class="container">
