@@ -73,7 +73,7 @@
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1><?php $firstname . " " . $lastname?></h1>
+  <h1><?php echo $firstname . " " . $lastname; ?></h1>
   <p>Resize this responsive page to see the effect!</p> 
 </div>
 
