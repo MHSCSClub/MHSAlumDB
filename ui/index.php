@@ -73,7 +73,7 @@
 
 <body id="page-top" class="index">
     <div class="jumbotron text-center" style="margin-bottom:0">
-    <h1><?php Mamaroneck Alumni Database; ?></h1>
+    <h1>Mamaroneck Alumni Database</h1>
         <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
         </li>    
