@@ -67,6 +67,9 @@
 
 <body id="page-top" class="index">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
             <li class="nav-item">
@@ -78,9 +81,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>    
-            <li class="nav-item">
-                <a class="nav-link" href="/auth/logout">Logout</a>
-            </li>    
+               
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/logout">Logout</a>
+                </li> 
             </ul>
         </div>  
     </nav>
