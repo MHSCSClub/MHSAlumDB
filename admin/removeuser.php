@@ -9,8 +9,8 @@
       die("Connection failed: " . $conn->connect_error);
   }
   $username = $_GET["userName"];
-  echo "username : " . $username;
-  if ($stmt = $conn->prepare('IF  EXISTS (SELECT * FROM setupusers WHERE username = ?) DROP USER ?')) {
+  echo "Username : " . $username;
+  if ($stmt = $conn->prepare('IF EXISTS (SELECT * FROM setupusers WHERE username = ?) DROP USER [?];')) {
      echo "remove worked ";
      $stmt->bind_param('ss', $username, $username);
      $stmt->execute();
