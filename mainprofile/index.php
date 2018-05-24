@@ -117,6 +117,8 @@
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Graduated in: " . $gyear; ?></p>
         <p><?php echo "Current employer: "  ?></p>
+        <p><?php echo "Lives in: " . $state . ", " $country; ?></p>
+        
         <p> Additional information: </p>
       </ul>
       <hr>
