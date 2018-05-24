@@ -7,7 +7,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
                 $indivUser = $_SESSION['individual'];
-                //echo "Welcome '" . $indivUser . "'";
+                echo "Welcome '" . $indivUser . "'";
                 //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
 
                 $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
@@ -45,18 +45,18 @@
                 else{
                     trigger_error("error");
                 }
-                /*echo $firstname;
+                echo $firstname;
                 echo $lastname;
                 echo $state;
                 echo $country;
-                echo $gyear;*/
+                echo $gyear;
 
     $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My Profile Page</title>
+  <title>Bootstrap 4 Website Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -66,14 +66,14 @@
   <style>
   .fakeimg {
       height: 200px;
-      background: #ff5733;
+      background: #aaa;
   }
   </style>
 </head>
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1> <?php echo $firsname; ?></h1>
+  <h1>My First Bootstrap 4 Page</h1>
   <p>Resize this responsive page to see the effect!</p> 
 </div>
 
