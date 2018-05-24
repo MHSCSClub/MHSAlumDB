@@ -73,7 +73,7 @@
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1> <?php echo $firsname . ' ' . $lastname; ?>'s profile </h1>
+  <h1> <?php echo $firstname . ' ' . $lastname; ?>'s profile </h1>
   <p>My information</p> 
 </div>
 
