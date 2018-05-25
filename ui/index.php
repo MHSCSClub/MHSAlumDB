@@ -58,9 +58,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet"></link>
-    
-    <!-- Custom CSS -->
-	<link href="../css/style.css" rel="stylesheet"></link>
 
 </head>
 
