@@ -16,7 +16,7 @@
                     //$error = "Username already registered or password does not meet minimum requirements";
                     //replace 
                     $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\" /> {$error}</div>";
-                    $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
+                    $reghtm = file_get_contents('./reset.html', FILE_USE_INCLUDE_PATH);
                     die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
                   } 
                   else {
