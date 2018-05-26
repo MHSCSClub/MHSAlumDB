@@ -1,4 +1,5 @@
 <?php
+	ini_set('display_errors', 1);
     require_once("signal.class.php");
 	require_once("exception.class.php");
     include("rds.php");
@@ -23,6 +24,11 @@
         public static function register($username, $password, $key) {
 			return self::run(function() use ($username, $password, $key) {
 				return auth::REAL_register($username, $password, $key);
+			});
+		}
+		public static function start_reset($username) {
+			return self::run(function() use ($username) {
+				return auth::start_real_reset($username);
 			});
 		}
 
@@ -178,6 +184,7 @@
 			return Signal::success()->setData($data);
 			//return Signal::success()->setData($userid);
 		}
+
 		//make changes here
 		private static function REAL_adminlogin($username, $password) {
 			$db = self::getConnection();
@@ -324,6 +331,54 @@
 
 			return Signal::success();
 		}
+		
+		private static function start_real_reset($username) {
+			$db = self::getConnection();
+
+			//Check if email is valid
+			
+			if(strlen($email) < 5 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+				throw new Exception("Email is invalid (too short or not an email address)");
+			}
+
+			//Check if user exists
+			$stmt = $db->prepare('SELECT userid FROM users WHERE username=?');
+			$stmt->bind_param('s', $username);
+			$stmt->execute();
+			$res = $stmt->get_result();
+			if($res->num_rows == 0)
+				throw new Exception("You do not exist in the database");
+			$stmt->close();
+			
+			//Generate reset key
+			$random = openssl_random_pseudo_bytes(256);
+			$key = self::hash($random);
+
+			//UPDATE reset key
+			$stmt = $db->prepare('UPDATE users SET resetkey = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
+			$stmt->bind_param('s', $key);
+			$stmt->execute();
+			$stmt->close();
+            
+            self::sendmail_reset($username, $key); 
+
+			return Signal::success();
+		}
+
+		public static function sendmail_reset($username, $key)
+        {
+			$base_url =  "https://{$_SERVER['HTTP_HOST']}/auth/reset";
+
+			$escaped_base_url = htmlspecialchars( $base_url, ENT_QUOTES, 'UTF-8' );
+			
+			$full_url = $escaped_base_url . "?email={$username}&key={$key}";
+			$SUBJECT = 'Registration confirmation for MHS Alumni Database';
+			$BODY = "Thank you for registering for the MHS Alumni Database! To finish setting up your account, please click this link or copy and paste it into your browser {$full_url}";
+            self::sendmail($username, $SUBJECT, $BODY);
+        }
+
+
+
         public static function sendmail_register($username, $key)
         {
 			$base_url =  "https://{$_SERVER['HTTP_HOST']}/auth/register";

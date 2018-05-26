@@ -1,22 +1,23 @@
-<form action="reset.php" method="POST">
-<head>
-	<meta charset="UTF-8">
-	<title>MHS Alum DB - Forgot Password</title>
-	<link rel="stylesheet" href="/css/jquery-ui.css">
-	<link rel="stylesheet" href="/css/style.css" media="screen" type="text/css" />
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<!-- A Pen created at CodePen.io. You can find this one at http://codepen.io/Mongeed/pen/IuBLt. -->
-	<!-- A simple log-in screen I pretty much made out of boredom. Style is based on google's login which is one of my favorite login's. Tried to keep it minimalistic, I think it worked. -->
-</head>
-    <body>
-    
-    <div class="card">
-        <img src="/img/msf.png"><br>
-        E-mail Address: <input type="text" name="email" size="20" /> 
-        <input type="submit" name="ForgotPassword" value="Request Reset" />
-        <div class="help">
-			<a href="../login/">Log In</a> • <a href="../register/">Register</a>
-		</div>
-    </div>
-    <script src="/js/jquery_and_jqueryui.js"></script>
-</form>
+<?php
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      include("../../php/signal.class.php");
+      include("../../php/auth.php");
+      
+      session_start();
+      // username sent from form 
+      $resp = auth::start_reset($_POST['username']);
+
+      if($resp->isError()){
+        $error = $resp->getMessage();
+        //replace error placeholder 
+        $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\"/><p>{$error}</p></div>";
+        $reghtm = file_get_contents('./forgot.html', FILE_USE_INCLUDE_PATH);
+        die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
+      } 
+      else {
+        readfile("register-email.html");
+      }
+   } else {
+     readfile("login.html");
+   }
+ ?>
