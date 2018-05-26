@@ -6,11 +6,6 @@
 
   function checkForm(form)
   {
-    if(form.gyear.value == "") {
-      alert("Error: Graduation cannot be blank!");
-      form.gyear.focus();
-      return false;
-    }
     
     if(form.password1.value != "" && form.password2.value == form.password1.value) {
       if(!checkPassword(form.password1.value)) {
