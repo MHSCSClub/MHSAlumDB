@@ -31,6 +31,11 @@
 				return auth::start_real_reset($username);
 			});
 		}
+		public static function reset($username, $key) {
+			return self::run(function() use ($username, $key) {
+				return auth::REAL_reset($username, $key);
+			});
+		}
 
 		public static function check_auth($authcode) {
 			return self::run(function() use ($authcode) {
@@ -294,6 +299,46 @@
 			return Signal::success();
 		}
 
+		private static function REAL_reset($username, $password, $key) {
+			$db = self::getConnection();
+
+			$username = mysqli_real_escape_string($db, $username);
+			$password = mysqli_real_escape_string($db, $password);
+
+			//Verify basic UN + Pass checks
+			//Pass >= 8 chars
+			if(strlen($password) < 8)
+				throw new Exception("Password does not meet minimum length requirement (8)");
+
+			//Check if user exists
+			$stmt = $db->prepare("SELECT * FROM users WHERE username=? AND resetkey=?");
+			$stmt->bind_param('ss', $username, $key);
+			$stmt->execute();
+			$res = $stmt->get_result();
+			if($res->num_rows == 0){
+				throw new Exception("Invalid registration key");
+			}
+			$stmt->close();
+
+			$stmt = $db->prepare("SELECT salt FROM users WHERE username=? AND resetkey=?");
+			$stmt->bind_param('ss', $username, $key);
+			$stmt->execute();
+			$res = $stmt->get_result();
+			$row = $res->fetch_assoc();
+			$salt = $row["salt"];
+
+			$hshpass = self::hashPass($password, $salt);
+
+			//Insert user into database
+			$stmt = $db->prepare('UPDATE users SET password = ? WHERE username=? AND resetkey=?');
+			$stmt->bind_param('sss', $hshpass, $username, $key);
+			$stmt->execute();
+			$stmt->close();
+			
+
+			return Signal::success();
+		}
+
          private static function start_real_register($email, $firstname, $lastname, $gyear) {
 			$db = self::getConnection();
 
@@ -337,7 +382,7 @@
 
 			//Check if email is valid
 			
-			if(strlen($email) < 5 || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+			if(strlen($username) < 5 || !filter_var($username, FILTER_VALIDATE_EMAIL)){
 				throw new Exception("Email is invalid (too short or not an email address)");
 			}
 
@@ -372,8 +417,8 @@
 			$escaped_base_url = htmlspecialchars( $base_url, ENT_QUOTES, 'UTF-8' );
 			
 			$full_url = $escaped_base_url . "?email={$username}&key={$key}";
-			$SUBJECT = 'Registration confirmation for MHS Alumni Database';
-			$BODY = "Thank you for registering for the MHS Alumni Database! To finish setting up your account, please click this link or copy and paste it into your browser {$full_url}";
+			$SUBJECT = 'Reset confirmation for MHS Alumni Database';
+			$BODY = "Thank you for resetting your password! To finish setting up your account, please click this link or copy and paste it into your browser {$full_url}";
             self::sendmail($username, $SUBJECT, $BODY);
         }
 

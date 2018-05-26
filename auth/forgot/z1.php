@@ -17,18 +17,6 @@ include("../../php/auth.php");
 		}
 		
 		$db = auth::getConnection();
-		/*$dbhost = $_SERVER['RDS_HOSTNAME'];
-		$dbport = $_SERVER['RDS_PORT'];
-		$dbname = "alumni";
-		$username = $_SERVER['RDS_USERNAME'];
-		$password = $_SERVER['RDS_PASSWORD'];
-		$db = new mysqli($dbhost, $username, $password, $dbname);
-		print $db->connect_error;
-		
-		if($db->connect_errno){
-			throw new Exception($db->connect_error);
-		}*/
-		// Check to see if a user exists with this e-mail
 		$query = $db->prepare('SELECT username FROM users WHERE username = ?');
 		$query->bind_param('s', $email);
 		$query->execute();
@@ -42,7 +30,7 @@ include("../../php/auth.php");
 			// Create a url which we will direct them to reset their password
 			$pwrurl = "https://alumdb.mamaroneckschoolsfoundation.org/auth/reset/reset_password_form.php?q=".$password_hash;
 			
-			$squery = $db->prepare('UPDATE users SET password_reset_hash = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
+			$squery = $db->prepare('UPDATE users SET resetkey = ?, reset_expiration_timestamp = NOW() + INTERVAL 1 DAY, is_password_reset_active = 1');
 			$squery->bind_param('s', $password_hash);
 			$squery->execute();
 			// Mail them their key
