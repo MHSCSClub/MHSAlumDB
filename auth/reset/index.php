@@ -32,12 +32,11 @@
               }
             }
         } 
-
         else {
             if($_SERVER["REQUEST_METHOD"] == "GET"){
               if(isset($_GET["email"]) && isset($_GET["key"])){
                 $email_form = "<input type=\"text\" name=\"email\" placeholder=\"{$_GET['email']}\" disabled>";
-                $reghtm = file_get_contents('./register2.html', FILE_USE_INCLUDE_PATH);
+                $reghtm = file_get_contents('./reset.html', FILE_USE_INCLUDE_PATH);
                 die(str_replace("<!-- email -->", $email_form, $reghtm));  
               } 
               else {
