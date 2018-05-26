@@ -31,9 +31,9 @@
 				return auth::start_real_reset($username);
 			});
 		}
-		public static function reset($username, $key) {
-			return self::run(function() use ($username, $key) {
-				return auth::REAL_reset($username, $key);
+		public static function reset($username, $password, $key) {
+			return self::run(function() use ($username, $password, $key) {
+				return auth::REAL_reset($username, $password, $key);
 			});
 		}
 
