@@ -100,8 +100,7 @@
                     <div class="col-lg-4 col-lg-offset-4">
                         <form class="input-group" method="GET">
                                 <input type="text" id="search" class="form-control"  name="search" placeholder="Search for people you know"/>
-                                <button class="btn btn-outline-success my-2 my-sm-0">
-                                    <input type="submit" class="form-control button" value="Submit"/>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Submit">
                                 </button>
                         </form>
                     </div>
