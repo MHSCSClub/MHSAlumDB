@@ -63,7 +63,7 @@
 
 
 <body id="page-top" class="index">
-        <nav class="navbar navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">MHS Alumni Database</a>
             </div>
