@@ -98,10 +98,9 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-4">
-                        <form class="input-group" method="GET">
-                                <input type="text" id="search" class="form-control"  name="search" placeholder="Search for people you know"/>
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Submit">
-                                </button>
+                        <form class="form-inline my-2 my-lg-0" method="GET">
+                                <input type="text" id="search" class="form-control mr-sm-2"  name="search" placeholder="Search for people you know"/>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Submit">Search</button>
                         </form>
                     </div>
                 </div>
