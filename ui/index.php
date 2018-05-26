@@ -164,7 +164,7 @@
                             $num_rows = $result->num_rows;
                             if ($num_rows > 0) {
                                 // output data of each row
-                                $tablecode = "<table class=\"table table-hover table-dark\"><thead><tr><th>Name</th><th>Graduation Year</th></tr></thead><tbody>";
+                                $tablecode = "<table class=\"table table-hover\"><thead><tr><th>Name</th><th>Graduation Year</th></tr></thead><tbody>";
                                 while($row = $result->fetch_assoc()) {
                                     $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/profile/individualalumni.php?alumniid=' . $row["alumnitable_id"]. '">' . $row["firstName"]. " " . $row["lastName"]. '</a></td><td>' . $row["graduationYear"]. "</td></tr>";
                                 }
