@@ -385,7 +385,8 @@
 			if(strlen($username) < 5 || !filter_var($username, FILTER_VALIDATE_EMAIL)){
 				throw new Exception("Email is invalid (too short or not an email address)");
 			}
-
+			
+			$username = mysqli_real_escape_string($db,$username);
 			//Check if user exists
 			$stmt = $db->prepare('SELECT userid FROM users WHERE username=?');
 			$stmt->bind_param('s', $username);
