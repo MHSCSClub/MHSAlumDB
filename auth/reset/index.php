@@ -40,7 +40,7 @@
                 die(str_replace("<!-- email -->", $email_form, $reghtm));  
               } 
               else {
-                readfile("register.html");
+                header("location: /auth/login/");
               }
         }
 ?>
