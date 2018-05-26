@@ -1,4 +1,5 @@
 <?php
+    ini_set('display_errors', 1);
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       include("../../php/signal.class.php");
       include("../../php/auth.php");
@@ -18,6 +19,6 @@
         readfile("register-email.html");
       }
    } else {
-     readfile("login.html");
+     readfile("forgot.html");
    }
  ?>
