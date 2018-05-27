@@ -124,6 +124,9 @@
       </ul>
       <hr class="d-sm-none">
     </div>
+    <div class="col-sm-4">
+      <p><a class = "nav-link" href = "edit.php"</a> Edit my information </p>  
+    </div>
   </div>
 </div>
 </body>
