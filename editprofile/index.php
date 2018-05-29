@@ -11,6 +11,14 @@
     else{
         echo "hello";
     }
+    $indivUser = $_SESSION['individual'];
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        echo "hi";
+    }
+    else{
+        readfile("editInfo.php");
+    }
 ?>
 
 

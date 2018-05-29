@@ -1,6 +1,5 @@
 <?php
-session_start();
-    
+    session_start();
     ini_set('display_errors', 1);
     include('../php/rds.php');
     include("../php/signal.class.php");
@@ -49,9 +48,6 @@ session_start();
             $country= $row["country"];
             $gyear = $row["graduationYear"];
             $phonenumber = $row["phoneNumber"];
-                    /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
-                    $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
-                    echo  $tablecode = $tablecode . "</tbody></table>";*/
         }
         else{
             trigger_error("error");

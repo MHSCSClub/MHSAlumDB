@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    
+    session_start();   
     ini_set('display_errors', 1);
     include('../php/rds.php');
     include("../php/signal.class.php");
