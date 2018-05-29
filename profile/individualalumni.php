@@ -34,14 +34,14 @@
             $gyear = $row["graduationYear"];
             $showState = $row["showState"];
             $showCountry = $row["showCountry"];
-            if($showState === false){
-                $state = null;
+            if($showState == 0){
+                $state = "";
             }
             else{
                 $state = $row["currentstate"];
             }
-            if($showCountry === false){
-                $country = null;
+            if($showCountry == 0){
+                $country = "";
             }
             else{
                 $country = $row["currentstate"];
@@ -110,6 +110,8 @@
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Graduated in: " . $gyear; ?></p>
         <p><?php echo "Current employer: "  ?></p>
+        <p><?php echo "Current state of residence: " . $state; ?></p>
+        <p><?php echo "Current country of residence: " . $state; ?></p>
         <p> Additional information: </p>
       </ul>
       <hr>

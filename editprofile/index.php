@@ -159,6 +159,7 @@
                             Show my phone number
                         </label>
                         </div>
+
                         <div class="form-group row">
                             <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Submit changes</button>
@@ -180,9 +181,20 @@
         $lastname = $_POST['lastname'];
         $state = $_POST['state'];
         $country = $_POST['country'];
+
         $phonenumber = $_POST['phonenumber'];
-        $showCountry = $_POST['showCountry'];
-        $showState = $_POST['showState'];
+        if(isset($_POST['showCountry'])){
+            $showCountry = $_POST['showCountry'];
+        }else{
+            $showCountry = 0;
+        }
+        if(isset($_POST['showState'])){
+            $showState = $_POST['showState'];
+        }else{
+            $showState = 0;
+        }
+
+        
         echo $firstname;
         echo $lastname;
         echo $state;
