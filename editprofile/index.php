@@ -181,6 +181,12 @@
         $state = $_POST['state'];
         $country = $_POST['country'];
         $phonenumber = $_POST['phonenumber'];
+        echo $firstname;
+        echo $lastname;
+        echo $state;
+        echo $country;
+        echo $phonenumber;
+        echo $indivUser;
         $stmt = $conn->query("UPDATE alumni SET firstname = ?, lastname = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE username = ?");
         $stmt->bind_param('ssssss', $firstname, $lastname, $state, $country, $phonenumber, $indivUser);
         $stmt->execute();
