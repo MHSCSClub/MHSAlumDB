@@ -187,8 +187,20 @@
         echo $country;
         echo $phonenumber;
         echo $indivUser;
-        $stmt = $conn->query("UPDATE alumni SET firstName = ? WHERE username = ?");
-        $stmt->bind_param('ss', $firstname, $indivUser);
+        $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
+        $result = $conn->query($sql);
+        $id;
+        if ($result->num_rows > 0) {
+                    // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $id = $row["userid"];
+            }
+        } else {
+            echo "0 results";
+        }
+        
+        $stmt = $conn->query("UPDATE alum_info SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('ssssss', $firstname, $lastname, $state, $country, $phonenumber, $id);
         $stmt->execute();
         echo "success";
     }
