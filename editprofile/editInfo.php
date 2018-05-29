@@ -11,9 +11,9 @@
         $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
         $id;
-        if ($result->num_rows > 0) {
-                $id = $row["userid"];
-            
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc()
+            $id = $row["userid"];
         } else {
             echo "0 results";
         }
@@ -76,39 +76,38 @@
         <div class="row">
             
                 <form method="post">
-                    <div class="col-sm-8">
                         <div class="form-group row">
                             <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
                             <div class="col-sm-10">
-                            <input class="form-control" id="firstname" placeholder=<?php echo $firstname;?> type="text">
+                            <input class="form-control" id="firstname" value=<?php echo $firstname;?> type="text">
                             </div>
                         </div>
    
                         <div class="form-group row">
                             <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
                             <div class="col-sm-10">
-                            <input class="form-control" id="lastname" placeholder=<?php echo $lastname;?> type="text">
+                            <input class="form-control" id="lastname" value=<?php echo $lastname;?> type="text">
                             </div>
                             
                         </div>
                         <div class="form-group row">
                             <label for="state" class="col-sm-2 col-form-label">State</label>
                             <div class="col-sm-10">
-                            <input class="form-control" id="state" placeholder=<?php echo $state;?> type="text">
+                            <input class="form-control" id="state" value=<?php echo $state;?> type="text">
                             </div>
                            
                         </div>
                         <div class="form-group row">
                             <label for="country" class="col-sm-2 col-form-label">Country</label>
                             <div class="col-sm-10">
-                            <input class="form-control" id="country" placeholder=<?php echo $country;?> type="text">
+                            <input class="form-control" id="country" value=<?php echo $country;?> type="text">
                             </div>
                             
                         </div>
                         <div class="form-group row">
                             <label for="phonenumber" class="col-sm-2 col-form-label">Phone number</label>
                             <div class="col-sm-10">
-                            <input class="form-control" id="phonenumber" placeholder=<?php echo $phonenumber;?> type="text">
+                            <input class="form-control" id="phonenumber" value=<?php echo $phonenumber;?> type="text">
                             </div>
                             
                         </div>
@@ -117,8 +116,8 @@
                             <button type="submit" class="btn btn-primary">Submit changes</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
+               
+                   
                         <div class="form-check">
                         <input class="form-check-input" value="" id="showFirstname" type="checkbox">
                         <label class="form-check-label" for="showFirstname">
@@ -149,7 +148,6 @@
                             Show my phone number
                         </label>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>
