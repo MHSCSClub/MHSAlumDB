@@ -142,7 +142,7 @@
                         </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" value="1" id="showPhonenumber" type="checkbox">
+                        <input class="form-check-input" value="1" name="showPhonenumber" type="checkbox">
                         <label class="form-check-label" for="showPhonenumber">
                             Show my phone number
                         </label>
