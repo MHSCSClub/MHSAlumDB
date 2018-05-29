@@ -130,18 +130,6 @@
                
                    
                         <div class="form-check">
-                        <input class="form-check-input" value="1" id="showFirstname" type="checkbox">
-                        <label class="form-check-label" for="showFirstname">
-                            Show firstname
-                        </label>
-                        </div>
-                        <div class="form-check">
-                        <input class="form-check-input" value="1" id="showLastname" type="checkbox">
-                        <label class="form-check-label" for="showLastname">
-                            Show lastname
-                        </label>
-                        </div>
-                        <div class="form-check">
                         <input class="form-check-input" value="1" name="showState" type="checkbox">
                         <label class="form-check-label" for="showState">
                             Show my current state
@@ -193,6 +181,11 @@
         }else{
             $showState = 0;
         }
+        if(isset($_POST['showPhonenumber'])){
+            $showPhonenumber = $_POST['showPhonenumber'];
+        }else{
+            $showPhonenumber = 0;
+        }
 
         
         echo $firstname;
@@ -203,6 +196,7 @@
         echo $indivUser;
         echo $showCountry;
         echo $showState;
+        echo $showPhonenumber;
         $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
         $id;
@@ -214,8 +208,8 @@
         } else {
             echo "0 results";
         }
-        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('sssssiis', $firstname, $lastname, $state, $country, $phonenumber, $showState, $showCountry, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ?, showPhone = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('sssssiiis', $firstname, $lastname, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
         $stmt->execute();
         echo "success";
     }
