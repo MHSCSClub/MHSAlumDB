@@ -96,34 +96,34 @@
                         <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control" id="firstname" name="firstname" value=<?php echo $firstname;?> type="text">
+                            <input class="form-control"  type="text" id="firstname" name="firstname" value=<?php echo $firstname;?>>
                             </div>
                         </div>
                         <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
-                            <input class="form-control" id="lastname" name="lastname" value=<?php echo $lastname;?> type="text">
+                            <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo $lastname;?> >
                             </div>
                             
                         </div>
                         <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control" id="state" name="state" value=<?php echo $state;?> type="text">
+                            <input class="form-control" type="text" id="state" name="state" value=<?php echo $state;?> >
                             </div>
                            
                         </div>
                         <label for="country" class="col-sm-2 col-form-label">Country</label>
                         <div class="form-group row">                            
                             <div class="col-sm-10">
-                            <input class="form-control" id="country" name="country" value=<?php echo $country;?> type="text">
+                            <input class="form-control" type="text" id="country" name="country" value=<?php echo $country;?> >
                             </div>
                             
                         </div>
                         <label for="phonenumber" class="col-sm-2 col-form-label">Phone number</label>
                         <div class="form-group row">                          
                             <div class="col-sm-10">
-                            <input class="form-control" id="phonenumber" name="phonenumber" value=<?php echo $phonenumber;?> type="text">
+                            <input class="form-control"  type="text" id="phonenumber" name="phonenumber" value=<?php echo $phonenumber;?>>
                             </div>
                             
                         </div>
@@ -187,8 +187,8 @@
         echo $country;
         echo $phonenumber;
         echo $indivUser;
-        $stmt = $conn->query("UPDATE alumni SET firstname = ?, lastname = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE username = ?");
-        $stmt->bind_param('ssssss', $firstname, $lastname, $state, $country, $phonenumber, $indivUser);
+        $stmt = $conn->query("UPDATE alumni SET firstName = ? WHERE username = ?");
+        $stmt->bind_param('ss', $firstname, $indivUser);
         $stmt->execute();
         echo "success";
     }
