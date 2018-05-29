@@ -74,74 +74,87 @@
                     </nav>
 
 
-                    <form method = "get">
+                   <div class="container" style="margin-top:30px">
+        <div class="row">
+            <div class="col-sm-8">
+                    <form method="get">
                         <div class="form-group row">
                             <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="firstname" placeholder="<?php echo $firstname; ?>">
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <label class="form-check-label" for="gridCheck1">
-                                Example checkbox
-                                </label>
+                            <input class="form-control" id="firstname" placeholder=<?php echo $firstname; ?> type="text">
                             </div>
                         </div>
+   
                         <div class="form-group row">
                             <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="lastname" placeholder="<?php echo $lastname; ?>">
+                            <input class="form-control" id="lastname" placeholder=<?php echo $lastname; ?> type="text">
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <label class="form-check-label" for="gridCheck1">
-                                Example checkbox
-                                </label>
-                            </div>
+                            
                         </div>
                         <div class="form-group row">
                             <label for="state" class="col-sm-2 col-form-label">State</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="state" placeholder="<?php echo $state; ?>">
+                            <input class="form-control" id="state" placeholder=<?php echo $state; ?> type="text">
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <label class="form-check-label" for="gridCheck1">
-                                Example checkbox
-                                </label>
-                            </div>
+                           
                         </div>
                         <div class="form-group row">
                             <label for="country" class="col-sm-2 col-form-label">Country</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="country" placeholder="<?php echo $country; ?>">
+                            <input class="form-control" id="country" placeholder=<?php echo $firstname; ?> type="text">
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <label class="form-check-label" for="gridCheck1">
-                                Example checkbox
-                                </label>
-                            </div>
+                            
                         </div>
                         <div class="form-group row">
                             <label for="phonenumber" class="col-sm-2 col-form-label">Phonenumber</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="phonenumber" placeholder="<?php echo $phonenumber; ?>">
+                            <input class="form-control" id="phonenumber" placeholder=<?php echo $firstname; ?> type="text">
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <label class="form-check-label" for="gridCheck1">
-                                Example checkbox
-                                </label>
-                            </div>
+                            
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <button type="submit" class="btn btn-primary">Submit changes</button>
                             </div>
                         </div>
                     </form>
-                </body>
+            </div>
+                <div class="col-sm-4">
+                    <div class="form-check">
+                      <input class="form-check-input" value="" id="defaultCheck1" type="checkbox">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" value="" id="defaultCheck1" type="checkbox">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" value="" id="defaultCheck1" type="checkbox">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" value="" id="defaultCheck1" type="checkbox">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" value="" id="defaultCheck1" type="checkbox">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                      </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
 
 
