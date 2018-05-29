@@ -199,7 +199,7 @@
             echo "0 results";
         }
         
-        $stmt = $conn->query("UPDATE alum_info SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE alumnitable_id = ?");
+        $stmt = $conn->query("UPDATE `alum_info` SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE alumnitable_id = ?");
         $stmt->bind_param('ssssss', $firstname, $lastname, $state, $country, $phonenumber, $id);
         $stmt->execute();
         echo "success";
