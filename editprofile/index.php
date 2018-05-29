@@ -90,7 +90,7 @@
 
 
     <div class="container" style="margin-top:30px">
-        <div class="row">
+
             
                 <form method="post">
                         <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
@@ -165,7 +165,7 @@
                             </div>
                         </div>
                 </form>
-            </div>
+        
         </div>
     </body>
 </html>
@@ -181,12 +181,16 @@
         $state = $_POST['state'];
         $country = $_POST['country'];
         $phonenumber = $_POST['phonenumber'];
+        $showCountry = $_POST['showCountry'];
+        $showState = $_POST['showState'];
         echo $firstname;
         echo $lastname;
         echo $state;
         echo $country;
         echo $phonenumber;
         echo $indivUser;
+        echo $showCountry;
+        echo $showState;
         $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
         $id;
@@ -198,7 +202,6 @@
         } else {
             echo "0 results";
         }
-        
         $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE alumnitable_id = ?");
         $stmt->bind_param('ssssss', $firstname, $lastname, $state, $country, $phonenumber, $id);
         $stmt->execute();
