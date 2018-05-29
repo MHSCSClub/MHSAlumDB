@@ -1,4 +1,5 @@
 <?php
+    echo "hello";
     include( '../php/rds.php' );
     include("../php/signal.class.php");
     include("../php/auth.php");
@@ -8,7 +9,6 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-   $conn->close();
    $indivUser = $_SESSION['individual'];
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,7 +18,7 @@
             $country = $_POST['country'];
             $phonenumber = $_POST['phonenumber'];
 
-            $stmt = $conn->query("UPDATE alumni SET firstname = ?, lastname = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE username = ?")
+            $stmt = $conn->query("UPDATE alumni SET firstname = ?, lastname = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE username = ?");
             $stmt->bind_param('ssssss', $firstname, $lastname, $state, $country, $phonenumber, $indivUser);
             $stmt->execute();
         }
