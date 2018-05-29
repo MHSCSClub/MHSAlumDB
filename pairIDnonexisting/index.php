@@ -1,6 +1,6 @@
 <?php
-    
-    echo "Pairing account to previously entered info ";
+    ini_set('display_errors', 1);
+    echo "Pairing account to new alumni account ";
     session_start();
     include ('../php/rds.php');
     $conn = new mysqli($dbhost, $username, $password, $dbname);
