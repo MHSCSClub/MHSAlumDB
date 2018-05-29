@@ -1,22 +1,41 @@
 <?php
-    include( '../php/rds.php' );
+session_start();
+    
+    ini_set('display_errors', 1);
+    include('../php/rds.php');
     include("../php/signal.class.php");
     include("../php/auth.php");
-    session_start();
+    if(!isset($_COOKIE['alumdbauth'])){
+        header("location: /auth/");
+        exit;
+    } else {
+        $resp = auth::check_auth($_COOKIE['alumdbauth']);
+        if($resp->isError()){
+            header("location: /auth/");
+            exit;
+        }
+          
+    }
+    
     $conn = new mysqli($dbhost, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-        $indivUser = $_SESSION['individual'];
-        $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
-        $result = $conn->query($sql);
-        $id;
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc()
-            $id = $row["userid"];
+    $indivUser = $_SESSION['individual'];
+    
+    //echo '<div style="Color::white">"Welcome "'. $indivUser ' </span>';
+    $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
+    $result = $conn->query($sql);
+    $id;
+        if ($result->num_rows > 0) {
+                    // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $id = $row["userid"];
+            }
         } else {
             echo "0 results";
         }
+        
         $query = "SELECT firstName, lastName, currentstate, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
@@ -30,13 +49,15 @@
             $country= $row["country"];
             $gyear = $row["graduationYear"];
             $phonenumber = $row["phoneNumber"];
+                    /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
+                    $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
+                    echo  $tablecode = $tablecode . "</tbody></table>";*/
         }
         else{
             trigger_error("error");
         }
-        $conn->close();
-
-
+        
+    $conn->close();
 ?>
 
 <!DOCTYPE html>

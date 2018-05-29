@@ -10,7 +10,7 @@
    $conn->close();
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
-            
+            $conn->query("UPDATE alumni SET firstname, lastname, currentstate, country, phonenumber ")
           
         }
         else{
