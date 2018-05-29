@@ -130,31 +130,31 @@
                
                    
                         <div class="form-check">
-                        <input class="form-check-input" value="" id="showFirstname" type="checkbox">
+                        <input class="form-check-input" value="1" id="showFirstname" type="checkbox">
                         <label class="form-check-label" for="showFirstname">
                             Show firstname
                         </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" value="" id="showLastname" type="checkbox">
+                        <input class="form-check-input" value="1" id="showLastname" type="checkbox">
                         <label class="form-check-label" for="showLastname">
                             Show lastname
                         </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" value="" id="showState" type="checkbox">
+                        <input class="form-check-input" value="1" id="showState" type="checkbox">
                         <label class="form-check-label" for="showState">
                             Show my current state
                         </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" value="" id="showCountry" type="checkbox">
+                        <input class="form-check-input" value="1" id="showCountry" type="checkbox">
                         <label class="form-check-label" for="showCountry">
                             Show my country
                         </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" value="" id="showPhonenumber" type="checkbox">
+                        <input class="form-check-input" value="1" id="showPhonenumber" type="checkbox">
                         <label class="form-check-label" for="showPhonenumber">
                             Show my phone number
                         </label>
