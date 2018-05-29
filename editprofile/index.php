@@ -214,8 +214,8 @@
         } else {
             echo "0 results";
         }
-        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('ssssss', $firstname, $lastname, $state, $country, $phonenumber, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('sssssiis', $firstname, $lastname, $state, $country, $phonenumber, $showState, $showCountry, $id);
         $stmt->execute();
         echo "success";
     }
