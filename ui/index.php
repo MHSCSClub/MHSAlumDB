@@ -70,7 +70,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/mainprofile">Profile</a>
+                    <a class="nav-link" href="/mainprofile">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>

@@ -34,6 +34,7 @@
               die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
             } 
             else {
+              $_SESSION['graduationYear'] = $_POST['gyear'];
               header("location: /auth/login/");
             }
         } 

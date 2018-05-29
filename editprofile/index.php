@@ -102,21 +102,21 @@
                         <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo $lastname;?> >
+                            <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo $lastname;?>>
                             </div>
                             
                         </div>
                         <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="state" name="state" value=<?php echo $state;?> >
+                            <input class="form-control" type="text" id="state" name="state" value=<?php echo $state;?>>
                             </div>
                            
                         </div>
                         <label for="country" class="col-sm-2 col-form-label">Country</label>
                         <div class="form-group row">                            
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="country" name="country" value=<?php echo $country;?> >
+                            <input class="form-control" type="text" id="country" name="country" value=<?php echo $country;?>>
                             </div>
                             
                         </div>
