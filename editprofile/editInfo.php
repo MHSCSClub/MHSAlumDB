@@ -93,49 +93,43 @@ session_start();
                     </nav>
 
 
-                   <div class="container" style="margin-top:30px">
+    <div class="container" style="margin-top:30px">
         <div class="row">
             
                 <form method="post">
+                        <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
                         <div class="form-group row">
-                            <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
                             <div class="col-sm-10">
                             <input class="form-control" id="firstname" value=<?php echo $firstname;?> type="text">
                             </div>
                         </div>
-   
-                        <div class="form-group row">
-                            <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
+                        <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
+                        <div class="form-group row">                           
                             <div class="col-sm-10">
                             <input class="form-control" id="lastname" value=<?php echo $lastname;?> type="text">
                             </div>
                             
                         </div>
+                        <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="form-group row">
-                            <label for="state" class="col-sm-2 col-form-label">State</label>
                             <div class="col-sm-10">
                             <input class="form-control" id="state" value=<?php echo $state;?> type="text">
                             </div>
                            
                         </div>
-                        <div class="form-group row">
-                            <label for="country" class="col-sm-2 col-form-label">Country</label>
+                        <label for="country" class="col-sm-2 col-form-label">Country</label>
+                        <div class="form-group row">                            
                             <div class="col-sm-10">
                             <input class="form-control" id="country" value=<?php echo $country;?> type="text">
                             </div>
                             
                         </div>
-                        <div class="form-group row">
-                            <label for="phonenumber" class="col-sm-2 col-form-label">Phone number</label>
+                        <label for="phonenumber" class="col-sm-2 col-form-label">Phone number</label>
+                        <div class="form-group row">                          
                             <div class="col-sm-10">
                             <input class="form-control" id="phonenumber" value=<?php echo $phonenumber;?> type="text">
                             </div>
                             
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Submit changes</button>
-                            </div>
                         </div>
                
                    
@@ -168,6 +162,11 @@ session_start();
                         <label class="form-check-label" for="showPhonenumber">
                             Show my phone number
                         </label>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit changes</button>
+                            </div>
                         </div>
                 </form>
             </div>
