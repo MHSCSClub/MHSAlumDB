@@ -50,7 +50,7 @@
     <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../css/carousel.css" rel="stylesheet">
@@ -93,10 +93,10 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide" src="../resources/img/newbackground.jpg=" alt="First slide">
+            <img class="first-slide" src="../resources/img/newbackground.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1 class="display-2">Find other alumni</h1>
+                <h1 class="display-2"><span-black>Find other alumni</span-black></h1>
                 <p>Use our online directory to search by name or graduation year</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
               </div>
@@ -106,7 +106,7 @@
             <img class="second-slide" src="../resources/img/back.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1 class="display-2">Update your information</h1>
+                <h1 class="display-2"><span-black>Update your information</span-black></h1>
                 <p>Edit your profile to keep us and other alumni updated</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
               </div>
@@ -116,7 +116,7 @@
             <img class="third-slide" src="../resources/img/slide3.jpg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h1 class="display-2">See school news and events</h1>
+                <h1 class="display-2"><span-black>See school news and events</span-black></h1>
                 <p>Check out posts from other alumni and the Mamaroneck Schools Foundation</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
               </div>
