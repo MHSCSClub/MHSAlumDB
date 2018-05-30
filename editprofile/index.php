@@ -223,9 +223,11 @@
         $stmt->bind_param('ssisssiiis', $firstname, $lastname, $gyear, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
         $stmt->execute();
         echo "success";
+
+        header("Location: /mainprofile");
     }
     else{
-        echo "error";
+        echo "";
     }
     
 ?>
