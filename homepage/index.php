@@ -56,9 +56,8 @@
     <link href="../css/carousel.css" rel="stylesheet">
   </head>
   <body>
-
     <header>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">MHS Alumni Database</a>
             </div>
@@ -94,30 +93,30 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide" src="../resources/newbackground.jpg=" alt="First slide">
+            <img class="first-slide" src="../resources/img/newbackground.jpg=" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1>Find other alumni</h1>
+                <h1 class="display-2">Find other alumni</h1>
                 <p>Use our online directory to search by name or graduation year</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide" src="../resources/back.jpg" alt="Second slide">
+            <img class="second-slide" src="../resources/img/back.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Update your information</h1>
+                <h1 class="display-2">Update your information</h1>
                 <p>Edit your profile to keep us and other alumni updated</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide" src="../resources/slide3.jpg" alt="Third slide">
+            <img class="third-slide" src="../resources/img/slide3.jpg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h1>See school news and events</h1>
+                <h1 class="display-2">See school news and events</h1>
                 <p>Check out posts from other alumni and the Mamaroneck Schools Foundation</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
               </div>
