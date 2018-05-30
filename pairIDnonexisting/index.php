@@ -9,12 +9,9 @@
     }
     
     $indivUser = $_SESSION['individual'];
-    $gyear = $_SESSION['graduationYear'];
-    
     echo $indivUser;
-    echo $gyear;
 
-    /*$sql = "UPDATE `users` SET firstLogin = 0 WHERE username = '$indivUser'";
+    $sql = "UPDATE `users` SET firstLogin = 0 WHERE username = '$indivUser'";
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully ";
     } else {
@@ -34,11 +31,12 @@
 
     $row = $res->fetch_assoc()
     $userid = $row['userid'];
-    $stmt = $conn->prepare("INSERT INTO alum_info alumnitable_id = ?, graduationYear = ?");
-    $stmt->bind_param('ii', $userid, $gyear);
+    
+    $stmt = $conn->prepare("INSERT INTO alum_info alumnitable_id =? ");
+    $stmt->bind_param('i', $userid);
     $stmt->close();
 
-    echo "success";*/
+    echo "success";
 
 ?>
 

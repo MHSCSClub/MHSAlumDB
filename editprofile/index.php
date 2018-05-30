@@ -93,18 +93,24 @@
 
             
                 <form method="post">
-                        <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
+                        <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
                             <input class="form-control"  type="text" id="firstname" name="firstname" value=<?php echo $firstname;?>>
                             </div>
                         </div>
-                        <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
+                        <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
                             <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo $lastname;?>>
                             </div>
-                            
+
+                        <label for="gyear" class="col-sm-2 col-form-label">Graduation Year</label>
+                        <div class="form-group row">                           
+                            <div class="col-sm-10">
+                            <input class="form-control" type="text" id="gyear" name="gyear" value=<?php echo $gyear;?>>
+                            </div>
+
                         </div>
                         <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="form-group row">
@@ -169,6 +175,8 @@
         $lastname = $_POST['lastname'];
         $state = $_POST['state'];
         $country = $_POST['country'];
+        $gyear = $_POST['gyear'];
+
 
         $phonenumber = $_POST['phonenumber'];
         if(isset($_POST['showCountry'])){
@@ -190,9 +198,11 @@
         
         echo $firstname;
         echo $lastname;
+        echo $gyear;
         echo $state;
         echo $country;
         echo $phonenumber;
+
         echo $indivUser;
         echo $showCountry;
         echo $showState;
@@ -208,8 +218,8 @@
         } else {
             echo "0 results";
         }
-        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ?, showPhone = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('sssssiiis', $firstname, $lastname, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, gyear = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ?, showPhone = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('ssisssiiis', $firstname, $lastname, $gyear, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
         $stmt->execute();
         echo "success";
     }
