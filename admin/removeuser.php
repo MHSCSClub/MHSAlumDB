@@ -23,11 +23,11 @@
    }
   $stmt->close();
 
-  $stmt = $conn->prepare("DROP USER IF EXISTS '" . $username . "'");
+  $stmt = $conn->prepare('DELETE FROM setupusers WHERE username = ?');
   if(!$stmt){
     echo "sql query did not go through.";
   }
-  //$stmt->bind_param('s', $username);
+  $stmt->bind_param('s', $username);
 
   $stmt->execute();
   echo $username . " removed.";
