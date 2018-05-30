@@ -1,6 +1,6 @@
 <?php
     ini_set('display_errors', 1);
-    echo "Pairing account to new alumni info";
+    echo "Pairing account to new alumni account";
     session_start();
     include ('../php/rds.php');
     $conn = new mysqli($dbhost, $username, $password, $dbname);
@@ -21,6 +21,22 @@
     } else {
         echo "Error updating record: " . $conn->error;
     }
+
+    $stmt = $conn->prepare("SELECT userid FROM users WHERE username =? ");
+    $stmt->bind_param('s', $indivUser);
+    $stmt->execute();
+    $res = $stmt->get_result();
+	$row = mysqli_fetch_array($res);
+	$stmt->close();
+    
+    $id = $row['userid'];
+
+    
+    $stmt = $conn->prepare("INSERT INTO alum_info (alumnitable_id) VALUE (?)");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $stmt->close();
+    echo "success";
 
 ?>
 
