@@ -24,7 +24,7 @@ class SimpleChat {
                 //the host, name, and password for your mysql
                 $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
                 //select the database
-                mysql_select_db($this->sDbName);
+                //mysql_select_db($this->sDbName);
                 $sMessage = mysql_real_escape_string($_POST['s_message']);
                 if ($sMessage != '') {
                     $query = "INSERT INTO `s_chat_messages` SET `user`='{$sUsername}', `message`='{$sMessage}', `when`=UNIX_TIMESTAMP()";
@@ -40,7 +40,7 @@ class SimpleChat {
     function getMessages() {
         $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
         //select the database
-        mysql_select_db($this->sDbName);
+        //mysql_select_db($this->sDbName);
         //returning the last 15 messages
         $query = "SELECT * FROM `s_chat_messages` ORDER BY `id` ASC LIMIT 15";
         $vRes = $conn->query($query);
