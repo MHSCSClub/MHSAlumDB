@@ -28,7 +28,7 @@ class SimpleChat {
                 $sMessage = addslashes($_POST['s_message']);
                 $stmt = "";
                 if ($sMessage != '') {
-                    $query = "INSERT INTO `s_chat_messages` SET `user`='{?}', `message`='{?}', `when`=UNIX_TIMESTAMP()";
+                    $query = "INSERT INTO `s_chat_messages` SET `user`=?, `message`=?, `when`=UNIX_TIMESTAMP()";
                     $stmt = $conn->prepare($query);
                     $stmt->bind_param('ss', $sUsername, $sMessage);
                     $stmt->execute();
