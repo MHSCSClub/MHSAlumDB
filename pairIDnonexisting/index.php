@@ -14,7 +14,7 @@
     echo $indivUser;
     echo $gyear;
 
-    $sql = "UPDATE `users` SET firstLogin = 0 WHERE username = '$indivUser'";
+    /*$sql = "UPDATE `users` SET firstLogin = 0 WHERE username = '$indivUser'";
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully ";
     } else {
@@ -38,7 +38,7 @@
     $stmt->bind_param('ii', $userid, $gyear);
     $stmt->close();
 
-    echo "success";
+    echo "success";*/
 
 ?>
 
