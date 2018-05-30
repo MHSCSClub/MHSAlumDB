@@ -1,78 +1,32 @@
-
-<div id="page-wrap">
-
-    <h2>jQuery/PHP Chat</h2>
-
-    <p id="name-area"></p>
-
-    <div id="chat-wrap"><div id="chat-area"></div></div>
-
-    <form id="send-message-area">
-        <p>Your message: </p>
-        <textarea id="sendie" maxlength = '100'></textarea>
-    </form>
-
-</div>
-<body onload="setInterval('chat.update()', 1000)">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script src="chat.js"></script>
-<script>
-
-  // ask user for name with popup prompt
-  var name = prompt("Enter your chat name:", "Guest");
-
-  // default name is 'Guest'
-  if (!name || name === ' ') {
-    name = "Guest";
-  }
-
-  // strip tags
-  name = name.replace(/(<([^>]+)>)/ig,"");
-
-  // display name on page
-  $("#name-area").html("You are: <span>" + name + "</span>");
-
-  // kick off chat
-  var chat =  new Chat();
-
-  $(function() {
-
-     chat.getState();
-
-     // watch textarea for key presses
-     $("#sendie").keydown(function(event) {
-
-         var key = event.which;
-
-         //all keys including return.
-         if (key >= 33) {
-
-             var maxLength = $(this).attr("maxlength");
-             var length = this.value.length;
-
-             // don't allow new content if length is maxed out
-             if (length >= maxLength) {
-                 event.preventDefault();
-             }
-         }
-                                                                                                     });
-     // watch textarea for release of key press
-     $('#sendie').keyup(function(e) {
-
-        if (e.keyCode == 13) {
-
-              var text = $(this).val();
-              var maxLength = $(this).attr("maxlength");
-              var length = text.length;
-
-              // send
-              if (length <= maxLength + 1) {
-                chat.send(text, name);
-                $(this).val("");
-              } else {
-                $(this).val(text.substring(0, maxLength));
-              }
-        }
-     });
-  });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>rChat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>rChat</h1>
+        </header>
+        <main>
+            <!-- App will go here-->
+          <div class="userSettings">
+            <label for="userName">Username:</label>
+            <input id="userName" type="text" placeholder="Username" maxlength="32" value="Somebody">
+            </div>
+            <div class="chat">
+            <div id="chatOutput"></div>
+            <input id="chatInput" type="text" placeholder="Input Text here" maxlength="128">
+            <button id="chatSend">Send</button>
+          </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
