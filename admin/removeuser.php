@@ -12,12 +12,22 @@
   $username = $_GET["userName"];
   echo "USERname : " . $username;
   $stmt = $conn->prepare('SELECT * FROM setupusers WHERE username = ?');
+  $stmt->bind_param('s', $username);
   if(!$stmt){
     echo "sql query did not go through.";
   }
+  $stmt->execute();
   $results = $stmt->get_result();
-  //echo '<pre/>'; print_r($conn->error_list); echo '</pre>';
-  //$stmt->bind_param('ss', $username, $username);
+  while ($row = $results->fetch_assoc()) {
+        $username = $row['username'];
+   }
+  $stmt->close();
+
+  $stmt = $conn->prepare('DROP USER [?]');
+  $stmt->bind_param('s', $username);
+  if(!$stmt){
+    echo "sql query did not go through.";
+  }
   $stmt->execute();
   echo $username . " removed.";
 
