@@ -23,7 +23,7 @@
    }
   $stmt->close();
 
-  $stmt = $conn->prepare('DROP USER ?');
+  $stmt = $conn->prepare('DROP USER IF EXISTS ?');
   if(!$stmt){
     echo "sql query did not go through.";
   }
