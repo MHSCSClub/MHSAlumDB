@@ -118,7 +118,7 @@
               <div class="carousel-caption text-right">
                 <h1 class="display-2">See school news and events</h1>
                 <p>Check out posts from other alumni and the Mamaroneck Schools Foundation</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                <p><a class="btn btn-lg btn-primary" href="/homepage/index.php#newsfeed" role="button">Browse gallery</a></p>
               </div>
             </div>
           </div>
@@ -168,7 +168,7 @@
 
         <hr class="featurette-divider">
 
-        <h1 class="display-2">Newsfeed</h1>
+        <h1 class="display-2" id = "newsfeed" >Newsfeed</h1>
 
         <div class="row featurette">
           <div class="col-md-7">
