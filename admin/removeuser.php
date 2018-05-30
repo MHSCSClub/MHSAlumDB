@@ -11,13 +11,14 @@
   }
   $username = $_GET["userName"];
   echo "USERname : " . $username;
-  $stmt = $conn->prepare('IF  EXISTS (SELECT * FROM setupusers WHERE username = ?) DROP USER [?]');
+  $stmt = $conn->prepare('SELECT * FROM setupusers WHERE username = ?');
   if(!$stmt){
     echo "sql query did not go through.";
   }
+  $results = $stmt->get_result();
   //echo '<pre/>'; print_r($conn->error_list); echo '</pre>';
   //$stmt->bind_param('ss', $username, $username);
-  $stmt->execute(array($username));
+  $stmt->execute();
   echo $username . " removed.";
 
   $stmt->close();
