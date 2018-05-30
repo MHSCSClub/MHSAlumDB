@@ -38,7 +38,7 @@
     $stmt->bind_param('ii', $userid, $gyear);
     $stmt->close();
 
-    echo "success"
+    echo "success";
 
 ?>
 
