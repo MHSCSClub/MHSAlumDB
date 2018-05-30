@@ -25,10 +25,13 @@ class SimpleChat {
                 $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
                 //select the database
                 //mysql_select_db($this->sDbName);
-                $sMessage = mysql_real_escape_string($_POST['s_message']);
+                $sMessage = addslashes($_POST['s_message']);
+                $stmt = "";
                 if ($sMessage != '') {
-                    $query = "INSERT INTO `s_chat_messages` SET `user`='{$sUsername}', `message`='{$sMessage}', `when`=UNIX_TIMESTAMP()";
-                    $result = $conn->query($query);
+                    $query = "INSERT INTO `s_chat_messages` SET `user`='{?}', `message`='{?}', `when`=UNIX_TIMESTAMP()";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param('ss', $sUsername, $sMessage);
+                    $stmt->execute();
                 }
             }
         }
