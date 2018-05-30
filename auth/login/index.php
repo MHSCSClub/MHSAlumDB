@@ -17,7 +17,7 @@
         die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
       } else {
         setcookie("alumdbauth", $resp->getData()["authcode"],$resp->getData()["expire"], "/", $_SERVER['SERVER_NAME'], true);
-        header("location: /ui/");
+        header("location: /homepage/");
       }
    } else {
      readfile("login.html");

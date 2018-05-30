@@ -47,7 +47,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Homepage</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -70,7 +70,7 @@
                     <a class="nav-link" href="/ui">Directory</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Chat</a>
+                    <a class="nav-link" href="/chat">Chat</a>
                 </li>    
                 
                 </ul>
@@ -106,8 +106,8 @@
             <img class="second-slide" src="../resources/img/back.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1 class="display-2"><span-black>Update your information</span-black></h1>
-                <p><span-black>Edit your profile to keep us and other alumni updated</span-black></p>
+                <h1 class="display-2">Update your information</h1>
+                <p>Edit your profile to keep us and other alumni updated</p>
                 <p><a class="btn btn-lg btn-primary" href="../editprofile" role="button">Learn more</a></p>
               </div>
             </div>
@@ -143,19 +143,19 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
           <div class="col-lg-4">
-            <img class="rounded-circle" style = "bg-white" src="/resources/img/person-6x.png" alt="Generic placeholder image" width="140" height="140">
+            <img class="rounded-circle" style = "bg-white" src="/resources/img/person-6x.png" alt="Generic placeholder image" width="60" height="60">
             <h2>Reconnect with old friends. </h2>
             <p>Open the directory and click on names to view profiles on every alumni. </p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" style = "bg-white" src="/resources/img/people-6x.png" alt="Generic placeholder image" width="140" height="140">
+            <img class="rounded-circle" style = "bg-white" src="/resources/img/people-6x.png" alt="Generic placeholder image" width="60" height="60">
             <h2>Check out the chat </h2>
             <p>Click the chat link in the navbar to send messages</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img class="rounded-circle"style = "bg-white" src="/resources/img/pencil-6x.png" alt="Generic placeholder image" width="140" height="140">
+            <img class="rounded-circle"style = "bg-white" src="/resources/img/pencil-6x.png" alt="Generic placeholder image" width="60" height="60">
             <h2>Edit and update your own information</h2>
             <p>Go to your profile and click edit information to update us and the alumni community</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
@@ -165,7 +165,10 @@
 
         <!-- START THE FEATURETTES -->
 
+
         <hr class="featurette-divider">
+
+        <h1 class="display-2">Newsfeed</h1>
 
         <div class="row featurette">
           <div class="col-md-7">
@@ -211,7 +214,7 @@
       <!-- FOOTER -->
       <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>
-        <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        <p>© 2017-2018 Max-Pablo, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
       </footer>
     </main>
 

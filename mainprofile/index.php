@@ -61,7 +61,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Homepage</title>
+  <title>My Profile</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,13 +80,14 @@
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link" href="/homepage">Homepage</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/ui">Directory</a>
                 </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="/chat">Chat</a>
                 </li>    
                 
                 </ul>
