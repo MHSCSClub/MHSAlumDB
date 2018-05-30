@@ -224,7 +224,7 @@
         $stmt->execute();
         echo "success";
 
-        header("Location: /mainprofile");
+        header("location: /mainprofile/");
     }
     else{
         echo "";
