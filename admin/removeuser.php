@@ -10,11 +10,17 @@
       die("Connection failed: " . $conn->connect_error);
   }
   $username = $_GET["userName"];
-  echo "USERname : " . $username;
-  $stmt = $conn->prepare('IF  EXISTS (SELECT * FROM setupusers WHERE username = ?) DROP USER [?]');
-  echo '<pre/>'; print_r($conn->error_list); echo '</pre>';
-  $stmt->bind_param('ss', $username, $username);
+
+  $stmt = $conn->prepare('DELETE FROM setupusers WHERE username = ?');
+  if(!$stmt){
+    echo "sql query did not go through.";
+  }
+  $stmt->bind_param('s', $username);
+
   $stmt->execute();
-  echo $username . " removed.";
+  header("Refresh:5; url=index.php");
+  echo "The account '" . $username . "' has been removed.";
+
+  $stmt->close();
 
 ?>
