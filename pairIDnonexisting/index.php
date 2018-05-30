@@ -32,9 +32,9 @@
     $row = $res->fetch_assoc()
     $userid = $row['userid'];
     
-    $stmt = $conn->prepare("INSERT INTO alum_info alumnitable_id =? ");
+    /*$stmt = $conn->prepare("INSERT INTO alum_info alumnitable_id =? ");
     $stmt->bind_param('i', $userid);
-    $stmt->close();
+    $stmt->close();*/
 
     echo "success";
 
