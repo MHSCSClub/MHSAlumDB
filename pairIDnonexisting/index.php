@@ -30,12 +30,12 @@
 	$stmt->close();
     
     $id = $row['userid'];
-
+    echo $id;
     
-    $stmt = $conn->prepare("INSERT INTO alum_info (alumnitable_id) VALUE (?)");
-    $stmt->bind_param('i', $id);
-    $stmt->execute();
-    $stmt->close();
+    $stmt = $conn->prepare('INSERT INTO alum_info (alumnitable_id) VALUES (?)');
+	$stmt->bind_param('i', $id);
+	$stmt->execute();
+	$stmt->close();
     echo "success";
 
 ?>
