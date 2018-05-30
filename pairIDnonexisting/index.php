@@ -1,42 +1,26 @@
 <?php
     ini_set('display_errors', 1);
-    echo "Pairing account to new alumni account ";
+    echo "Pairing account to new alumni info";
     session_start();
     include ('../php/rds.php');
     $conn = new mysqli($dbhost, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    
     $indivUser = $_SESSION['individual'];
-    echo $indivUser;
-
+    
     $sql = "UPDATE `users` SET firstLogin = 0 WHERE username = '$indivUser'";
     if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully ";
+        echo "Record updated successfully";
     } else {
         echo "Error updating record: " . $conn->error;
     }
     $sql = "UPDATE `users` SET userid = (userid+29000) WHERE username = '$indivUser'";
     if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully ";
+        echo "Record updated successfully";
     } else {
         echo "Error updating record: " . $conn->error;
     }
-    $stmt=$conn->prepare("SELECT userid FROM users WHERE username = ?");
-    $stmt->bind_param('s', $indivUser);
-    $stmt->execute();
-    $res = $stmt->get_result();
-    $stmt->close();
-
-    $row = $res->fetch_assoc()
-    $userid = $row['userid'];
-    
-    /*$stmt = $conn->prepare("INSERT INTO alum_info alumnitable_id =? ");
-    $stmt->bind_param('i', $userid);
-    $stmt->close();*/
-
-    echo "success";
 
 ?>
 
