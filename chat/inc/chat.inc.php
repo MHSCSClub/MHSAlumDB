@@ -22,14 +22,14 @@ class SimpleChat {
             if(isset($_POST['s_say']) && $_POST['s_message']) {
                 $sUsername = $_COOKIE['member_name'];
                 //the host, name, and password for your mysql
-                $vLink = mysql_connect($this->sDbhost, $this->sDbUser, $this->sDbPass);
+                $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
                 //select the database
                 mysql_select_db($this->sDbName);
                 $sMessage = mysql_real_escape_string($_POST['s_message']);
                 if ($sMessage != '') {
-                    mysql_query("INSERT INTO `s_chat_messages` SET `user`='{$sUsername}', `message`='{$sMessage}', `when`=UNIX_TIMESTAMP()");
+                    $query = "INSERT INTO `s_chat_messages` SET `user`='{$sUsername}', `message`='{$sMessage}', `when`=UNIX_TIMESTAMP()";
+                    $result = $conn->query($query);
                 }
-                mysql_close($vLink);
             }
         }
         ob_start();
@@ -38,22 +38,23 @@ class SimpleChat {
         return $sShoutboxForm;
     }
     function getMessages() {
-        $vLink = mysql_connect($this->sDbhost, $this->sDbUser, $this->sDbPass);
+        $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
         //select the database
         mysql_select_db($this->sDbName);
         //returning the last 15 messages
-        $vRes = mysql_query("SELECT * FROM `s_chat_messages` ORDER BY `id` ASC LIMIT 15");
+        $query = "SELECT * FROM `s_chat_messages` ORDER BY `id` ASC LIMIT 15";
+        $vRes = $conn->query($query);
         $sMessages = '';
         // collecting list of messages
         if ($vRes) {
-            while($aMessages = mysql_fetch_array($vRes)) {
+            while($aMessages = $vRes->fetch_assoc()) {
                 $sWhen = date("H:i:s", $aMessages['when']);
                 $sMessages .= '<div class="message">' . $aMessages['user'] . ': ' . $aMessages['message'] . '<span>(' . $sWhen . ')</span></div>';
             }
         } else {
             $sMessages = 'DB error, create SQL table before';
         }
-        mysql_close($vLink);
+        $conn->close();
         ob_start();
         require_once('chat_begin.html');
         echo $sMessages;
