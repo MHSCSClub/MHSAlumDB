@@ -22,7 +22,7 @@ class SimpleChat {
             if(isset($_POST['s_say']) && $_POST['s_message']) {
                 $sUsername = $_COOKIE['member_name'];
                 //the host, name, and password for your mysql
-                $conn = new mysqli($dbhost, $username, $password, $dbname);
+                $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
                 //select the database
                 mysql_select_db($this->sDbName);
                 $sMessage = mysql_real_escape_string($_POST['s_message']);
@@ -38,7 +38,7 @@ class SimpleChat {
         return $sShoutboxForm;
     }
     function getMessages() {
-        $conn = new mysqli($dbhost, $username, $password, $dbname);
+        $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
         //select the database
         mysql_select_db($this->sDbName);
         //returning the last 15 messages
