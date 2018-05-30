@@ -219,7 +219,7 @@
         } else {
             echo "0 results";
         }
-        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, gyear = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ?, showPhone = ? WHERE alumnitable_id = ?");
+        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, graduationYear = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ?, showPhone = ? WHERE alumnitable_id = ?");
         $stmt->bind_param('ssisssiiis', $firstname, $lastname, $gyear, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
         $stmt->execute();
         echo "success";
