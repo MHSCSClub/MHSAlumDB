@@ -23,11 +23,12 @@
    }
   $stmt->close();
 
-  $stmt = $conn->prepare('DROP USER [?]');
-  $stmt->bind_param('s', $username);
+  $stmt = $conn->prepare('DROP USER ?');
   if(!$stmt){
     echo "sql query did not go through.";
   }
+  $stmt->bind_param('s', $username);
+
   $stmt->execute();
   echo $username . " removed.";
 
