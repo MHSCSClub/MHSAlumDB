@@ -35,7 +35,7 @@
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, currentstate, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, street, city, currentstate, zipcode, country, graduationYear, phoneNumber, jobTitle, businessName, businessStreet, businessCity FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -97,42 +97,42 @@
                         <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control"  type="text" id="firstname" name="firstname" value=<?php echo  . $firstname;?>>
+                            <input class="form-control"  type="text" id="firstname" name="firstname" value=<?php echo $firstname;?>>
                             </div>
                         </div>
 
                         <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo . $lastname;?>>
+                            <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo $lastname;?>>
                             </div>
                         </div>
 
                         <label for="gyear" class="col-sm-2 col-form-label">Graduation Year</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="gyear" name="gyear" value=<?php echo . $gyear;?>>
+                            <input class="form-control" type="text" id="gyear" name="gyear" value=<?php echo $gyear;?>>
                         </div>
 
                         </div>
                         <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="state" name="state" value=<?php echo . $state;?>>
+                            <input class="form-control" type="text" id="state" name="state" value=<?php echo "" . $state;?>>
                         </div>
                            
                         </div>
                         <label for="country" class="col-sm-2 col-form-label">Country</label>
                         <div class="form-group row">                            
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="country" name="country" value=<?php echo . $country;?>>
+                            <input class="form-control" type="text" id="country" name="country" value=<?php echo $country;?>>
                         </div>
                             
                         </div>
                         <label for="phonenumber" class="col-sm-2 col-form-label">Phone number</label>
                         <div class="form-group row">                          
                             <div class="col-sm-10">
-                            <input class="form-control"  type="text" id="phonenumber" name="phonenumber" value=<?php echo . $phonenumber;?>>
+                            <input class="form-control"  type="text" id="phonenumber" name="phonenumber" value=<?php echo $phonenumber;?>>
                             </div>    
                         </div>
                
