@@ -49,6 +49,7 @@
             $gyear = $row["graduationYear"];
             $phonenumber = $row["phoneNumber"];
         }
+
         else{
             trigger_error("error");
         }
@@ -96,46 +97,54 @@
                         <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control"  type="text" id="firstname" name="firstname" value=<?php echo $firstname;?>>
+                            <input class="form-control"  type="text" id="firstname" name="firstname" value=<?php echo  . $firstname;?>>
                             </div>
                         </div>
 
                         <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo $lastname;?>>
+                            <input class="form-control" type="text" id="lastname" name="lastname" value=<?php echo . $lastname;?>>
                             </div>
                         </div>
 
                         <label for="gyear" class="col-sm-2 col-form-label">Graduation Year</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="gyear" name="gyear" value=<?php echo $gyear;?>>
+                            <input class="form-control" type="text" id="gyear" name="gyear" value=<?php echo . $gyear;?>>
                         </div>
 
                         </div>
                         <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="state" name="state" value=<?php echo $state;?>>
+                            <input class="form-control" type="text" id="state" name="state" value=<?php echo . $state;?>>
                         </div>
                            
                         </div>
                         <label for="country" class="col-sm-2 col-form-label">Country</label>
                         <div class="form-group row">                            
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="country" name="country" value=<?php echo $country;?>>
+                            <input class="form-control" type="text" id="country" name="country" value=<?php echo . $country;?>>
                         </div>
                             
                         </div>
                         <label for="phonenumber" class="col-sm-2 col-form-label">Phone number</label>
                         <div class="form-group row">                          
                             <div class="col-sm-10">
-                            <input class="form-control"  type="text" id="phonenumber" name="phonenumber" value=<?php echo $phonenumber;?>>
+                            <input class="form-control"  type="text" id="phonenumber" name="phonenumber" value=<?php echo . $phonenumber;?>>
                             </div>    
                         </div>
                
-                   
+                        
+
+
+
+
+
+
+
+
                         <div class="form-check">
                         <input class="form-check-input" value="1" name="showState" type="checkbox">
                         <label class="form-check-label" for="showState">
@@ -203,22 +212,25 @@
         echo $state;
         echo $country;
         echo $phonenumber;
-
         echo $indivUser;
         echo $showCountry;
         echo $showState;
         echo $showPhonenumber;
+
+
+
         $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
         $result = $conn->query($sql);
         $id;
         if ($result->num_rows > 0) {
-                    // output data of each row
-            while($row = $result->fetch_assoc()) {
+            $row = $result->fetch_assoc();
                 $id = $row["userid"];
-            }
+            
         } else {
             echo "0 results";
         }
+
+
         $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, graduationYear = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ?, showPhone = ? WHERE alumnitable_id = ?");
         $stmt->bind_param('ssisssiiis', $firstname, $lastname, $gyear, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
         $stmt->execute();
