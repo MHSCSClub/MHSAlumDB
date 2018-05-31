@@ -35,7 +35,7 @@
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, street, city, currentstate, zipcode, country, graduationYear, phoneNumber, jobTitle, businessName, businessStreet, businessCity FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, street, city, currentstate, zipcode, country, graduationYear, phoneNumber, jobTitle, businessName, businessStreet, businessCity, businessCountry, businessPhoneNumber, email FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -111,14 +111,14 @@
                         <label for="gyear" class="col-sm-2 col-form-label">Graduation Year</label>
                         <div class="form-group row">                           
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="gyear" name="gyear" value=<?php echo $gyear;?>>
+                            <input class="form-control" type="text" id="gyear" name="gyear" value=<?php echo $gyear;?> >
                         </div>
 
                         </div>
                         <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input class="form-control" type="text" id="state" name="state" value=<?php echo "" . $state;?>>
+                            <input class="form-control" type="text" id="state" name="state" value=<?php echo "" . $state;?> placeholder = <?php echo "" . $state;?>>
                         </div>
                            
                         </div>
@@ -235,11 +235,21 @@
         $stmt->bind_param('ssisssiiis', $firstname, $lastname, $gyear, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
         $stmt->execute();
         echo "success";
-
-        header("location: /mainprofile/");
     }
     else{
         echo "";
     }
     
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Logged out</title>
+    </head>
+    <body>
+        <p>Redirecting to your profile</p>
+        <script type="text/javascript">
+            t1 = window.setTimeout(function(){ window.location = "/mainprofile"; },500);
+        </script>
+    </body>
+</html>
