@@ -2,6 +2,8 @@
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       include("../../php/signal.class.php");
       include("../../php/auth.php");
+      //hello
+      
       
       session_start();
       // username and password sent from form 
