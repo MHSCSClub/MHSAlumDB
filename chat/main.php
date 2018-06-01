@@ -14,9 +14,9 @@ echo $oSimpleLoginSystem->getLoginBox();
 // draw chat application
 $sChatResult = 'Need login before using';
 if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
- if ($oSimpleLoginSystem->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
+ //if ($oSimpleLoginSystem->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
  $sChatResult = $oSimpleChat->acceptMessages();
- }
+// }
 }
 echo $sChatResult;
 ?>
