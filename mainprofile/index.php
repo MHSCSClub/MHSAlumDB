@@ -131,10 +131,9 @@
       <hr>
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Graduated in: " . $gyear; ?></p>
-        <p><?php echo "Street: " . $street; ?></p>
-        <p><?php echo "City: " . $city; ?></p>
+        
         <p><?php echo "State: " . $state; ?></p>
-        <p><?php echo "Zipcode: " . $zipcode; ?></p>
+        
         <p><?php echo "Country: " . $country; ?></p>
         <p> Additional information: </p>
       </ul>
@@ -145,7 +144,7 @@
         <p><?php echo "Phone number: " . $phonenumber; ?></p>
       </ul>
       <ul class="nav nav-pills flex-column">
-        <p><?php echo "Email: " . $email; ?></p>
+        <p><?php echo "Email: " ; ?></p>
       </ul>
       <hr class="d-sm-none">
     </div>
