@@ -166,7 +166,7 @@
                                 <input type="text" class="form-control" id="zipcode" name = "zipcode" value = "<?php echo $zipcode;?>">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="showZipcode">Show State</label>
+                                <label for="showZipcode">Show Zipcode</label>
                                 <select id="showZipcode" name = "showZipcode" class="form-control">
                                     <option selected value=0>Hide</option>
                                     <option value=1>Show</option>
@@ -208,11 +208,17 @@
                                 <input type="text" class="form-control" id="email" name = "email" value = "<?php echo $email;?>">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="showEmail">Show Phone Number</label>
+                                <label for="showEmail">Show Email</label>
                                 <select id="showEmail" name = "showEmail" class="form-control">
                                     <option selected value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit changes</button>
                             </div>
                         </div>
                 </form>
