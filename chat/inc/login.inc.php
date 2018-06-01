@@ -1,6 +1,6 @@
 <?php
 //include("../php/signal.class.php");
-include("../php/auth.php");
+//include("../php/auth.php");
 // class SimpleLoginSystem
 class SimpleLoginSystem {
     // variables
