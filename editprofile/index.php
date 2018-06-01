@@ -56,6 +56,7 @@
             $businessstreet = $row["businessStreet"];
             $businesscity = $row["businessCity"];
             $businessphonenumber = $row["businessPhoneNumber"];
+            $email = $row["email"];
         }
 
         else{
@@ -119,6 +120,34 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-8">
+                                <label for="street">Street</label>
+                                <input type="text" class="form-control" id="street" name = "street" value = "<?php echo $street;?>">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="showStreet">Show Street</label>
+                                <select id="showStreet" name = "showStreet" class="form-control">
+                                    <option selected value=0>Hide</option>
+                                    <option value=1>Show</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" name = "city" value = "<?php echo $city;?>">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="showCity">Show City</label>
+                                <select id="showCity" name = "showCity" class="form-control">
+                                    <option selected value=0>Hide</option>
+                                    <option value=1>Show</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
                                 <label for="state">State</label>
                                 <input type="text" class="form-control" id="state" name = "state" value = "<?php echo $state;?>">
                             </div>
@@ -131,36 +160,59 @@
                             </div>
                         </div>
 
-                        <label for="country" class="col-sm-2 col-form-label">Country</label>
-                        <div class="form-group row">                            
-                            <div class="col-sm-10">
-                            <input class="form-control" type="text" id="country" name="country" value="<?php echo $country;?>">
-                        </div>
-                            
-                        </div>
-                        <label for="phonenumber" class="col-sm-2 col-form-label">Phone number</label>
-                        <div class="form-group row">                          
-                            <div class="col-sm-10">
-                            <input class="form-control"  type="text" id="phonenumber" name="phonenumber" value="<?php echo $phonenumber;?>">
-                            </div>    
-                        </div>
-            
-                        <div class="form-check">
-                        <input class="form-check-input" value="1" name="showCountry" type="checkbox">
-                        <label class="form-check-label" for="showCountry">
-                            Show my country
-                        </label>
-                        </div>
-                        <div class="form-check">
-                        <input class="form-check-input" value="1" name="showPhonenumber" type="checkbox">
-                        <label class="form-check-label" for="showPhonenumber">
-                            Show my phone number
-                        </label>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="zipcode">Zipcode</label>
+                                <input type="text" class="form-control" id="zipcode" name = "zipcode" value = "<?php echo $zipcode;?>">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="showZipcode">Show State</label>
+                                <select id="showZipcode" name = "showZipcode" class="form-control">
+                                    <option selected value=0>Hide</option>
+                                    <option value=1>Show</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Submit changes</button>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" id="country" name = "country" value = "<?php echo $country;?>">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="showCountry">Show Country</label>
+                                <select id="showCountry" name = "showCountry" class="form-control">
+                                    <option selected value=0>Hide</option>
+                                    <option value=1>Show</option>
+                                </select>
+                            </div>
+                        </div>
+                            
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="phonenumber">Phone Number</label>
+                                <input type="text" class="form-control" id="phonenumber" name = "phonenumber" value = "<?php echo $phonenumber;?>">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="showPhonenumber">Show Phone Number</label>
+                                <select id="showPhonenumber" name = "showPhonenumber" class="form-control">
+                                    <option selected value=0>Hide</option>
+                                    <option value=1>Show</option>
+                                </select>
+                            </div>
+                        </div>
+
+                         <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" name = "email" value = "<?php echo $email;?>">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="showEmail">Show Phone Number</label>
+                                <select id="showEmail" name = "showEmail" class="form-control">
+                                    <option selected value=0>Hide</option>
+                                    <option value=1>Show</option>
+                                </select>
                             </div>
                         </div>
                 </form>
@@ -177,35 +229,42 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $state = $_POST['state'];
-        $country = $_POST['country'];
         $gyear = $_POST['gyear'];
-
-
+        $street = $_POST['street'];
+        $showstreet = $_POST['showStreet'];
+        $city = $_POST['city'];
+        $showcity = $_POST['showCity'];
+        $state = $_POST['state'];
+        $showstate = $_POST['showState'];
+        $zipcode = $_POST['zipcode'];
+        $showzipcode = $_POST['showZipcode'];
+        $country = $_POST['country'];
+        $showcountry = $_POST['showCountry'];
         $phonenumber = $_POST['phonenumber'];
-        if(isset($_POST['showCountry'])){
-            $showCountry = $_POST['showCountry'];
-        }else{
-            $showCountry = 0;
-        }
-        $showState = $_POST['showState'];
-        if(isset($_POST['showPhonenumber'])){
-            $showPhonenumber = $_POST['showPhonenumber'];
-        }else{
-            $showPhonenumber = 0;
-        }
+        $showphonenumber = $_POST['showPhonenumber'];
+        $email = $_POST['email'];
+        $showemail = $_POST['showEmail'];
+        
+        
 
         
         echo $firstname;
         echo $lastname;
         echo $gyear;
+        echo $street;
+        echo $showstreet;
+        echo $city;
+        echo $showcity;
         echo $state;
+        echo $zipcode;
+        echo $showzipcode;
+        echo $showstate;
         echo $country;
+        echo $showcountry;
         echo $phonenumber;
-        echo $indivUser;
-        echo $showCountry;
-        echo $showState;
-        echo $showPhonenumber;
+        echo $showphonenumber;
+        echo $email;
+        echo $showemail;
 
 
 
@@ -221,8 +280,8 @@
         }
 
 
-        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, graduationYear = ?, currentstate = ?, country = ?, phoneNumber = ?, showState = ?, showCountry = ?, showPhone = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('ssisssiiis', $firstname, $lastname, $gyear, $state, $country, $phonenumber, $showState, $showCountry, $showPhonenumber, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, graduationYear = ?, street = ?, showStreet = ?, city = ?, showCity = ?, currentstate = ?, showState = ?, zipcode = ?, showZipcode = ?, country = ?, showCountry = ?, phoneNumber = ?, showPhone = ?, email = ?, showEmail = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('ssisisisiiisiiisii', $firstname, $lastname, $gyear, $street, $showstreet, $city, $showcity, $state, $showstate, $zipcode, $showzipcode, $country, $showcountry, $phonenumber, $showphonenumber, $email, $showemail, $id);
         $stmt->execute();
         echo "success";
 
