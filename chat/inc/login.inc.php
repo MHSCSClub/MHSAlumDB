@@ -57,8 +57,9 @@ class SimpleLoginSystem {
         unset($_COOKIE['member_pass']);
     }
     function check_login($sName, $sPass) {
-
-        return auth::login($_POST['username'], $_POST['password']);
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+          return auth::login($_POST['username'], $_POST['password']);
+      }
     }
 }
 ?>
