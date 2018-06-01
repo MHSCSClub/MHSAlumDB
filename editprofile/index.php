@@ -144,22 +144,7 @@
                             <input class="form-control"  type="text" id="phonenumber" name="phonenumber" value="<?php echo $phonenumber;?>">
                             </div>    
                         </div>
-               
-                        
-
-
-
-
-
-
-
-
-                        <div class="form-check">
-                        <input class="form-check-input" value="1" name="showState" type="checkbox">
-                        <label class="form-check-label" for="showState">
-                            Show my current state
-                        </label>
-                        </div>
+            
                         <div class="form-check">
                         <input class="form-check-input" value="1" name="showCountry" type="checkbox">
                         <label class="form-check-label" for="showCountry">
