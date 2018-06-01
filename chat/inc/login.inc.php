@@ -59,6 +59,7 @@ class SimpleLoginSystem {
     function check_login($sName, $sPass) {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
           $check = auth::login($_POST['username'], $_POST['password']);
+          echo $check;
           echo "Within check login method.";
           return $check;
       }
