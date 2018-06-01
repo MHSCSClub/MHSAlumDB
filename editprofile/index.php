@@ -241,15 +241,3 @@
     }
     
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Logged out</title>
-    </head>
-    <body>
-        <p>Redirecting to your profile</p>
-        <script type="text/javascript">
-            t1 = window.setTimeout(function(){ window.location = "/mainprofile"; },500);
-        </script>
-    </body>
-</html>
