@@ -27,14 +27,15 @@
     $result = $conn->query($sql);
     $id;
         if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()) 
+                    // output data of each row
+            while($row = $result->fetch_assoc()) {
                 $id = $row["userid"];
             }
         } else {
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, currentstate, showState, country, showCountry, graduationYear, phoneNumber, showPhone FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, currentstate, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -43,29 +44,10 @@
             $row = $result->fetch_assoc();
             $firstname= $row["firstName"];
             $lastname= $row["lastName"];
+            $state= $row["currentstate"];
+            $country= $row["country"];
             $gyear = $row["graduationYear"];
-            $showState = $row["showState"];
-            $showCountry = $row["showCountry"];
-            $showPhonenumber = $row["showPhone"];
-            
-            if($showState == 0){
-                $state = "";
-            }
-            else{
-                $state = $row["currentstate"];
-            }
-            if($showCountry == 0){
-                $country = "";
-            }
-            else{
-                $country = $row["country"];
-            }
-            if($showPhonenumber == 0){
-                $phonenumber = "";
-            }
-            else{
-                $phonenumber = $row["phoneNumber"];
-            }
+            $phonenumber = $row["phoneNumber"];
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
                     echo  $tablecode = $tablecode . "</tbody></table>";*/
@@ -73,7 +55,6 @@
         else{
             trigger_error("error");
         }
-        
         
     $conn->close();
 ?>
@@ -131,20 +112,15 @@
       <hr>
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Graduated in: " . $gyear; ?></p>
-        
-        <p><?php echo "State: " . $state; ?></p>
-        
-        <p><?php echo "Country: " . $country; ?></p>
+        <p><?php echo "Current employer: "  ?></p>
         <p> Additional information: </p>
       </ul>
       <hr>
       <h3> Contact information </h3>
       <hr>
+
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Phone number: " . $phonenumber; ?></p>
-      </ul>
-      <ul class="nav nav-pills flex-column">
-        <p><?php echo "Email: " ; ?></p>
       </ul>
       <hr class="d-sm-none">
     </div>
