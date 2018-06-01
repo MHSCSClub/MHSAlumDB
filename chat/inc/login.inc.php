@@ -13,13 +13,16 @@ class SimpleLoginSystem {
     }
     function getLoginBox() {
         ob_start();
+        session_start();
         require_once('login_form.html');
         $sLoginForm = ob_get_clean();
         $sLogoutForm = '<a href="'.$_SERVER['PHP_SELF'].'?logout=1">logout</a>';
+        // Log out
         if ((int)$_REQUEST['logout'] == 1) {
             if (isset($_COOKIE['member_name']) && isset($_COOKIE['member_pass']))
                 $this->simple_logout();
         }
+        // Log in
         if ($_REQUEST['username'] && $_REQUEST['password']) {
             if ($this->check_login($_REQUEST['username'], MD5($_REQUEST['password']))) {
                 $this->simple_login($_REQUEST['username'], $_REQUEST['password']);
@@ -52,7 +55,7 @@ class SimpleLoginSystem {
         unset($_COOKIE['member_pass']);
     }
     function check_login($sName, $sPass) {
-        return ($this->aExistedMembers[$sName] == $sPass);
+        return auth::login($_POST['username'], $_POST['password']);
     }
 }
 ?>
