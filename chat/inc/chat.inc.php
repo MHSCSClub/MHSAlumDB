@@ -50,6 +50,7 @@ class SimpleChat {
         $sMessages = '';
         // collecting list of messages
         if ($vRes) {
+            echo "Getting messages";
             while($aMessages = $vRes->fetch_assoc()) {
                 $sWhen = date("H:i:s", $aMessages['when']);
                 $sMessages .= '<div class="message">' . $aMessages['user'] . ': ' . $aMessages['message'] . '<span>(' . $sWhen . ')</span></div>';
