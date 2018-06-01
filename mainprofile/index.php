@@ -123,6 +123,8 @@
       <hr>
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Graduated in: " . $gyear; ?></p>
+        <p><?php echo "State: " . $state; ?></p>
+        <p><?php echo "Country: " . $country; ?></p>
         <p><?php echo "Current employer: "  ?></p>
         <p> Additional information: </p>
       </ul>
