@@ -27,15 +27,14 @@
     $result = $conn->query($sql);
     $id;
         if ($result->num_rows > 0) {
-                    // output data of each row
-            while($row = $result->fetch_assoc()) {
+                $row = $result->fetch_assoc()) 
                 $id = $row["userid"];
             }
         } else {
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, street, showStreet, city, showCity, currentstate, showState, zipcode, showZip, country, showCountry, graduationYear, phoneNumber, showPhone, jobTitle, businessName, businessStreet, businessCity, businessPhoneNumber, email, showEmail FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, currentstate, showState, country, showCountry, graduationYear, phoneNumber, showPhone FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -45,60 +44,36 @@
             $firstname= $row["firstName"];
             $lastname= $row["lastName"];
             $gyear = $row["graduationYear"];
-            $showstreet = $row["showStreet"];
-            $showcity = $row["showCity"];
-            $showstate = $row["showState"];
-            $showzip = $row["showZip"];
-            $showcountry = $row["showCountry"];
-            $showphonenumber = $row["showPhone"]
-            $showemail = $row["showEmail"];
-            if($showstreet == 1){
-                $street = $row["street"];
-            }else{
-                $street = "";
-            }
-            if($showcity == 1){
-                $city = $row["city"];
-            }else{
-                $city = "";
-            }
-            if($showstate == 1){
-                $state= $row["currentstate"];
-            }else{
+            $showState = $row["showState"];
+            $showCountry = $row["showCountry"];
+            $showPhonenumber = $row["showPhone"];
+            
+            if($showState == 0){
                 $state = "";
             }
-            if($showzip == 1){
-                $zipcode = $row["zipcode"];
-            }else{
-                $zipcode = "";
+            else{
+                $state = $row["currentstate"];
             }
-            if($showcountry == 1){
-                $country = $row["country"];
-            }else{
+            if($showCountry == 0){
                 $country = "";
             }
-            if($showphonenumber == 1){
-                $phonenumber = $row["phoneNumber"];
-            }else{
+            else{
+                $country = $row["country"];
+            }
+            if($showPhonenumber == 0){
                 $phonenumber = "";
             }
-            if($showEmail == 1){
-                $email = $row["email"];
-            }else{
-                $email = "";
+            else{
+                $phonenumber = $row["phoneNumber"];
             }
-            
-            $jobtitle = $row["jobTitle"];
-            $businessname = $row["businessName"];
-            $businessstreet = $row["businessStreet"];
-            $businesscity = $row["businessCity"];
-            $businessphonenumber = $row["businessPhoneNumber"];
-           
-           
+                    /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
+                    $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
+                    echo  $tablecode = $tablecode . "</tbody></table>";*/
         }
         else{
             trigger_error("error");
         }
+        
         
     $conn->close();
 ?>
