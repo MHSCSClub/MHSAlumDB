@@ -35,7 +35,7 @@
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, currentstate, country, graduationYear, phoneNumber FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, street, showStreet, city, showCity, currentstate, showState, zipcode, showZip, country, showCountry, graduationYear, phoneNumber, showPhone, jobTitle, businessName, businessStreet, businessCity, businessPhoneNumber, email, showEmail FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -44,13 +44,57 @@
             $row = $result->fetch_assoc();
             $firstname= $row["firstName"];
             $lastname= $row["lastName"];
-            $state= $row["currentstate"];
-            $country= $row["country"];
             $gyear = $row["graduationYear"];
-            $phonenumber = $row["phoneNumber"];
-                    /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
-                    $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
-                    echo  $tablecode = $tablecode . "</tbody></table>";*/
+            $showstreet = $row["showStreet"];
+            $showcity = $row["showCity"];
+            $showstate = $row["showState"];
+            $showzip = $row["showZip"];
+            $showcountry = $row["showCountry"];
+            $showphonenumber = $row["showPhone"]
+            $showemail = $row["showEmail"];
+            if($showstreet == 1){
+                $street = $row["street"];
+            }else{
+                $street = "";
+            }
+            if($showcity == 1){
+                $city = $row["city"];
+            }else{
+                $city = "";
+            }
+            if($showstate == 1){
+                $state= $row["currentstate"];
+            }else{
+                $state = "";
+            }
+            if($showzip == 1){
+                $zipcode = $row["zipcode"];
+            }else{
+                $zipcode = "";
+            }
+            if($showcountry == 1){
+                $country = $row["country"];
+            }else{
+                $country = "";
+            }
+            if($showphonenumber == 1){
+                $phonenumber = $row["phoneNumber"];
+            }else{
+                $phonenumber = "";
+            }
+            if($showEmail == 1){
+                $email = $row["email"];
+            }else{
+                $email = "";
+            }
+            
+            $jobtitle = $row["jobTitle"];
+            $businessname = $row["businessName"];
+            $businessstreet = $row["businessStreet"];
+            $businesscity = $row["businessCity"];
+            $businessphonenumber = $row["businessPhoneNumber"];
+           
+           
         }
         else{
             trigger_error("error");
@@ -112,15 +156,21 @@
       <hr>
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Graduated in: " . $gyear; ?></p>
-        <p><?php echo "Current employer: "  ?></p>
+        <p><?php echo "Street: " . $street; ?></p>
+        <p><?php echo "City: " . $city; ?></p>
+        <p><?php echo "State: " . $state; ?></p>
+        <p><?php echo "Zipcode: " . $zipcode; ?></p>
+        <p><?php echo "Country: " . $country; ?></p>
         <p> Additional information: </p>
       </ul>
       <hr>
       <h3> Contact information </h3>
       <hr>
-
       <ul class="nav nav-pills flex-column">
         <p><?php echo "Phone number: " . $phonenumber; ?></p>
+      </ul>
+      <ul class="nav nav-pills flex-column">
+        <p><?php echo "Email: " . $email; ?></p>
       </ul>
       <hr class="d-sm-none">
     </div>

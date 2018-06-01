@@ -254,7 +254,7 @@
         
 
         
-        echo $firstname;
+        /*echo $firstname;
         echo $lastname;
         echo $gyear;
         echo $street;
@@ -270,7 +270,7 @@
         echo $phonenumber;
         echo $showphonenumber;
         echo $email;
-        echo $showemail;
+        echo $showemail;*/
 
 
 
