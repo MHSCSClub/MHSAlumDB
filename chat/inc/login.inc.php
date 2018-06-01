@@ -55,6 +55,8 @@ class SimpleLoginSystem {
         unset($_COOKIE['member_pass']);
     }
     function check_login($sName, $sPass) {
+      include("../../php/signal.class.php");
+      include("../../php/auth.php");
         return auth::login($_POST['username'], $_POST['password']);
     }
 }
