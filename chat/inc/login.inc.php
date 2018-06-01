@@ -1,5 +1,5 @@
 <?php
-include("../php/signal.class.php");
+//include("../php/signal.class.php");
 include("../php/auth.php");
 // class SimpleLoginSystem
 class SimpleLoginSystem {
@@ -26,7 +26,7 @@ class SimpleLoginSystem {
         }
         // Log in
         if ($_REQUEST['username'] && $_REQUEST['password']) {
-            if ($this->check_login($_REQUEST['username'], MD5($_REQUEST['password']))) {
+            if ($this->check_login($_REQUEST['username'], $_REQUEST['password'])) {
                 $this->simple_login($_REQUEST['username'], $_REQUEST['password']);
                 return 'Hello ' . $_REQUEST['username'] . '! ' . $sLogoutForm;
             } else {
