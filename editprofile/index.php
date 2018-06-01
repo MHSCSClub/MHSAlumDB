@@ -286,9 +286,28 @@
         }
 
 
-        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, graduationYear = ?, street = ?, showStreet = ?, city = ?, showCity = ?, currentstate = ?, showState = ?, zipcode = ?, showZipcode = ?, country = ?, showCountry = ?, phoneNumber = ?, showPhone = ?, email = ?, showEmail = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('ssisisisiiisiiisii', $firstname, $lastname, $gyear, $street, $showstreet, $city, $showcity, $state, $showstate, $zipcode, $showzipcode, $country, $showcountry, $phonenumber, $showphonenumber, $email, $showemail, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET firstName = ?, lastName = ?, graduationYear = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('ssii', $firstname, $lastname, $gyear, $id);
         $stmt->execute();
+        $stmt->close();
+
+        $stmt = $conn->prepare("UPDATE `alum_info` SET street = ?, city = ?, currentstate = ?, zipcode = ?, country = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('sssssi', $street, $city, $state, $zipcode, $country, $id);
+        $stmt->execute();
+        $stmt->close();
+        
+        $stmt = $conn->prepare("UPDATE `alum_info` SET phoneNumber = ?, email = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('ssi', $phonenumber, $email, $id);
+        $stmt->execute();
+        $stmt->close();
+
+        $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('iiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $id);
+        $stmt->execute();
+        $stmt->close();
+
+
+
         echo "success";
 
         readfile("redirect.html");
