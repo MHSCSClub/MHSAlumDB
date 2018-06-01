@@ -1,6 +1,6 @@
 <?php
-include("../php/signal.class.php");
-include("../php/auth.php");
+//include("../php/signal.class.php");
+//include("../php/auth.php");
 // class SimpleLoginSystem
 class SimpleLoginSystem {
     // variables
@@ -26,7 +26,7 @@ class SimpleLoginSystem {
         }
         // Log in
         if ($_REQUEST['username'] && $_REQUEST['password']) {
-            if ($this->check_login($_REQUEST['username'], MD5($_REQUEST['password']))) {
+            if ($this->check_login($_REQUEST['username'], $_REQUEST['password'])) {
                 $this->simple_login($_REQUEST['username'], $_REQUEST['password']);
                 return 'Hello ' . $_REQUEST['username'] . '! ' . $sLogoutForm;
             } else {
@@ -57,8 +57,13 @@ class SimpleLoginSystem {
         unset($_COOKIE['member_pass']);
     }
     function check_login($sName, $sPass) {
-
-        return auth::login($_POST['username'], $_POST['password']);
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+          $check = auth::login($_POST['username'], $_POST['password']);
+          if($check->isError()){
+            return false;
+          }
+          return true;
+      }
     }
 }
 ?>
