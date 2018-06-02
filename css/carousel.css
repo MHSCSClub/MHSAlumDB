@@ -67,6 +67,9 @@ body {
   letter-spacing: -.05rem;
 }
 
+span-black {
+  background-color: black;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -89,3 +92,4 @@ body {
     margin-top: 7rem;
   }
 }
+
