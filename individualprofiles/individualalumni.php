@@ -21,8 +21,8 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $alumnitable_id = $_GET["alumniid"];
-        $query = "SELECT firstName, lastName, currentstate, showState, country, showCountry, graduationYear, phoneNumber, showPhone FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
+        $alumnitable_id = $_GET["alumniid"];
+        $query = "SELECT firstName, lastName, street, showStreet, currentstate, showState, country, showCountry, graduationYear, phoneNumber, showPhone, email, showEmail FROM `alum_info` WHERE alumnitable_id = " . $alumnitable_id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -32,10 +32,18 @@
             $firstname= $row["firstName"];
             $lastname= $row["lastName"];
             $gyear = $row["graduationYear"];
+            $showStreet = $row["showStreet"];
             $showState = $row["showState"];
             $showCountry = $row["showCountry"];
             $showPhonenumber = $row["showPhone"];
+            $showEmail = $row["showEmail"];
             
+            if($showStreet == 0){
+                $street = "";
+            }
+            else{
+                $street = $row["street"];
+            }
             if($showState == 0){
                 $state = "";
             }
@@ -53,6 +61,12 @@
             }
             else{
                 $phonenumber = $row["phoneNumber"];
+            }
+            if($showEmail == 0){
+                $email = "";
+            }
+            else{
+                $email = $row["email"];
             }
                     /*$tablecode = "<table class=\"table\" id=\"table\" style=\"width:100%\" border=\"1\"><thead><tr><th>Firstname</th><th>Lastname</th><th>State</th><th>Country</th></tr></thead><tbody>";
                     $tablecode = $tablecode . "<tr><td>" . $row["firstName"]. "</td><td>" . $row["lastName"]. "</td><td>" . $row["state"]. "</td><td>" . $row["country"]. "</td></tr>";
@@ -114,6 +128,7 @@
             <ul class="nav nav-pills flex-column">
                 <p><?php echo "Graduated in: " . $gyear; ?></p>
                 <p><?php echo "Current employer: "  ?></p>
+                <p><?php echo "Current address of residence: " . $street; ?></p>
                 <p><?php echo "Current state of residence: " . $state; ?></p>
                 <p><?php echo "Current country of residence: " . $country; ?></p>
                 <p> Additional information: </p>
@@ -124,6 +139,7 @@
 
             <ul class="nav nav-pills flex-column">
                 <p><?php echo "Phone number: " . $phonenumber ?></p>
+                <p><?php echo "Email: " . $email ?></p>
             </ul>
             <hr class="d-sm-none">
             </div>
