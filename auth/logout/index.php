@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php
+            session_start();
             if(!isset($_COOKIE['alumdbauth'])){
                 die("You have already logged out");
             } else {
