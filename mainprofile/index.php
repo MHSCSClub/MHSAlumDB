@@ -109,14 +109,19 @@
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link" href="#">My profile</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/homepage">Homepage</a>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/ui">Directory</a>
                 </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="/mainprofile">My profile</a>
-                </li>    
+                    <a class="nav-link" href="/chat">Chat</a>
+                </li>        
                 
                 </ul>
                 <ul class="nav navbar-nav ml-auto">

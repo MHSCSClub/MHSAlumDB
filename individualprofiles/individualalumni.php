@@ -103,7 +103,10 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My profile</a>
-                </li>    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/chat">Chat</a>
+                </li>  
                 
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
