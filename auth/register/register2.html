@@ -1,33 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>MHS Alum DB - Registration</title>
-	<link href="/css/bootstrap.css" rel="stylesheet"></link>
-  	<script type="text/javascript" src="validate.js"></script>
-	
-</head>
-
-<body>
-	<div class="card mx-auto my-auto" style="max-width: 25rem;">
-		<img src="/img/msf.png"><br>
-		<form name="reg" onsubmit="return checkForm(this);" method="post">
-			<!-- email -->
-			<input type="text" name="firstname" placeholder="First Name">
-        	<input type="text" name="lastname" placeholder="Last Name">
-            <input type="text" name="gyear" placeholder="Graduation Year">
-			<link rel="shortcut icon" href="/favicon.ico" />
-			<input type="password" name="password1" placeholder="Password" id = "initial-pass">
-			<input type="password" name="password2" placeholder="Confirm Password">
-			<input type="submit" name="register" class="button button-submit" value="Complete Registration">
-		</form>
-		<div class="help">
-			<a href="../login/">Log In</a> • <a href="../forgot/">Forgot Password</a>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>MHS Alum DB - Registration</title>
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="../../css/auth.css" rel="stylesheet">
+		<script type="text/javascript" src="validate.js"></script>
+	  </head>
+	  
+	<body class>
+		<div class = "back"></div>
+		<div style="width: 18rem" class="card mx-auto">
+			<form method="post" class = "form-signin" name="reg" onsubmit="return checkForm(this);">
+				<h1 class="display-2">Complete signing up</h1>
+				<br>
+				<div class = "form-group"></div>
+					<!-- email -->
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name = "firstname" id="password" placeholder="First name">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name = "lastname" id="lastname" placeholder="Last name">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name = "gyear" id="gyear" placeholder="Graduation year">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" name = "password1" id="password1" placeholder="Password">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" name = "password2" id="password2" placeholder="Confirm password">
+				</div>
+				<!-- ERROR -->
+				<input type="submit" name="register" class="btn btn-primary" value="Complete Registration">
+				<div class="help">
+					<a href="../login/">Log In</a> • <a href="../forgot/">Forgot Password</a>
+				</div>
+			</form>
 		</div>
-		<!-- ERROR -->
-	</div>
-</script>
-	
-</body>
-
+		</script>
+	</body>
 </html>
