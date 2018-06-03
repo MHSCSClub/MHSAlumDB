@@ -67,7 +67,7 @@
                     <a class="nav-link" href="#">Homepage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/mainprofile">My profile</a>
+                    <a class="nav-link" href="/mainprofile">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ui">Directory</a>
@@ -171,8 +171,6 @@
 
 
         <hr class="featurette-divider">
-
-        <h1 class="display-2" id = "newsfeed" >Newsfeed</h1>
 
         <div class="row featurette">
           <div class="col-md-7">

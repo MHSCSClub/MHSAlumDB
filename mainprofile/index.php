@@ -109,10 +109,10 @@
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">My profile</a>
+                    <a class="nav-link" href="/homepage">Homepage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/homepage">Homepage</a>
+                    <a class="nav-link" href="#">My profile</a>
                 </li>
                 
                 <li class="nav-item">

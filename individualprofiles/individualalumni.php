@@ -99,11 +99,12 @@
                     <a class="nav-link" href="/homepage">Homepage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ui">Directory</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My profile</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ui">Directory</a>
+                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/chat">Chat</a>
                 </li>  
