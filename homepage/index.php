@@ -69,9 +69,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ui">Directory</a>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="/ui" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Directories
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/ui">Main Directory</a>
+                    <a class="dropdown-item" href="/internshipui">Internship Directory</a>
+                  </div>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/events">Events</a>
                 </li>
