@@ -79,6 +79,9 @@
                     <a class="nav-link" href="#">Directory</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/events">Events</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/chat">Chat</a>
                 </li>    
                 

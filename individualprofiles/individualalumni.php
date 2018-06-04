@@ -99,7 +99,7 @@
                     <a class="nav-link" href="/homepage">Homepage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/mainprofile">My profile</a>
+                    <a class="nav-link" href="/mainprofile">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ui">Directory</a>
