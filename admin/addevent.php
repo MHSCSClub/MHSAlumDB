@@ -82,6 +82,4 @@
 		$stmt->close();
     }
     echo "success";
-
-    readfile("redirect.html");
 ?>
