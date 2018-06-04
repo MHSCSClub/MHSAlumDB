@@ -71,7 +71,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $event_title = $_POST['eventtitle'];
         $event_body = $_POST['eventbody'];
-        $stmt = $db->prepare('INSERT INTO events (title, about) VALUES (?, ?)');
+        $stmt = $conn->prepare('INSERT INTO events (title, about) VALUES (?, ?)');
 		$stmt->bind_param('ss', $event_title, $event_body);
 		$stmt->execute();
 		$stmt->close();
