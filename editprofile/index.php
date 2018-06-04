@@ -215,6 +215,29 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="jobfield">Show Phone Number</label>
+                                <select id="jobfield" name = "jobfield" class="form-control">
+                                    <option selected value="">Select a field</option>
+                                    <option value="Construction" >Construction</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Services">Services</option>
+                                </select>
+                                <div class="form-group col-md-4">
+                                <label for="showjobinfo">Show me in internship database</label>
+                                <select id="showjobinfo" name = "showjobinfo" class="form-control">
+                                    <option selected value=0>Hide</option>
+                                    <option value=1>Show</option>
+                                </select>
+                            </div>
+                            </div>
+                        </div>
+                        
 
                         <div class="form-group row">
                             <div class="col-sm-10">
@@ -250,7 +273,8 @@
         $showphonenumber = $_POST['showPhonenumber'];
         $email = $_POST['email'];
         $showemail = $_POST['showEmail'];
-        
+        $jobfield = $_POST['jobfield'];
+        $showjobinfo = $_POST['showjobinfo'];
         
 
         
@@ -296,13 +320,13 @@
         $stmt->execute();
         $stmt->close();
         
-        $stmt = $conn->prepare("UPDATE `alum_info` SET phoneNumber = ?, email = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('ssi', $phonenumber, $email, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET phoneNumber = ?, email = ?, jobfield = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('ssi', $phonenumber, $email, $jobfield, $id);
         $stmt->execute();
         $stmt->close();
 
-        $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('iiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ?, showjobinfo = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('iiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $showjobinfo, $id);
         $stmt->execute();
         $stmt->close();
 
