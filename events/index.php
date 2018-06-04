@@ -38,5 +38,5 @@
         header("location: /userIDselection/");
     }
 
-    $query = "SELECT alumnitable_id,firstName,lastName,graduationYear FROM `alum_info`";
+    $query = "SELECT alumnitable_id,firstName,lastName,graduationYear FROM `events`";
 ?>
