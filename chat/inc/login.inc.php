@@ -33,7 +33,8 @@ class SimpleLoginSystem {
                 return 'Username or Password is incorrect' . $sLoginForm;
             }
         } else {
-            return 'Username or Password is incorrect' . $sLoginForm;
+            return "";
+            //return 'Username or Password is incorrect' . $sLoginForm;
             /*if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
                 echo "within strange world";
                 if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
