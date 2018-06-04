@@ -38,5 +38,15 @@
         header("location: /userIDselection/");
     }
 
-    $query = "SELECT alumnitable_id,firstName,lastName,graduationYear FROM `events`";
+    $query = "SELECT title, about, link, id FROM `events`";
+    $query = $query .  " ORDER BY id DESC";
+    $result = $conn->query($query);           
+    $tablecode = "";
+    $num_rows = $result->num_rows;
+    if ($num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo $row['id']. " " . $row['title']. " " . $row['link']. " " . $row['about'] . " ";
+        }
+    }
+    
 ?>
