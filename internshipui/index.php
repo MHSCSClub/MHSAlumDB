@@ -83,8 +83,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/ui">Main Directory</a>
                         <a class="dropdown-item" href="/internshipui">Internship Directory</a>
-                    <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
 
@@ -155,7 +153,7 @@
                                 $query = $query . " AND jobfield = '$search_str'";   
                             }
 
-                            echo $query;
+                            
 
                             $result = $conn->query($query);           
                             
@@ -260,7 +258,7 @@
 
         document.getElementById('search').value=findGetParameter(search); 
     </script>
-
+    <script src="../resources/js/popper.min.js"></script>
 </body>
 
 </html>
