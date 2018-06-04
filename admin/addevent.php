@@ -27,29 +27,5 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+    echo "Welcome to the add events page";
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-    <meta name="description" content=""></meta>
-    <meta name="author" content=""></meta>
-    <link rel="shortcut icon" href="/favicon.ico" />
-
-    <title>Admin Homepage</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet"></link>
-
-</head>
-
-<body>
-    <a href="/admin/setupusers.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Add users</a>
-    <br>
-    <a href="/admin/addevent.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Add events to the event page</a>
-
-
-
-</body>
-</html>
