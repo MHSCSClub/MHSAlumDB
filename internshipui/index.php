@@ -152,7 +152,7 @@
                             $search_str = "";
                             if(isset($_POST['jobfield'])) {
                                 $search_str = $_POST['jobfield'];
-                                $query = $query . " WHERE jobfield =" . $search_str;   
+                                $query = $query . " AND jobfield =" . $search_str;   
                             }
 
                             $result = $conn->query($query);           
