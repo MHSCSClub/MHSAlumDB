@@ -48,6 +48,10 @@
                 <label for="eventtitle">Event name</label>
                 <input type="text" class="form-control" id="eventtitle" name = "eventtitle">
             </div>
+            <div class="form-group">
+                <label for="link">Link to event location</label>
+                <input type="text" class="form-control" id="link" name = "link">
+            </div>
         
             <div class="form-group">
                 <label for="eventbody">Event body</label>
@@ -71,8 +75,9 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $event_title = $_POST['eventtitle'];
         $event_body = $_POST['eventbody'];
-        $stmt = $conn->prepare('INSERT INTO events (title, about) VALUES (?, ?)');
-		$stmt->bind_param('ss', $event_title, $event_body);
+        $event_link = $_POST['link']
+        $stmt = $conn->prepare('INSERT INTO events (title, about, link) VALUES (?, ?, ?)');
+		$stmt->bind_param('sss', $event_title, $event_body, $event_link);
 		$stmt->execute();
 		$stmt->close();
     }
