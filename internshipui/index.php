@@ -155,6 +155,8 @@
                                 $query = $query . " AND jobfield =" . $search_str;   
                             }
 
+                            echo $query;
+
                             $result = $conn->query($query);           
                             
                             $num_rows_full = $result->num_rows;
