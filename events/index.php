@@ -57,6 +57,37 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MHS Alumni Database</a>
+            </div>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/homepage">Homepage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mainprofile">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ui">Directory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Events</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/chat">Chat</a>
+                </li>
+                
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">Logout</a>
+                    </li> 
+                </ul>
+            </div>  
+        </nav>
     <?php
 
         $query = "SELECT title, about, link, id FROM `events`";
@@ -69,17 +100,16 @@
                 ?>
                     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
                         <div class="col-md-5 p-lg-5 mx-auto my-5">
-                        <h1 class="display-4 font-weight-normal"><?php echo $row['id']; ?></h1>
-                        <p class="lead font-weight-normal"><?php echo $row['title']; ?></p>
-                        <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+                        <h1 class="display-4 font-weight-normal"><?php echo $row['title']; ?></h1>
+                        <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
+                        <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
                         </div>
                         <div class="product-device box-shadow d-none d-md-block"></div>
                         <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
                     </div>
-
-                
+                    <br>
                 <?php
-                echo $row['id']. " " . $row['title']. " " . $row['link']. " " . $row['about'] . " ";
+                
             }
         }
         
