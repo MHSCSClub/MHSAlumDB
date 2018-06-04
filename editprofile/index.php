@@ -228,13 +228,13 @@
                                     <option value="Insurance">Insurance</option>
                                     <option value="Services">Services</option>
                                 </select>
-                                <div class="form-group col-md-4">
+                            </div>
+                            <div class="form-group col-md-4">
                                 <label for="showjobinfo">Show me in internship database</label>
                                 <select id="showjobinfo" name = "showjobinfo" class="form-control">
                                     <option selected value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
-                            </div>
                             </div>
                         </div>
                         
@@ -321,12 +321,12 @@
         $stmt->close();
         
         $stmt = $conn->prepare("UPDATE `alum_info` SET phoneNumber = ?, email = ?, jobfield = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('ssi', $phonenumber, $email, $jobfield, $id);
+        $stmt->bind_param('sssi', $phonenumber, $email, $jobfield, $id);
         $stmt->execute();
         $stmt->close();
 
         $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ?, showjobinfo = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('iiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $showjobinfo, $id);
+        $stmt->bind_param('iiiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $showjobinfo, $id);
         $stmt->execute();
         $stmt->close();
 
