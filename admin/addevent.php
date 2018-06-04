@@ -76,8 +76,8 @@
         $event_title = $_POST['eventtitle'];
         $event_body = $_POST['eventbody'];
         $event_link = $_POST['link']
-        $stmt = $conn->prepare('INSERT INTO events (title, about, link) VALUES (?, ?, ?)');
-		$stmt->bind_param('sss', $event_title, $event_body, $event_link);
+        $stmt = $conn->prepare('INSERT INTO events (title, about) VALUES (?, ?)');
+		$stmt->bind_param('ss', $event_title, $event_body);
 		$stmt->execute();
 		$stmt->close();
     }
