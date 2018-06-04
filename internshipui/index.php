@@ -77,7 +77,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="/ui" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Directories
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -152,10 +152,11 @@
                             $search_str = "";
                             if(isset($_POST['jobfield'])) {
                                 $search_str = $_POST['jobfield'];
-                                $query = $query . " WHERE " . $search_str;   
+                                $query = $query . " WHERE jobfield =" . $search_str;   
                             }
 
                             $result = $conn->query($query);           
+                            
                             $num_rows_full = $result->num_rows;
 
                             $max_pages = ceil($num_rows_full/100);
