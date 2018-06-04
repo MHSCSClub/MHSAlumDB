@@ -69,9 +69,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ui">Directory</a>
-                </li>
 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="/ui" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,10 +79,6 @@
                     <a class="dropdown-item" href="/internshipui">Internship Directory</a>
                   </div>
                 </li>
-
-
-
-
 
                 <li class="nav-item">
                     <a class="nav-link" href="/events">Events</a>
