@@ -53,6 +53,11 @@
                 <label for="eventbody">Event body</label>
                 <textarea class="form-control" id="eventbody" name = "eventbody" rows="3"></textarea>
             </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit changes</button>
+                </div>
+            </div>
 		</form>
 		
 	</body>
