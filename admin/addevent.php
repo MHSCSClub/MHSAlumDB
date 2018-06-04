@@ -83,5 +83,5 @@
     }
     echo "success";
 
-
+    readfile("/admin/redirect.html");
 ?>
