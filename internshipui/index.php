@@ -111,6 +111,10 @@
         <p>
 
     <section>
+
+            <br>
+            <br>
+            <br>
 			<div class="container">
 	            <div class="row">
                     
@@ -119,7 +123,7 @@
                     <div class="col-lg-4 col-lg-offset-4">
                         <form class="form-inline my-2 my-lg-0" method="post">
                             <div class="form-group col-md-8">
-                                <label for="jobfield">Show Phone Number</label>
+                                <label for="jobfield">Search for a job field</label>
                                 <select id="jobfield" name = "jobfield" class="form-control">
                                     <option selected value="">Select a field</option>
                                     <option value="Construction" >Construction</option>
@@ -144,7 +148,7 @@
                                 die("Connection failed: " . $conn->connect_error);
                             }
 
-                            $query = "SELECT alumnitable_id,firstName,lastName,graduationYear FROM `alum_info` WHERE showjobinfo = 1";
+                            $query = "SELECT alumnitable_id,firstName,lastName,graduationYear, jobfield FROM `alum_info` WHERE showjobinfo = 1";
                             $search_str = "";
                             if(isset($_POST['jobfield'])) {
                                 $search_str = $_POST['jobfield'];
