@@ -28,8 +28,8 @@
     $firstlog;
     if ($result->num_rows > 0) {
         // output data of each row
-        
-            $firstlog = $row["firstLogin"];
+        $row = $result->fetch_assoc();
+        $firstlog = $row["firstLogin"];
         
     } else {
         echo "0 results";
@@ -42,7 +42,8 @@
     $result = $conn->query($sql);
     $id;
         if ($result->num_rows > 0) {
-                $id = $row["userid"];
+            $row = $result->fetch_assoc();
+            $id = $row["userid"];
             
         } else {
             echo "0 results";
