@@ -46,7 +46,7 @@ class FbChatMock {
           `chat`.`sent_on`,
           `users`.`id`,
           `users`.`username`
-        FROM `users`
+        FROM `message_users`
         JOIN `chat`
           ON `chat`.`user_id` = `users`.`id`
         ORDER BY `sent_on`
