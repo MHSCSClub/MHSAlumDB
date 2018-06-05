@@ -84,7 +84,7 @@
     $sendto = $_POST['sendto'];
     $body = $_POST['body'];
     $stmt = $conn->prepare("INSERT INTO inbox (fromuser, recipid, body, timereceived, chainid) VALUES (?, ?, ?, NOW(), ?)");
-    $stmt->bind_param('sisi', $indivUser, $sendto, $body, ($id+$sendto));
+    $stmt->bind_param('sisi', $indivUser, $sendto, $body, $id);
     $stmt->execute();
     $stmt->close();
 

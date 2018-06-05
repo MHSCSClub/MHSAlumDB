@@ -48,7 +48,8 @@
         } else {
             echo "0 results";
         }
-
+    
+    echo $id;
     $stmt = $conn->prepare("SELECT fromuserid, body, timereceived FROM `inbox` WHERE recipid = ?");
     $stmt->bind_param('i', $id);
     $stmt->execute();
