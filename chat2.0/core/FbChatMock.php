@@ -22,9 +22,9 @@ class FbChatMock {
    * Create's the connection to the database and stores it in the dbConnection
    */
   public function __construct() {
-    include("../../php/signal.class.php");
-    include("../../php/auth.php");
-    include('../../php/rds.php');
+    include("../php/signal.class.php");
+    include("../php/auth.php");
+    include('../php/rds.php');
     $this->_dbHost = $dbhost;
     $this->_databaseName = $dbname;
     $this->_dbUsername = $username;
