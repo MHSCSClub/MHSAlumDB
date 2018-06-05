@@ -1,7 +1,4 @@
 <?php
-include("../../php/signal.class.php");
-include("../../php/auth.php");
-include('../../php/rds.php');
 
 class FbChatMock {
 
@@ -11,13 +8,13 @@ class FbChatMock {
   //----- Database connection details --/
   //-- Change these to your database values
 
-  private $_dbHost = $dbhost;
+  private $_dbHost;
 
-  private $_dbUsername = $username;
+  private $_dbUsername;
 
-  private $_dbPassword = $password;
+  private $_dbPassword;
 
-  public $_databaseName = $dbname;
+  public $_databaseName;
 
   //----- ----/
 
@@ -25,6 +22,14 @@ class FbChatMock {
    * Create's the connection to the database and stores it in the dbConnection
    */
   public function __construct() {
+    include("../../php/signal.class.php");
+    include("../../php/auth.php");
+    include('../../php/rds.php');
+    $this->_dbHost = $dbhost;
+    $this->_databaseName = $dbname;
+    $this->_dbUsername = $username;
+    $this->_dbPassword = $password;
+
     $this->dbConnection = new mysqli($this->_dbHost, $this->_dbUsername,
         $this->_dbPassword, $this->_databaseName);
 
