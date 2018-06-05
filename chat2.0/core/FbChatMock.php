@@ -43,8 +43,8 @@ class FbChatMock {
     $query = "SELECT
           `chat`.`message`,
           `chat`.`sent_on`,
-          `users`.`id`,
-          `users`.`username`
+          `message_users`.`id`,
+          `message_users`.`username`
         FROM `message_users`
         JOIN `chat`
           ON `chat`.`user_id` = `users`.`id`
