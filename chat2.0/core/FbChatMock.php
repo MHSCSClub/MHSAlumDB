@@ -1,9 +1,9 @@
 <?php
-include("../php/signal.class.php");
-include("../php/auth.php");
-include('../php/rds.php');
 
 class FbChatMock {
+  include("../../php/signal.class.php");
+  include("../../php/auth.php");
+  include('../../php/rds.php');
 
   // Holds the database connection
   private $dbConnection;
