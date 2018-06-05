@@ -101,8 +101,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ui">Directory</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Directories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/ui">Main Directory</a>
+                        <a class="dropdown-item" href="/internshipui">Internship Directory</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/events">Events</a>
@@ -151,5 +157,9 @@
             </div>
         </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../resources/js/jquery-slim.min.js"><\/script>')</script>
+        <script src="../resources/js/popper.min.js"></script>
+        <script src="../resources/js/bootstrap.min.js"></script>
     </body>
 </html>
