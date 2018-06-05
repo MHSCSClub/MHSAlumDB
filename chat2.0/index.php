@@ -14,7 +14,8 @@
     <!--      Main content area-->
     </div>
     <?php
-    @session_start();
+    session_start();
+    ini_set('display_errors', 1);
 
     $_SESSION['user_id'] = isset($_GET['user_id']) ? (int) $_GET['user_id'] : 0;
 
