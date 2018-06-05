@@ -59,7 +59,7 @@
     if ($num_rows > 0) {
         // output data of each row
         $tablecode = "<table class=\"table table-hover\"><thead><tr><th>From User</th><th>Message</th><th>Time Received</th></tr></thead><tbody>";
-        while($row = $result->fetch_assoc()) {
+        while($row = $res->fetch_assoc()) {
             $tablecode = $tablecode . "<tr><td>" . $row["fromuser"]. "</td><td>" . $row["body"]. "</td><td>" . $row["timereceived"]. "</td></tr>";
         }
         $tablecode = $tablecode . "</tbody></table>";
