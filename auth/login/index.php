@@ -15,7 +15,7 @@
         $e_string = "<div id=\"error\"><img src=\"/img/Delete-icon.png\"/><p>{$error}</p></div>";
         $reghtm = file_get_contents('./login.html', FILE_USE_INCLUDE_PATH);
         die(str_replace("<!-- ERROR -->", $e_string, $reghtm));                    
-      } else {
+      } else { //set expire, set cookie with data on authcode
         setcookie("alumdbauth", $resp->getData()["authcode"],$resp->getData()["expire"], "/", $_SERVER['SERVER_NAME'], true);
         header("location: /homepage/");
       }

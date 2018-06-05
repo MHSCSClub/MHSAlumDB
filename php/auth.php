@@ -121,8 +121,8 @@
 		}
 
 		private static function updateAuthExpiration($db, $userid) {
-			$db->query("UPDATE auth SET expire=DATE_ADD(NOW(), INTERVAL 1 MONTH) WHERE userid=$userid");
-			return strtotime("+1 month", time()); 
+			$db->query("UPDATE auth SET expire=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE userid=$userid");
+			return strtotime("+1 hour", time()); 
 		}
 
 		//Creates a JSON array out of multiple results
