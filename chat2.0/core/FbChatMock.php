@@ -54,6 +54,9 @@ QUERY;
 
     // Execute the query
     $resultObj = $this->dbConnection->query($query);
+    if(!$resultObj){
+      echo "sql query did not go through.";
+    }
     // Fetch all the rows at once.
     while ($row = $resultObj->fetch_assoc()) {
       $messages[] = $row;
