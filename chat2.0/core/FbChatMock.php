@@ -40,8 +40,7 @@ class FbChatMock {
 
   public function getMessages() {
     $messages = array();
-    $query = <<<QUERY
-        SELECT
+    $query = "SELECT
           `chat`.`message`,
           `chat`.`sent_on`,
           `users`.`id`,
@@ -49,8 +48,7 @@ class FbChatMock {
         FROM `message_users`
         JOIN `chat`
           ON `chat`.`user_id` = `users`.`id`
-        ORDER BY `sent_on`
-QUERY;
+        ORDER BY `sent_on`";
 
     // Execute the query
     $resultObj = $this->dbConnection->query($query);
