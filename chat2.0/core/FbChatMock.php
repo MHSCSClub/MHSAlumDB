@@ -40,7 +40,17 @@ class FbChatMock {
 
   public function getMessages() {
     $messages = array();
-    $query = "SELECT message FROM chat ORDER BY sent_on";
+    //$query = "SELECT message FROM chat ORDER BY sent_on";
+    $query = "SELECT
+          `chat`.`message`,
+          `chat`.`sent_on`,
+          `users`.`id`,
+          `users`.`username`
+        FROM `users`
+        JOIN `chat`
+          ON `chat`.`user_id` = `users`.`id`
+        ORDER BY `sent_on`";
+
 
     // Execute the query
     $resultObj = $this->dbConnection->query($query);
@@ -62,10 +72,7 @@ class FbChatMock {
     // Escape the message with mysqli real escape
     $cMessage = $this->dbConnection->real_escape_string($message);
 
-    $query = <<<QUERY
-      INSERT INTO `chat`(`user_id`, `message`, `sent_on`)
-      VALUES ({$cUserId}, '{$cMessage}', UNIX_TIMESTAMP())
-QUERY;
+    $query = "INSERT INTO `chat`(`user_id`, `message`, `sent_on`) VALUES ({$cUserId}, '{$cMessage}', UNIX_TIMESTAMP())";
 
     $result = $this->dbConnection->query($query);
 
