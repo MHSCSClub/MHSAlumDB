@@ -1,4 +1,7 @@
 <?php
+include("../php/signal.class.php");
+include("../php/auth.php");
+include('../php/rds.php');
 
 class FbChatMock {
 
@@ -7,9 +10,6 @@ class FbChatMock {
 
   //----- Database connection details --/
   //-- Change these to your database values
-  include("../php/signal.class.php");
-  include("../php/auth.php");
-  include('../php/rds.php');
 
   private $_dbHost = $dbhost;
 
