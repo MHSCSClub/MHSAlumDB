@@ -5,9 +5,9 @@
     <title></title>
     <!--    <link href="/style/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="/style/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />-->
-    <link href="/style/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/style/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css" />
     <!--    <link href="/style/non-responsive.css" rel="stylesheet" type="text/css" />-->
-    <link href="/style/core.css" rel="stylesheet" type="text/css" />
+    <link href="/public/style/core.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div style="margin: 0px auto; width: 980px;">
@@ -15,15 +15,15 @@
     </div>
     <?php
     @session_start();
-    
+
     $_SESSION['user_id'] = isset($_GET['user_id']) ? (int) $_GET['user_id'] : 0;
-    
+
     // Load the messages initially
-    require_once __DIR__ . '/../core/FbChatMock.php';
+    require_once __DIR__ . '/core/FbChatMock.php';
     $chat = new FbChatMock();
     $messages = $chat->getMessages();
     ?>
-    
+
     <div class="container" style="border: 1px solid lightgray;">
       <div class="msg-wgt-header">
         <a href="#">John</a>
@@ -59,8 +59,8 @@ MSG;
         <textarea id="chatMsg" placeholder="Type your message. Press shift + Enter to send"></textarea>
       </div>
     </div>
-    
-    <script type="text/javascript" src="/scripts/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="/scripts/chat.js"></script>
+
+    <script type="text/javascript" src="/public/scripts/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/public/scripts/chat.js"></script>
   </body>
 </html>
