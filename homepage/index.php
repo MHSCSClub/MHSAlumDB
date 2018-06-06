@@ -157,69 +157,63 @@
 
         <!-- Three columns of text below the carousel -->
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <img class="rounded-circle" style = "bg-white" src="/resources/img/person-6x.png" alt="Generic placeholder image" width="60" height="60">
             <h2>Reconnect with old friends. </h2>
             <p>Open the directory and click on names to view profiles on every alumni. </p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
+          </div><!-- /.col-lg-6 -->
+          <div class="col-lg-6">
             <img class="rounded-circle" style = "bg-white" src="/resources/img/people-6x.png" alt="Generic placeholder image" width="60" height="60">
             <h2>Check out the chat </h2>
             <p>Click the chat link in the navbar to send messages</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle"style = "bg-white" src="/resources/img/pencil-6x.png" alt="Generic placeholder image" width="60" height="60">
-            <h2>Edit and update your own information</h2>
-            <p>Go to your profile and click edit information to update us and the alumni community</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div><!-- /.col-lg-4 -->
+          </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
 
 
         <!-- START THE FEATURETTES -->
 
-
+        <h1 class = "display-2">Events feed</h1>
         <hr class="featurette-divider">
 
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h4 class="featurette-heading">Reconnect with old friends. <span class="text-muted">Profiles for almost every alumni.</span></h4>
-            <p class="lead">Open the directory and click on names to view profiles on every alumni. </p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163b16a3e4a%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163b16a3e4a%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.13333129882812%22%20y%3D%22261.4%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-          </div>
-        </div>
+        <?php
 
-        <hr class="featurette-divider">
+          $query = "SELECT title, about, link, id FROM `events`";
+          $query = $query .  " ORDER BY id DESC";
+          $result = $conn->query($query);           
+          $tablecode = "";
+          $num_rows = $result->num_rows;
+          if ($num_rows > 0) {
+              while($row = $result->fetch_assoc()) {
+                  ?>
+                      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+                          <div class="col-md-5 p-lg-5 mx-auto my-5">
+                          <h1 class="display-4 font-weight-normal"><?php echo $row['title']; ?></h1>
+                          <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
+                          <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                          </div>
+                          <div class="product-device box-shadow d-none d-md-block"></div>
+                          <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                      </div>
+                      <br>
+                  <?php
+                  
+              }
+          }
 
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h4 class="featurette-heading">Check out the chat. <span class="text-muted">See for yourself.</span></h4>
-            <p class="lead">Click the chat link in the navbar</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163b16a3e53%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163b16a3e53%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.13333129882812%22%20y%3D%22261.4%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h4 class="featurette-heading">Sample news post. <span class="text-muted">Checkmate.</span></h4>
-            <p class="lead">Check out this new thing going on at MHS.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163b16a3e66%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163b16a3e66%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.13333129882812%22%20y%3D%22261.4%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-          </div>
-        </div>
+        ?>
 
         <hr class="featurette-divider">
 
         <!-- /END THE FEATURETTES -->
+
+        <div class="row">
+            <img class="rounded-circle"style = "bg-white" src="/resources/img/pencil-6x.png" alt="Generic placeholder image" width="60" height="60">
+            <h2>Edit and update your own information</h2>
+            <p>Go to your profile and click edit information to update us and the alumni community</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
 
       </div><!-- /.container -->
 
