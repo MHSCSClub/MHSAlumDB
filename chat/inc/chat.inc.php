@@ -46,7 +46,6 @@ class SimpleChat {
         $user2 = 'pgarzabo2@hotmail.com';
         //select the database
         //mysql_select_db($this->sDbName);
-        //returning the last 15 messages
         $query = "SELECT * FROM `s_chat_messages` WHERE `user` = '$user1' OR `user` = '$user2' ORDER BY `when` ASC LIMIT 30";
         $vRes = $conn->query($query);
         $sMessages = '';
@@ -66,6 +65,27 @@ class SimpleChat {
         echo $sMessages;
         require_once('chat_end.html');
         return ob_get_clean();
+    }
+
+    function check_auth() {
+      if(!isset($_COOKIE['alumdbauth_admin'])){
+          echo "you do not have access to this page";
+          // sleep for 3 seconds
+          sleep(3);
+          header("location: /auth/");
+              exit;
+      } else {
+          $resp = auth::check_auth($_COOKIE['alumdbauth_admin']);
+          if($resp->isError()){
+              echo "you do not have access to this page";
+              // sleep for 3 seconds
+              sleep(3);
+              header("location: /auth/");
+              exit;
+          }
+
+      }
+
     }
 }
 ?>

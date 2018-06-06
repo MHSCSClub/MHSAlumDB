@@ -19,19 +19,18 @@ class SimpleLoginSystem {
         /*if ((int)$_REQUEST['logout'] == 1) {
             if (isset($_COOKIE['member_name']) && isset($_COOKIE['member_pass']))
                 $this->simple_logout();
-        }
+        }*/
         // Log in
         if ($_REQUEST['username'] && $_REQUEST['password']) {
-            if ($this->check_login($_REQUEST['username'], $_REQUEST['password'])) {
-                $this->simple_login($_REQUEST['username'], $_REQUEST['password']);
-                return 'Hello ' . $_REQUEST['username'] . '! ' . $sLogoutForm;
-            } else {
-                return 'Username or Password is incorrect' . $sLoginForm;
-            }
+            /*if ($this->check_login($_REQUEST['username'], $_REQUEST['password'])) {
+                $this->simple_login($_REQUEST['username'], $_REQUEST['password']);*/
+                echo $_COOKIE['member_name'];
+                return 'Hello ' . $_REQUEST['username'] . '! ';
         } else {
             if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
                 //if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
-                    return 'Hello ' . $_COOKIE['member_name'] . '! ' . $sLogoutForm;
+                echo $_COOKIE['member_name'];
+                    return 'Hello ' . $_COOKIE['member_name'] . '! ';
                 //}
             }
             return $sLoginForm;
