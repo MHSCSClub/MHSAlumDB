@@ -47,7 +47,7 @@ class SimpleChat {
         //select the database
         //mysql_select_db($this->sDbName);
         //returning the last 15 messages
-        $query = "SELECT * FROM `s_chat_messages` WHERE 'user' = '$user1' OR 'user' = '$user2' ORDER BY `when` ASC LIMIT 30";
+        $query = "SELECT * FROM `s_chat_messages` WHERE `user` = $user1 OR `user` = $user2 ORDER BY `when` ASC LIMIT 30";
         $vRes = $conn->query($query);
         $sMessages = '';
         // collecting list of messages
