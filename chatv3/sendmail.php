@@ -81,10 +81,12 @@
 </html>
 
 <?php
+    //unique value for the conversation
+    $unique = $id+$sendto;
     $sendto = $_POST['sendto'];
     $body = $_POST['body'];
     $stmt = $conn->prepare("INSERT INTO inbox (fromuser, recipid, body, timereceived, chainid) VALUES (?, ?, ?, NOW(), ?)");
-    $stmt->bind_param('sisi', $indivUser, $sendto, $body, $id);
+    $stmt->bind_param('sisi', $indivUser, $sendto, $body, $unique);
     $stmt->execute();
     $stmt->close();
 
