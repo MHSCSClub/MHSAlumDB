@@ -35,7 +35,7 @@ class SimpleLoginSystem {
         } else {
             if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
                 echo "within strange world";
-                if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
+                if ($this->check_login($_REQUEST['username'], $_REQUEST['password']])) {
                     return 'Hello ' . $_COOKIE['member_name'] . '! ' . $sLogoutForm;
                 }
             }
