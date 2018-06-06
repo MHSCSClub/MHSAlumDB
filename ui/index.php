@@ -233,21 +233,7 @@
         </a>
     </div>
     
-    <script>
-        //http://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
-        function findGetParameter(parameterName) {
-            var result = null,
-            tmp = [];
-            var items = location.search.substr(1).split("&");
-            for (var index = 0; index < items.length; index++) {
-                tmp = items[index].split("=");
-                if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-            }
-            return result;
-        }
-
-        document.getElementById('search').value=findGetParameter(search); 
-    </script>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../resources/js/jquery-slim.min.js"><\/script>')</script>
     <script src="../resources/js/popper.min.js"></script>
