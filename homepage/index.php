@@ -216,7 +216,7 @@
               $num_rows = $result->num_rows;
               if ($num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
-                    if($row['approved']==1){}
+                    if($row['approved']==1){
                       ?>
                           <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
