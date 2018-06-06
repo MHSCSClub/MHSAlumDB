@@ -119,7 +119,7 @@
 <?php
     //unique value for the conversation
     $sendto = $_POST['sendto'];
-    $stmt = $conn->prepare("SELECT id FROM `users` WHERE username = ?");
+    $stmt = $conn->prepare("SELECT userid FROM `users` WHERE username = ?");
     $stmt->bind_param('s', $sendto);
     $stmt->execute();
     $res = $stmt->get_result();
