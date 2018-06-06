@@ -24,7 +24,7 @@ class SimpleLoginSystem {
         if ($_REQUEST['username'] && $_REQUEST['password']) {
             /*if ($this->check_login($_REQUEST['username'], $_REQUEST['password'])) {
                 $this->simple_login($_REQUEST['username'], $_REQUEST['password']);*/
-                $username = $_SESSION['username'];
+                $username = $_SESSION['individual'];
                 echo $username;
                 return 'Hello ' . $_REQUEST['username'] . '! ';
         } else {
