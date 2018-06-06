@@ -125,7 +125,7 @@
     $res = $stmt->get_result();
     $stmt->close();
     $row = $res->fetch_assoc();
-    $sendto = $row['id'];
+    $sendto = $row['userid'];
 
     
     $unique = $id+$sendto;
