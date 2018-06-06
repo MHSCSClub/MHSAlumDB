@@ -24,6 +24,7 @@ class SimpleLoginSystem {
         if ($_REQUEST['username'] && $_REQUEST['password']) {
             /*if ($this->check_login($_REQUEST['username'], $_REQUEST['password'])) {
                 $this->simple_login($_REQUEST['username'], $_REQUEST['password']);*/
+                echo $_COOKIE['member_name'];
                 return 'Hello ' . $_REQUEST['username'] . '! ';
         } else {
             if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
