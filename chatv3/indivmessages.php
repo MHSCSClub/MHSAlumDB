@@ -38,3 +38,5 @@
         $tablecode = $tablecode . "</tbody></table>";
     }
     echo $tablecode;
+
+?>
