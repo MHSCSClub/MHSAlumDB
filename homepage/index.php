@@ -85,7 +85,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/chat">Chat</a>
+                    <a class="nav-link" href="/chatv3">Chat</a>
                 </li>
                 
                 </ul>
