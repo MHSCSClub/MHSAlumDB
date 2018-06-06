@@ -2,7 +2,7 @@
 <?php
 require_once('inc/chat.inc.php');
 // Temporary usernames
-$user1 = 'pablogarza917@gmail.com';
+$user1 = $_SESSION['individual'];
 $user2 = 'pgarzamw3@gmail.com';
 
 $oSimpleChat = new SimpleChat();
