@@ -2,5 +2,6 @@
 <?php
 require_once('inc/chat.inc.php');
 $oSimpleChat = new SimpleChat();
+$oSimpleChat->check_auth();
 echo $oSimpleChat->getMessages();
 ?>
