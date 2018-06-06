@@ -157,24 +157,18 @@
 
         <!-- Three columns of text below the carousel -->
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <img class="rounded-circle" style = "bg-white" src="/resources/img/person-6x.png" alt="Generic placeholder image" width="60" height="60">
             <h2>Reconnect with old friends. </h2>
             <p>Open the directory and click on names to view profiles on every alumni. </p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
+          </div><!-- /.col-lg-6 -->
+          <div class="col-lg-6">
             <img class="rounded-circle" style = "bg-white" src="/resources/img/people-6x.png" alt="Generic placeholder image" width="60" height="60">
             <h2>Check out the chat </h2>
             <p>Click the chat link in the navbar to send messages</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle"style = "bg-white" src="/resources/img/pencil-6x.png" alt="Generic placeholder image" width="60" height="60">
-            <h2>Edit and update your own information</h2>
-            <p>Go to your profile and click edit information to update us and the alumni community</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div><!-- /.col-lg-4 -->
+          </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
 
 
@@ -213,6 +207,13 @@
         <hr class="featurette-divider">
 
         <!-- /END THE FEATURETTES -->
+
+        <div class="row">
+            <img class="rounded-circle"style = "bg-white" src="/resources/img/pencil-6x.png" alt="Generic placeholder image" width="60" height="60">
+            <h2>Edit and update your own information</h2>
+            <p>Go to your profile and click edit information to update us and the alumni community</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
 
       </div><!-- /.container -->
 
