@@ -243,7 +243,15 @@
                                 </select>
                             </div>
                         </div>
-                        
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="cancontact">Allow MSF to contact you via the email(s) provided</label>
+                                <select id="cancontact" name = "cancontact" class="form-control">
+                                    <option selected value="0">No</option>
+                                    <option value="1" >Yes</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class="col-sm-10">
@@ -285,6 +293,7 @@
         $showemail = $_POST['showEmail'];
         $jobfield = $_POST['jobfield'];
         $showjobinfo = $_POST['showjobinfo'];
+        $cancontact = $_POST['cancontact'];
         
 
         
@@ -335,8 +344,8 @@
         $stmt->execute();
         $stmt->close();
 
-        $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ?, showjobinfo = ? WHERE alumnitable_id = ?");
-        $stmt->bind_param('iiiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $showjobinfo, $id);
+        $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ?, showjobinfo = ? cancontact = ? WHERE alumnitable_id = ?");
+        $stmt->bind_param('iiiiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $showjobinfo, $cancontact, $id);
         $stmt->execute();
         $stmt->close();
 
