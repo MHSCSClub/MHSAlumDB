@@ -177,7 +177,7 @@
         
         <hr class="featurette-divider">
         
-            <h1 class = "display-2">Events feed</h1>
+            <h1 class = "display-2">Events</h1>
             <?php
 
               $query = "SELECT title, about, link, id FROM `events`";
@@ -210,12 +210,13 @@
             <h1 class = "display-2">Posts</h1>
             <?php
 
-              $query = "SELECT title, about, link, id FROM `alumposts`";
+              $query = "SELECT title, about, link, id, approved FROM `alumposts`";
               $query = $query .  " ORDER BY id DESC";
               $result = $conn->query($query);           
               $num_rows = $result->num_rows;
               if ($num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
+                    if($row['approved']==1){}
                       ?>
                           <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
@@ -228,19 +229,18 @@
                           </div>
                           <br>
                       <?php
-                      
+                    }
                   }
               }
 
             ?>
           
-       
+          <p class="float-right"><a href="/suggestpost">Suggest a post</a></p>
         <hr class="featurette-divider">
 
         <!-- /END THE FEATURETTES -->
 
-        <div class="row">
-            
+        <div>
             <h2>Edit and update your own information</h2>
             <p>Go to your profile and click edit information to update us and the alumni community</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
