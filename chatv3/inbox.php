@@ -58,6 +58,7 @@
     $num_rows = $res->num_rows;
     if ($num_rows > 0) {
         // output data of each row
+        echo "hello";
         $tablecode = "<table class=\"table table-hover\"><thead><tr><th>From User</th><th>Message</th><th>Time Received</th></tr></thead><tbody>";
         while($row = $res->fetch_assoc()) {
             //rename all to chat id
