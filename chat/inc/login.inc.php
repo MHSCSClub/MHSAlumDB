@@ -30,7 +30,9 @@ class SimpleLoginSystem {
         } else {
             if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
                 //if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
-                echo $_COOKIE['member_name'];
+                //echo $_COOKIE['member_name'];
+                $username = $_SESSION['individual'];
+                echo $username;
                     return 'Hello ' . $_COOKIE['member_name'] . '! ';
                 //}
             }
