@@ -344,7 +344,7 @@
         $stmt->execute();
         $stmt->close();
 
-        $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ?, showjobinfo = ? cancontact = ? WHERE alumnitable_id = ?");
+        $stmt = $conn->prepare("UPDATE `alum_info` SET showStreet = ?, showCity = ?, showState = ?, showZip = ?, showPhone = ?, showEmail = ?, showjobinfo = ?, cancontact = ? WHERE alumnitable_id = ?");
         $stmt->bind_param('iiiiiiiii', $showstreet, $showcity, $showstate, $showzipcode, $showphonenumber, $showemail, $showjobinfo, $cancontact, $id);
         $stmt->execute();
         $stmt->close();
