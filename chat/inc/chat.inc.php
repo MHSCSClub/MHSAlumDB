@@ -41,10 +41,9 @@ class SimpleChat {
         $sShoutboxForm = ob_get_clean();
         return $sShoutboxForm;
     }
-    function getMessages() {
+    function getMessages($user1, $user2) {
         $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
-        $user1 = 'pablogarza917@gmail.com';
-        $user2 = 'pgarzabo2@hotmail.com';
+
         //select the database
         //mysql_select_db($this->sDbName);
         $query = "SELECT * FROM `s_chat_messages` WHERE `user` = '$user1' OR `user` = '$user2' ORDER BY `when` ASC LIMIT 30";
