@@ -176,63 +176,65 @@
 
         
         <hr class="featurette-divider">
-        <div class = "col-lg-6">
-          <h1 class = "display-2">Events feed</h1>
-          <?php
+        <div class="row">
+          <div class = "col-lg-6">
+            <h1 class = "display-2">Events feed</h1>
+            <?php
 
-            $query = "SELECT title, about, link, id FROM `events`";
-            $query = $query .  " ORDER BY id DESC";
-            $result = $conn->query($query);           
-            $tablecode = "";
-            $num_rows = $result->num_rows;
-            if ($num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    ?>
-                        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
-                            <div class="col-md-5 p-lg-5 mx-auto my-5">
-                            <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
-                            <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
-                            <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
-                            </div>
-                            <div class="product-device box-shadow d-none d-md-block"></div>
-                            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-                        </div>
-                        <br>
-                    <?php
-                    
-                }
-            }
+              $query = "SELECT title, about, link, id FROM `events`";
+              $query = $query .  " ORDER BY id DESC";
+              $result = $conn->query($query);           
+              $tablecode = "";
+              $num_rows = $result->num_rows;
+              if ($num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                      ?>
+                          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+                              <div class="col-md-5 p-lg-5 mx-auto my-5">
+                              <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
+                              <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
+                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              </div>
+                              <div class="product-device box-shadow d-none d-md-block"></div>
+                              <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                          </div>
+                          <br>
+                      <?php
+                      
+                  }
+              }
 
-          ?>
-        <div>
-        <div class = "col-lg-6">
-          <h1 class = "display-2">Posts</h1>
-          <?php
+            ?>
+          <div>
+          <div class = "col-lg-6">
+            <h1 class = "display-2">Posts</h1>
+            <?php
 
-            $query = "SELECT title, about, link, id FROM `alumposts`";
-            $query = $query .  " ORDER BY id DESC";
-            $result = $conn->query($query);           
-            $num_rows = $result->num_rows;
-            if ($num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    ?>
-                        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
-                            <div class="col-md-5 p-lg-5 mx-auto my-5">
-                            <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
-                            <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
-                            <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
-                            </div>
-                            <div class="product-device box-shadow d-none d-md-block"></div>
-                            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-                        </div>
-                        <br>
-                    <?php
-                    
-                }
-            }
+              $query = "SELECT title, about, link, id FROM `alumposts`";
+              $query = $query .  " ORDER BY id DESC";
+              $result = $conn->query($query);           
+              $num_rows = $result->num_rows;
+              if ($num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                      ?>
+                          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+                              <div class="col-md-5 p-lg-5 mx-auto my-5">
+                              <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
+                              <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
+                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              </div>
+                              <div class="product-device box-shadow d-none d-md-block"></div>
+                              <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                          </div>
+                          <br>
+                      <?php
+                      
+                  }
+              }
 
-          ?>
-        <div>
+            ?>
+          </div>
+        </div>
         <hr class="featurette-divider">
 
         <!-- /END THE FEATURETTES -->
