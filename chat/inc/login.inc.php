@@ -16,7 +16,7 @@ class SimpleLoginSystem {
         $sLoginForm = ob_get_clean();
         $sLogoutForm = '<a href="'.$_SERVER['PHP_SELF'].'?logout=1">logout</a>';
         // Log out
-        if ((int)$_REQUEST['logout'] == 1) {
+        /*if ((int)$_REQUEST['logout'] == 1) {
             if (isset($_COOKIE['member_name']) && isset($_COOKIE['member_pass']))
                 $this->simple_logout();
         }
@@ -37,7 +37,7 @@ class SimpleLoginSystem {
             return $sLoginForm;
         }
     }
-    function simple_login($sName, $sPass) {
+    /*function simple_login($sName, $sPass) {
         $this->simple_logout();
         $sMd5Password = MD5($sPass);
         $iCookieTime = time() + 24*60*60*30;
@@ -51,7 +51,7 @@ class SimpleLoginSystem {
         setcookie('member_pass', '', time() - 96 * 3600, '/');
         unset($_COOKIE['member_name']);
         unset($_COOKIE['member_pass']);
-    }
+    }*/
     function check_login($sName, $sPass) {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
           $check = auth::login($_POST['username'], $_POST['password']);
