@@ -21,6 +21,29 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="description" content=""></meta>
+        <meta name="author" content=""></meta>
+        <link rel="shortcut icon" href="/favicon.ico" />
+    
+        <title>Conversation</title>
+    
+        <!-- Bootstrap Core CSS -->
+        <link href="../css/bootstrap.css" rel="stylesheet"></link>
+    
+    </head>
+    
+        <body>
+            <a href="/chatv3/inbox.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">My inbox</a>
+            <br>
+            <a href="/chatv3/sendmail.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">My outbox</a>
+        </body>
+    </html>
+    <?
     $chatid = $_GET["chatid"]; //get unique chat id from link
     $stmt = $conn->prepare("SELECT fromuser, body, timereceived FROM `inbox` WHERE chainid = ?");
     $stmt->bind_param('i', $chatid);
