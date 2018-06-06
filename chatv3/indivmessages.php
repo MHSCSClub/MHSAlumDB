@@ -33,7 +33,7 @@
         $tablecode = "<table class=\"table table-hover\"><thead><tr><th>From User</th><th>Message</th><th>Time Received</th></tr></thead><tbody>";
         while($row = $res->fetch_assoc()) {
             //rename all to chat id
-            $tablecode = $tablecode . $tablecode = $tablecode . "<tr><td>" . $row["fromuser"]. "</td><td>" . $row["body"]. "</td><td>" . $row["timereceived"]. "</td></tr>";;
+            $tablecode = $tablecode . "<tr><td>" . $row["fromuser"]. "</td><td>" . $row["body"]. "</td><td>" . $row["timereceived"]. "</td></tr>";;
         }
         $tablecode = $tablecode . "</tbody></table>";
     }
