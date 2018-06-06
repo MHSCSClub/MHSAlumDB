@@ -34,9 +34,9 @@ class SimpleLoginSystem {
                 echo $_COOKIE['member_name'];
                 echo $_COOKIE['member_pass'];
                 echo $_REQUEST['password'];
-                if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
+                //if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
                     return 'Hello ' . $_COOKIE['member_name'] . '! ' . $sLogoutForm;
-                }
+                //}
             }
             return $sLoginForm;
         }
@@ -64,6 +64,9 @@ class SimpleLoginSystem {
           }
           return true;
       }
+    }
+    function check_cookie($cName, $cPass){
+
     }
 }
 ?>
