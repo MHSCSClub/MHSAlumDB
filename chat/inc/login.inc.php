@@ -21,19 +21,16 @@ class SimpleLoginSystem {
                 $this->simple_logout();
         }*/
         // Log in
+        $username = $_SESSION['individual'];
         if ($_REQUEST['username'] && $_REQUEST['password']) {
             /*if ($this->check_login($_REQUEST['username'], $_REQUEST['password'])) {
                 $this->simple_login($_REQUEST['username'], $_REQUEST['password']);*/
-                $username = $_SESSION['individual'];
-                echo $username;
-                return 'Hello ' . $_REQUEST['username'] . '! ';
+                return 'Hello ' . $username . '! ';
         } else {
             if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
                 //if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
                 //echo $_COOKIE['member_name'];
-                $username = $_SESSION['individual'];
-                echo $username;
-                    return 'Hello ' . $_COOKIE['member_name'] . '! ';
+                return 'Hello ' . $username . '! ';
                 //}
             }
             return $sLoginForm;
