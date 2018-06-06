@@ -7,11 +7,7 @@ class SimpleLoginSystem {
     var $aExistedMembers; // Existed members array
     // constructor
     function SimpleLoginSystem() {
-        $this->aExistedMembers = array(
-            'User1' => 'd8578edf8458ce06fbc5bb76a58c5ca4',
-            'User2' => 'd8578edf8458ce06fbc5bb76a58c5ca4',
-            'User3' => 'd8578edf8458ce06fbc5bb76a58c5ca4'
-        );
+
     }
     function getLoginBox() {
         ob_start();
@@ -37,9 +33,10 @@ class SimpleLoginSystem {
                 echo "within strange world";
                 echo $_COOKIE['member_name'];
                 echo $_COOKIE['member_pass'];
-                if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
+                echo $_REQUEST['password'];
+                //if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
                     return 'Hello ' . $_COOKIE['member_name'] . '! ' . $sLogoutForm;
-                }
+                //}
             }
             return $sLoginForm;
         }
@@ -67,6 +64,9 @@ class SimpleLoginSystem {
           }
           return true;
       }
+    }
+    function check_cookie($cName, $cPass){
+
     }
 }
 ?>
