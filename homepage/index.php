@@ -155,16 +155,16 @@
 
       <div class="container marketing">
 
-        <!-- Three columns of text below the carousel -->
+        <!-- Two columns of text below the carousel -->
         <div class="row">
           <div class="col-lg-6">
-            <img class="rounded-circle" style = "bg-white" src="/resources/img/person-6x.png" alt="Generic placeholder image" width="60" height="60">
+            <img class="rounded-circle" style = "bg-white" src="/resources/img/person-6x.png" alt="Generic placeholder image" width="50" height="50">
             <h2>Reconnect with old friends. </h2>
             <p>Open the directory and click on names to view profiles on every alumni. </p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
           </div><!-- /.col-lg-6 -->
           <div class="col-lg-6">
-            <img class="rounded-circle" style = "bg-white" src="/resources/img/people-6x.png" alt="Generic placeholder image" width="60" height="60">
+            <img class="rounded-circle" style = "bg-white" src="/resources/img/people-6x.png" alt="Generic placeholder image" width="50" height="50">
             <h2>Check out the chat </h2>
             <p>Click the chat link in the navbar to send messages</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
@@ -174,42 +174,71 @@
 
         <!-- START THE FEATURETTES -->
 
-        <h1 class = "display-2">Events feed</h1>
+        
         <hr class="featurette-divider">
+        <div class = "col-lg-6">
+          <h1 class = "display-2">Events feed</h1>
+          <?php
 
-        <?php
+            $query = "SELECT title, about, link, id FROM `events`";
+            $query = $query .  " ORDER BY id DESC";
+            $result = $conn->query($query);           
+            $tablecode = "";
+            $num_rows = $result->num_rows;
+            if ($num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    ?>
+                        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+                            <div class="col-md-5 p-lg-5 mx-auto my-5">
+                            <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
+                            <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
+                            <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                            </div>
+                            <div class="product-device box-shadow d-none d-md-block"></div>
+                            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                        </div>
+                        <br>
+                    <?php
+                    
+                }
+            }
 
-          $query = "SELECT title, about, link, id FROM `events`";
-          $query = $query .  " ORDER BY id DESC";
-          $result = $conn->query($query);           
-          $tablecode = "";
-          $num_rows = $result->num_rows;
-          if ($num_rows > 0) {
-              while($row = $result->fetch_assoc()) {
-                  ?>
-                      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-                          <div class="col-md-5 p-lg-5 mx-auto my-5">
-                          <h1 class="display-4 font-weight-normal"><?php echo $row['title']; ?></h1>
-                          <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
-                          <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
-                          </div>
-                          <div class="product-device box-shadow d-none d-md-block"></div>
-                          <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-                      </div>
-                      <br>
-                  <?php
-                  
-              }
-          }
+          ?>
+        <div>
+        <div class = "col-lg-6">
+          <h1 class = "display-2">Posts</h1>
+          <?php
 
-        ?>
+            $query = "SELECT title, about, link, id FROM `alumposts`";
+            $query = $query .  " ORDER BY id DESC";
+            $result = $conn->query($query);           
+            $num_rows = $result->num_rows;
+            if ($num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    ?>
+                        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+                            <div class="col-md-5 p-lg-5 mx-auto my-5">
+                            <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
+                            <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
+                            <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                            </div>
+                            <div class="product-device box-shadow d-none d-md-block"></div>
+                            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                        </div>
+                        <br>
+                    <?php
+                    
+                }
+            }
 
+          ?>
+        <div>
         <hr class="featurette-divider">
 
         <!-- /END THE FEATURETTES -->
 
         <div class="row">
-            <img class="rounded-circle"style = "bg-white" src="/resources/img/pencil-6x.png" alt="Generic placeholder image" width="60" height="60">
+            
             <h2>Edit and update your own information</h2>
             <p>Go to your profile and click edit information to update us and the alumni community</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
