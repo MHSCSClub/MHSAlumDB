@@ -27,30 +27,10 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-    <meta name="description" content=""></meta>
-    <meta name="author" content=""></meta>
-    <link rel="shortcut icon" href="/favicon.ico" />
-
-    <title>Admin Homepage</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet"></link>
-
-</head>
-
-<body>
-    <a href="/admin/setupusers.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Add users</a>
-    <br>
-    <a href="/admin/addevent.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Add events to the event page</a>
-    <br>
-    <a href="/admin/confirmposts.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Confirm posts submitted by alumni</a>
-
-
-</body>
-</html>
+    $id = $_GET['postid'];
+    $stmt = $conn->prepare('UPDATE alumposts SET approved = 1 WHERE id = ?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $stmt->close();
+}

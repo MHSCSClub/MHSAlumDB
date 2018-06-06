@@ -27,30 +27,18 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+    $query = "SELECT title, about, link, id FROM `alumposts`";
+        $result = $conn->query($query);           
+        $tablecode = "";
+        $num_rows = $result->num_rows;
+            if ($num_rows > 0) {
+                // output data of each row
+                $tablecode = "<table class=\"table table-hover\"><thead><tr><th>Title</th><th>Body</th></tr></thead><tbody>";
+                while($row = $result->fetch_assoc()) {
+                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/admin/confirmed.php?postid=' . $row["id"]. '">' . $row["title"]. '</a></td><td>' . $row["about"]. "</td></tr>";
+                 }
+             $tablecode = $tablecode . "</tbody></table>";
+            }
+        echo $tablecode;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-    <meta name="description" content=""></meta>
-    <meta name="author" content=""></meta>
-    <link rel="shortcut icon" href="/favicon.ico" />
-
-    <title>Admin Homepage</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet"></link>
-
-</head>
-
-<body>
-    <a href="/admin/setupusers.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Add users</a>
-    <br>
-    <a href="/admin/addevent.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Add events to the event page</a>
-    <br>
-    <a href="/admin/confirmposts.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Confirm posts submitted by alumni</a>
-
-
-</body>
-</html>
