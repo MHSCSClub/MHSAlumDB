@@ -41,13 +41,6 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"></link>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"></link>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body id="page-top" class="index">
@@ -124,23 +117,17 @@
                                 $userQuery = implode(" AND ", $query_full);
                                 $query = $query . " WHERE " . $userQuery;   
                             }
-
                             $result = $conn->query($query);           
                             $num_rows_full = $result->num_rows;
-
                             $max_pages = ceil($num_rows_full/100);
-
-
                             $page = 1;
                             if(isset($_GET["page"])){
                                 $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
                             }
 
-                            $page = max(array(min(array($page, $max_pages)), 1));
-
+                            $page = max(array(min(array($page, $max_pages)), 1)); 
                             $start = $page * 100 - 100;
-
-                            if($start < 0){
+                            if($start <= 0){
                                 $start = 0;
                             }
 
@@ -206,28 +193,14 @@
                 </div>
         </div>
     </section>
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+     -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
         <a class="btn btn-primary" href="#page-top">
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
     
-    <script>
-        //http://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
-        function findGetParameter(parameterName) {
-            var result = null,
-            tmp = [];
-            var items = location.search.substr(1).split("&");
-            for (var index = 0; index < items.length; index++) {
-                tmp = items[index].split("=");
-                if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-            }
-            return result;
-        }
-
-        document.getElementById('search').value=findGetParameter(search); 
-    </script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
