@@ -43,11 +43,11 @@ class SimpleChat {
     function getMessages() {
         $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
         $user1 = 'pablogarza917@gmail.com';
-        $user2 = 'pgarzamw3@gmail.comm';
+        $user2 = 'pgarzabo2@hotmail.com';
         //select the database
         //mysql_select_db($this->sDbName);
         //returning the last 15 messages
-        $query = "SELECT * FROM `s_chat_messages` WHERE 'user' = '$user1', 'user' = '$user2' ORDER BY `when` ASC LIMIT 30";
+        $query = "SELECT * FROM `s_chat_messages` WHERE `user` = $user1 OR `user` = $user2 ORDER BY `when` ASC LIMIT 30";
         $vRes = $conn->query($query);
         $sMessages = '';
         // collecting list of messages
