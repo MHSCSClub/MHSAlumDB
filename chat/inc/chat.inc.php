@@ -18,9 +18,10 @@ class SimpleChat {
     }
     // adding to DB table posted message
     function acceptMessages() {
+        $username = $_SESSION['individual'];
         if ($_COOKIE['member_name']) {
             if(isset($_POST['s_say']) && $_POST['s_message']) {
-                $sUsername = $_COOKIE['member_name'];
+                //$sUsername = $_COOKIE['member_name'];
                 //the host, name, and password for your mysql
                 $conn = new mysqli($this->sDbhost, $this->sDbUser, $this->sDbPass, $this->sDbName);
                 //select the database
@@ -30,7 +31,7 @@ class SimpleChat {
                 if ($sMessage != '') {
                     $query = "INSERT INTO `s_chat_messages` SET `user`=?, `message`=?, `when`=UNIX_TIMESTAMP()";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param('ss', $sUsername, $sMessage);
+                    $stmt->bind_param('ss', $username, $sMessage);
                     $stmt->execute();
                 }
             }
