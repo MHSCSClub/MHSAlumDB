@@ -224,7 +224,7 @@
                         
                         <div class="form-row">
                             <div class="form-group col-md-8">
-                                <label for="jobfield">Show Phone Number</label>
+                                <label for="jobfield">Job Field</label>
                                 <select id="jobfield" name = "jobfield" class="form-control">
                                     <option selected value="">Select a field</option>
                                     <option value="Construction" >Construction</option>

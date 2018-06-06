@@ -85,7 +85,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/chat">Chat</a>
+                    <a class="nav-link" href="/chatv3">Chat</a>
                 </li>
                 
                 </ul>
@@ -207,7 +207,7 @@
 
             <hr class="featurette-divider">
           
-            <h1 class = "display-2">Posts</h1>
+            <h1 class = "display-2">Alumni Updates</h1>
             <?php
 
               $query = "SELECT title, about, link, id, approved FROM `alumposts`";
@@ -235,10 +235,11 @@
 
             ?>
           
-          <p class="float-right"><a href="/suggestpost">Suggest a post</a></p>
+          <p class="float-right"><a href="/suggestpost">Post your news</a></p>
         <hr class="featurette-divider">
 
         <!-- /END THE FEATURETTES -->
+        <!-- Add a footnote -->
 
         <div>
             <h2>Edit and update your own information</h2>

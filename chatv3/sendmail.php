@@ -118,8 +118,18 @@
 
 <?php
     //unique value for the conversation
-    $unique = $id+$sendto;
     $sendto = $_POST['sendto'];
+    $stmt = $conn->prepare("SELECT userid FROM `users` WHERE username = ?");
+    $stmt->bind_param('s', $sendto);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $stmt->close();
+    $row = $res->fetch_assoc();
+    $sendto = $row['userid'];
+
+    
+    $unique = $id+$sendto;
+    
     $body = $_POST['body'];
     $stmt = $conn->prepare("INSERT INTO inbox (fromuser, recipid, body, timereceived, chainid) VALUES (?, ?, ?, NOW(), ?)");
     $stmt->bind_param('sisi', $indivUser, $sendto, $body, $unique);
