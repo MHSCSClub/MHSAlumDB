@@ -50,7 +50,7 @@
         }
     
     echo $id;
-    $stmt = $conn->prepare("SELECT fromuser, body, timereceived FROM `inbox` WHERE recipid = ?");
+    $stmt = $conn->prepare("SELECT fromuser, body, timereceived, chainid FROM `inbox` WHERE recipid = ?");
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $res = $stmt->get_result();
