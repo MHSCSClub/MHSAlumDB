@@ -35,7 +35,7 @@
             echo "0 results";
         }
         
-        $query = "SELECT firstName, lastName, street, city, currentstate, zipcode, country, graduationYear, phoneNumber, jobTitle, businessName, businessStreet, businessCity, businessPhoneNumber, email FROM `alum_info` WHERE alumnitable_id = " . $id;
+        $query = "SELECT firstName, lastName, street, city, currentstate, zipcode, country, graduationYear, phoneNumber, jobTitle, businessName, businessStreet, businessCity, businessPhoneNumber, email, showStreet, showCity, showZip, showCountry, showPhone, showEmail, jobfield, showjobinfo, cancontact FROM `alum_info` WHERE alumnitable_id = " . $id;
         $result = $conn->query($query);
         $num_rows = $result->num_rows;
         //var_dump($result);
@@ -57,6 +57,16 @@
             $businesscity = $row["businessCity"];
             $businessphonenumber = $row["businessPhoneNumber"];
             $email = $row["email"];
+            $jobfield = $row["jobfield"];
+            $cancontact = $row["cancontact"];
+
+            $showstreet = $row["showStreet"];
+            $showcity = $row["showCity"];
+            $showzip = $row["showZip"];
+            $showcountry = $row["showCountry"];
+            $showphone = $row["showPhone"];
+            $showemail = $row["showEmail"];
+            $showjobinfo = $row["showjobinfo"];
         }
 
         else{
@@ -132,7 +142,7 @@
                             <div class="form-group col-md-4">
                                 <label for="showStreet">Show Street</label>
                                 <select id="showStreet" name = "showStreet" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showstreet?>">No change</option>
                                     <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
@@ -147,7 +157,7 @@
                             <div class="form-group col-md-4">
                                 <label for="showCity">Show City</label>
                                 <select id="showCity" name = "showCity" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showcity?>">No change</option>
                                     <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
@@ -162,7 +172,7 @@
                             <div class="form-group col-md-4">
                                 <label for="showState">Show State</label>
                                 <select id="showState" name = "showState" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showstate?>">No change</option>
                                     <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
@@ -177,7 +187,7 @@
                             <div class="form-group col-md-4">
                                 <label for="showZipcode">Show Zipcode</label>
                                 <select id="showZipcode" name = "showZipcode" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showzip?>">No change</option>
                                     <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
@@ -192,7 +202,7 @@
                             <div class="form-group col-md-4">
                                 <label for="showCountry">Show Country</label>
                                 <select id="showCountry" name = "showCountry" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showcountry?>">No change</option>
                                     <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
@@ -207,7 +217,7 @@
                             <div class="form-group col-md-4">
                                 <label for="showPhonenumber">Show Phone Number</label>
                                 <select id="showPhonenumber" name = "showPhonenumber" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showphone?>">No change</option>
                                     <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
@@ -222,7 +232,7 @@
                             <div class="form-group col-md-4">
                                 <label for="showEmail">Show Email</label>
                                 <select id="showEmail" name = "showEmail" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showemail?>">No change</option>
                                     <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
@@ -233,7 +243,7 @@
                             <div class="form-group col-md-8">
                                 <label for="jobfield">Job Field</label>
                                 <select id="jobfield" name = "jobfield" class="form-control">
-                                    <option selected value="">Select a field</option>
+                                    <option selected value="<?php echo $jobfield?>">No change</option>
                                     <option value="Construction" >Construction</option>
                                     <option value="Finance">Finance</option>
                                     <option value="Technology">Technology</option>
@@ -245,7 +255,8 @@
                             <div class="form-group col-md-4">
                                 <label for="showjobinfo">Show me in internship database</label>
                                 <select id="showjobinfo" name = "showjobinfo" class="form-control">
-                                    <option selected value=0>Hide</option>
+                                    <option selected value="<?php echo $showjobinfo?>">No change</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -254,7 +265,7 @@
                             <div class="form-group col-md-12">
                                 <label for="cancontact">Allow MSF to contact you via the email(s) provided</label>
                                 <select id="cancontact" name = "cancontact" class="form-control">
-                                    <option selected value="0">No</option>
+                                    <option selected value="<?php echo $cancontact?>">No change</option>
                                     <option value=0>No</option>
                                     <option value="1" >Yes</option>
                                 </select>
