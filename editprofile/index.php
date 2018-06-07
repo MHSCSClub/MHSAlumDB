@@ -133,6 +133,7 @@
                                 <label for="showStreet">Show Street</label>
                                 <select id="showStreet" name = "showStreet" class="form-control">
                                     <option selected value=0>Hide</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -147,6 +148,7 @@
                                 <label for="showCity">Show City</label>
                                 <select id="showCity" name = "showCity" class="form-control">
                                     <option selected value=0>Hide</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -161,6 +163,7 @@
                                 <label for="showState">Show State</label>
                                 <select id="showState" name = "showState" class="form-control">
                                     <option selected value=0>Hide</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -175,6 +178,7 @@
                                 <label for="showZipcode">Show Zipcode</label>
                                 <select id="showZipcode" name = "showZipcode" class="form-control">
                                     <option selected value=0>Hide</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -189,6 +193,7 @@
                                 <label for="showCountry">Show Country</label>
                                 <select id="showCountry" name = "showCountry" class="form-control">
                                     <option selected value=0>Hide</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -203,6 +208,7 @@
                                 <label for="showPhonenumber">Show Phone Number</label>
                                 <select id="showPhonenumber" name = "showPhonenumber" class="form-control">
                                     <option selected value=0>Hide</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -217,6 +223,7 @@
                                 <label for="showEmail">Show Email</label>
                                 <select id="showEmail" name = "showEmail" class="form-control">
                                     <option selected value=0>Hide</option>
+                                    <option value=0>Hide</option>
                                     <option value=1>Show</option>
                                 </select>
                             </div>
@@ -248,6 +255,7 @@
                                 <label for="cancontact">Allow MSF to contact you via the email(s) provided</label>
                                 <select id="cancontact" name = "cancontact" class="form-control">
                                     <option selected value="0">No</option>
+                                    <option value=0>No</option>
                                     <option value="1" >Yes</option>
                                 </select>
                             </div>
