@@ -63,7 +63,7 @@ class SimpleChat {
         }
         $conn->close();
         ob_start();
-        require_once('chat_begin.php');
+        require_once('chat_begin.html');
         echo $sMessages;
         require_once('chat_end.html');
         return ob_get_clean();
