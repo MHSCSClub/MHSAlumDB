@@ -16,6 +16,7 @@ class SimpleChat {
         $this->sDbName = $dbname;
         $this->sDbUser = $username;
         $this->sDbPass = $password;
+        $this->userArray = 
         $this->currUser = $_SESSION['individual'];
     }
     // adding to DB table posted message
