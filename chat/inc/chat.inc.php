@@ -16,7 +16,7 @@ class SimpleChat {
         $this->sDbName = $dbname;
         $this->sDbUser = $username;
         $this->sDbPass = $password;
-        $this->userArray = 
+        $this->userArray =
         $this->currUser = $_SESSION['individual'];
     }
     // adding to DB table posted message
@@ -63,7 +63,7 @@ class SimpleChat {
         }
         $conn->close();
         ob_start();
-        require_once('chat_begin.html');
+        require_once('chat_begin.php');
         echo $sMessages;
         require_once('chat_end.html');
         return ob_get_clean();
