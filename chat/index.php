@@ -36,6 +36,7 @@ $id;
     }
 
 echo $id;
+echo $indivUser;
 $stmt = $conn->prepare("SELECT * FROM `s_chat_messages` WHERE user = ?");
 $stmt->bind_param('s', $indivUser);
 $stmt->execute();
