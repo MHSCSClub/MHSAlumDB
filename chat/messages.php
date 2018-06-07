@@ -2,11 +2,10 @@
 <?php
 require_once('inc/chat.inc.php');
 session_start();
-// Temporary usernames
-$user1 = $_SESSION['individual'];
-$user2 = 'pgarzamw3@gmail.com';
-
 $oSimpleChat = new SimpleChat();
+$user1 = $oSimpleChat->currUser;
+$user2 = 'pgarzamw3@gmail.com';
+echo "Username: " . $user1;
 $oSimpleChat->check_auth();
 echo $oSimpleChat->getMessages($user1, $user2);
 ?>

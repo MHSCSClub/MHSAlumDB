@@ -5,6 +5,7 @@ class SimpleChat {
     var $sDbName;
     var $sDbUser;
     var $sDbPass;
+    var $currUser;
     // constructor
     function SimpleChat() {
         //mysql_connect("localhost","username","password");
@@ -15,10 +16,10 @@ class SimpleChat {
         $this->sDbName = $dbname;
         $this->sDbUser = $username;
         $this->sDbPass = $password;
+        $this->currUser = $_SESSION['individual'];
     }
     // adding to DB table posted message
     function acceptMessages() {
-        $username = $_SESSION['individual'];
         if ($_COOKIE['member_name']) {
             if(isset($_POST['s_say']) && $_POST['s_message']) {
                 //$sUsername = $_COOKIE['member_name'];
@@ -31,7 +32,7 @@ class SimpleChat {
                 if ($sMessage != '') {
                     $query = "INSERT INTO `s_chat_messages` SET `user`=?, `message`=?, `when`=UNIX_TIMESTAMP()";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param('ss', $username, $sMessage);
+                    $stmt->bind_param('ss', $currUser, $sMessage);
                     $stmt->execute();
                 }
             }
