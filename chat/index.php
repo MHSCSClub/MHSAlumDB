@@ -3,7 +3,7 @@
 </form>
 <?
 ini_set('display_errors', 1);
-include( '../php/rds.php' );
+include('../php/rds.php');
 include("../php/signal.class.php");
 include("../php/auth.php");
 session_start();
@@ -36,8 +36,8 @@ $id;
     }
 
 echo $id;
-$stmt = $conn->prepare("SELECT fromuser, body, timereceived, chainid FROM `inbox` WHERE recipid = ?");
-$stmt->bind_param('i', $id);
+$stmt = $conn->prepare("SELECT * FROM `s_chat_messages` WHERE user = ?");
+$stmt->bind_param('s', $indivUser);
 $stmt->execute();
 $res = $stmt->get_result();
 $stmt->close();
@@ -48,7 +48,7 @@ if ($num_rows > 0) {
     $tablecode = "<table class=\"table table-hover\"><thead><tr><th>From User</th><th>Message</th><th>Time Received</th></tr></thead><tbody>";
     while($row = $res->fetch_assoc()) {
         //rename all to chat id
-        $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/chatv3/indivmessages.php?chatid=' . $row["chainid"]. '">' . $row["fromuser"]. "</td><td>" . $row["timereceived"]. "</td></tr>";
+        $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/chatv3/indivmessages.php?chatid=' . $row["user"] . '"></td></tr>';
     }
     $tablecode = $tablecode . "</tbody></table>";
 }
