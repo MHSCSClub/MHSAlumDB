@@ -195,7 +195,7 @@
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
                               <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              <a class="btn btn-secondary" href="#">Click here for a location</a>
                               </div>
                               <div class="product-device box-shadow d-none d-md-block"></div>
                               <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
@@ -209,7 +209,7 @@
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
                               <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              <a class="btn btn-secondary" href="#">Click here for a location</a>
                               </div>
                               <div class="product-device box-shadow d-none d-md-block"></div>
                               <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
@@ -223,7 +223,7 @@
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
                               <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              <a class="btn btn-secondary" href="#">Click here for a location</a>
                               </div>
                               <div class="product-device box-shadow d-none d-md-block"></div>
                               <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
@@ -254,7 +254,7 @@
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
                               <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              <a class="btn btn-secondary" href="#">Click here for a location</a>
                               </div>
                               <div class="product-device box-shadow d-none d-md-block"></div>
                               <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
@@ -268,7 +268,7 @@
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
                               <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              <a class="btn btn-secondary" href="#">Click here for a location</a>
                               </div>
                               <div class="product-device box-shadow d-none d-md-block"></div>
                               <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
@@ -282,7 +282,7 @@
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
                               <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              <a class="btn btn-osecondary" href="#">Click here for a location</a>
                               </div>
                               <div class="product-device box-shadow d-none d-md-block"></div>
                               <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
