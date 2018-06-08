@@ -120,7 +120,7 @@
                                 $res_str = $res_str . implode(" ", $page_array);
                                 $res_str = $res_str . "</div>";
                                 echo $res_str;
-                                $html = str_get_html($table);
+                                $html = str_get_html($tablecode);
 
 
 
