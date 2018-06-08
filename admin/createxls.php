@@ -220,7 +220,7 @@
       <input type="submit" name="test" id="test" value="RUN"/><br/>
     </form>
     <?php
-      $html = $tablecode;
+      $html = str_get_html($tablecode);
 
       header('Content-type: application/ms-excel');
       header('Content-Disposition: attachment; filename=sample.csv');
