@@ -1,7 +1,6 @@
 <?php
 function makeCSV($html){
-header('Content-type: application/ms-excel');
-header('Content-Disposition: attachment; filename=sample.csv');
+
 
 $fp = fopen("php://output", "w");
 
