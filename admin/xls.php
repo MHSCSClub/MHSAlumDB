@@ -59,16 +59,12 @@
                             
 
                             
-                                $export = mysqli_query ( $select ) or die ( "Sql error : " . mysql_error( ) );
+                                $export = $conn->query($select);
                                 
-                                $fields = mysqli_num_fields ( $export );
+                                $fields = $export->num_rows;
                                 
-                                for ( $i = 0; $i < $fields; $i++ )
-                                {
-                                    $header .= mysqli_field_name( $export , $i ) . "\t";
-                                }
                                 
-                                while( $row = mysqli_fetch_row( $export ) )
+                                while( $row = $export->fetch_assoc())
                                 {
                                     $line = '';
                                     foreach( $row as $value )

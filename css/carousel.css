@@ -8,13 +8,29 @@ body {
   color: #5a5a5a;
 }
 
-.bg-parallax {
-    background-image: url("/resources/img/back.jpg");
+.bg-parallax1 {
+    background-image: url("/resources/img/back1.jpg");
     height: 500px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.bg-parallax2 {
+  background-image: url("/resources/img/back2.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-parallax3 {
+  background-image: url("/resources/img/back3.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bg-light-nav {
@@ -86,6 +102,12 @@ body {
 
 span-black {
   background-color: black;
+  display:block;
+}
+
+span-white {
+  background-color: white;
+  display:block;
 }
 
 /* RESPONSIVE CSS
