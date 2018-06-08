@@ -1,22 +1,28 @@
 <?php
-// output headers so that the file is downloaded rather than displayed
-header('Content-Type: text/csv; charset=utf-8');
-header('Content-Disposition: attachment; filename=data.csv');
+function getCsvFile($html){
+$html = str_get_html($table);
 
-// create a file pointer connected to the output stream
-$output = fopen('php://output', 'w');
+header('Content-type: application/ms-excel');
+header('Content-Disposition: attachment; filename=sample.csv');
 
-// output the column headings
-fputcsv($output, array('Column 1', 'Column 2', 'Column 3'));
+$fp = fopen("php://output", "w");
 
-// fetch the data
-/*mysql_connect('localhost', 'username', 'password');
-mysql_select_db('database');
-$rows = mysql_query('SELECT field1,field2,field3 FROM table');
+foreach($html->find('tr') as $element)
+{
+    $td = array();
+    foreach( $element->find('th') as $row)
+    {
+        $td [] = $row->plaintext;
+    }
+    fputcsv($fp, $td);
 
-// loop over the rows, outputting them
-while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);*/
-
-$data = array('hello', 'my', 'name','is','pablo');
-fputcsv($output, $data);
+    $td = array();
+    foreach( $element->find('td') as $row)
+    {
+        $td [] = $row->plaintext;
+    }
+    fputcsv($fp, $td);
+}
+fclose($fp);
+}
 ?>
