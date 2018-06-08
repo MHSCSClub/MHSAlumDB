@@ -12,7 +12,7 @@
             header("location: /auth/");
             exit;
         }
-          
+
     }
 
     ini_set('display_errors', 1);
@@ -22,10 +22,10 @@
         die("Connection failed: " . $conn->connect_error);
     }
     $indivUser = $_SESSION['individual'];
-    
+
     $sql = "SELECT firstLogin FROM users WHERE username = '$indivUser'";
     $result = $conn->query($sql);
-    
+
 
     $firstlog;
     if ($result->num_rows > 0) {
@@ -89,15 +89,15 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/chat">Chat</a>
-                </li>    
-                
+                </li>
+
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/auth/logout">Logout</a>
-                    </li> 
+                    </li>
                 </ul>
-            </div>  
+            </div>
         </nav>
 
         <p>
@@ -106,7 +106,7 @@
     <section>
 			<div class="container">
 	            <div class="row">
-                    
+
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-4">
@@ -143,10 +143,10 @@
                                     $query_full[] = "(" . implode(" OR ", $subquery) . ")";
                                 }
                                 $userQuery = implode(" AND ", $query_full);
-                                $query = $query . " WHERE " . $userQuery;   
+                                $query = $query . " WHERE " . $userQuery;
                             }
 
-                            $result = $conn->query($query);           
+                            $result = $conn->query($query);
                             $num_rows_full = $result->num_rows;
 
                             $max_pages = ceil($num_rows_full/100);
@@ -166,10 +166,10 @@
                             }
 
 
-                           
+
 
                             $query = $query .  " ORDER BY graduationYear LIMIT {$start}, 100";
-                            $result = $conn->query($query);           
+                            $result = $conn->query($query);
                             $tablecode = "";
                             $num_rows = $result->num_rows;
                             if ($num_rows > 0) {
@@ -187,10 +187,10 @@
                             }
 
                             $res_str = $res_str . ", {$num_rows} shown (page {$page} of " . $max_pages . ")<br>";
-                                
+
 
                                 $base_url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . "?page=";
-                                
+
                                 $page_array = array();
 
                                 $pages = array();
@@ -198,12 +198,12 @@
                                     $pages["First"]=1;
                                     $pages["Previous"]=$page - 1;
                                 }
-                                
+
                                 if($page != $max_pages){
                                     $pages["Next"]=$page + 1;
                                     $pages["Last"]=$max_pages;
                                 }
-                                 
+
 
                                 foreach ($pages as $name=>$pagenum) {
                                     $tmp_page = $base_url . $pagenum;
@@ -211,14 +211,14 @@
                                         $tmp_page = $tmp_page . "&search=" . $search_str;
                                     }
                                     $page_array[] = "<a href={$tmp_page}>{$name}</a>";
-                                } 
-                                
-                                
-                                
+                                }
+
+
+
                                 $res_str = $res_str . implode(" ", $page_array);
                                 $res_str = $res_str . "</div>";
                                 echo $res_str;
-                            
+
                             $conn->close();
                         ?>
                         <hr>
@@ -226,14 +226,17 @@
                 </div>
         </div>
     </section>
+    <form>
+    <input type="button" value="Speadsheet" onclick="window.location.href='https://alumdb.mamaroneckschoolsfoundation.org/spreadsheetsphp/index.php'"/>
+    </form>
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
         <a class="btn btn-primary" href="#page-top">
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    
-    
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../resources/js/jquery-slim.min.js"><\/script>')</script>
     <script src="../resources/js/popper.min.js"></script>
