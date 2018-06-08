@@ -1,6 +1,6 @@
 <?php
 	header( "Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" );
-	header( "Content-disposition: attachment; filename=spreadsheet.xls" );
+	header( "Content-disposition: attachment; filename=spreadsheet.xlsx" );
 
 	// print your data here. note the following:
 	// - cells/columns are separated by tabs ("\t")
