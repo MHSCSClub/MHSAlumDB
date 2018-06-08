@@ -58,20 +58,17 @@
                                 $select = $select . " WHERE " . $userQuery;
                             
 
-                                $result = $conn->query($query);
-                                $num_rows_full = $result->num_rows;
-
                             
-                                $export = mysql_query ( $select ) or die ( "Sql error : " . mysql_error( ) );
+                                $export = mysqli_query ( $select ) or die ( "Sql error : " . mysql_error( ) );
                                 
-                                $fields = mysql_num_fields ( $export );
+                                $fields = mysqli_num_fields ( $export );
                                 
                                 for ( $i = 0; $i < $fields; $i++ )
                                 {
-                                    $header .= mysql_field_name( $export , $i ) . "\t";
+                                    $header .= mysqli_field_name( $export , $i ) . "\t";
                                 }
                                 
-                                while( $row = mysql_fetch_row( $export ) )
+                                while( $row = mysqli_fetch_row( $export ) )
                                 {
                                     $line = '';
                                     foreach( $row as $value )
