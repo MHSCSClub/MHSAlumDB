@@ -1,5 +1,5 @@
 <?php
-function makeCSV($html){}
+function makeCSV($html){
 include("simple_html_dom.php");
 header('Content-type: application/ms-excel');
 header('Content-Disposition: attachment; filename=sample.csv');
