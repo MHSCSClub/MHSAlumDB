@@ -17,5 +17,6 @@ $rows = mysql_query('SELECT field1,field2,field3 FROM table');
 // loop over the rows, outputting them
 while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);*/
 
-fputcsv($output, array('Hello', 'my', 'name', 'is', 'Pablo'));
+$data = array('hello', 'my', 'name','is','pablo');
+fputcsv($output, $data);
 ?>
