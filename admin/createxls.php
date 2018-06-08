@@ -220,7 +220,7 @@
       <input type="submit" name="test" id="test" value="RUN"/><br/>
     </form>
     <?php
-      $html = str_get_html($tablecode);
+      $html = $tablecode;
 
       header('Content-type: application/ms-excel');
       header('Content-Disposition: attachment; filename=sample.csv');
@@ -235,7 +235,7 @@
               $td [] = $row->plaintext;
           }
           fputcsv($fp, $td);
-          
+
           $td = array();
           foreach( $element->find('td') as $row)
           {
