@@ -57,7 +57,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-sm bg-light-nav fixed-top navbar-dark">
+      <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
             <div class="navbar-header">
             <a class="navbar-brand" href="#">
                 <img src="/resources/img/logo.jpg" width="250" height="50" alt="">
@@ -247,8 +247,10 @@
             <h2>Edit and update your own information</h2>
             <p>Go to your profile and click edit information to update us and the alumni community</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <br>
+            <p><a class="btn btn-lg btn-primary" href="/homepage/index.php#newsfeed" role="button">Browse gallery</a></p>
         </div><!-- /.col-lg-4 -->
-
+            
       </div><!-- /.container -->
 
 
