@@ -8,6 +8,14 @@ body {
   color: #5a5a5a;
 }
 
+.bg-parallax {
+    background-image: url("/resources/img/back.jpg");
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
