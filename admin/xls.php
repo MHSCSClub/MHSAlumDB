@@ -27,9 +27,19 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    echo "Welcome to the create file page";
-    $query = "SELECT alumnitable_id,firstName,lastName,graduationYear FROM `alum_info`";
-                            $search_str = "";
+    ?>
+    <html>
+        <body>
+                <form class="form-inline my-2 my-lg-0" method="GET">
+                    <input type="text" id="search" class="form-control mr-sm-2"  name="search" placeholder="Search for graduation year"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Submit">Search</button>
+                </form>
+</body>
+</html>
+<?
+                        echo "Welcome to the create file page";
+                        $select = "SELECT firstName,lastName,email FROM `alum_info`";
+                        $search_str = "";
                             if(isset($_GET['search'])) {
                                 $search_str = $_GET['search'];
                                 $query_parts = explode(" ", $search_str);
@@ -45,108 +55,55 @@
                                     $query_full[] = "(" . implode(" OR ", $subquery) . ")";
                                 }
                                 $userQuery = implode(" AND ", $query_full);
-                                $query = $query . " WHERE " . $userQuery;
-                            }
+                                $select = $select . " WHERE " . $userQuery;
+                            
 
-                            $result = $conn->query($query);
-                            $num_rows_full = $result->num_rows;
+                                $result = $conn->query($query);
+                                $num_rows_full = $result->num_rows;
 
-                            $max_pages = ceil($num_rows_full/100);
-
-
-                            $page = 1;
-                            if(isset($_GET["page"])){
-                                $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
-                            }
-
-                            $page = max(array(min(array($page, $max_pages)), 1));
-
-                            $start = $page * 100 - 100;
-
-                            if($start < 0){
-                                $start = 0;
-                            }
-
-
-
-
-                            $query = $query .  " ORDER BY graduationYear LIMIT {$start}, 100";
-                            $result = $conn->query($query);
-                            $tablecode = "";
-                            $num_rows = $result->num_rows;
-                            if ($num_rows > 0) {
-                                // output data of each row
-                                $tablecode = "<table class=\"table table-hover\"><thead><tr><th>Name</th><th>Graduation Year</th></tr></thead><tbody>";
-                                while($row = $result->fetch_assoc()) {
-                                    $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/individualprofiles/individualalumni.php?alumniid=' . $row["alumnitable_id"]. '">' . $row["firstName"]. " " . $row["lastName"]. '</a></td><td>' . $row["graduationYear"]. "</td></tr>";
-                                }
-                                $tablecode = $tablecode . "</tbody></table>";
-                            }
-                            echo $tablecode;
-                            $res_str = "<div class=\"t_footer\"><br>{$num_rows_full} Result";
-                            if($result->num_rows != 1){
-                                $res_str = $res_str . "s";
-                            }
-
-                            $res_str = $res_str . ", {$num_rows} shown (page {$page} of " . $max_pages . ")<br>";
-
-
-                                $base_url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . "?page=";
-
-                                $page_array = array();
-
-                                $pages = array();
-                                if($page != 1){
-                                    $pages["First"]=1;
-                                    $pages["Previous"]=$page - 1;
-                                }
-
-                                if($page != $max_pages){
-                                    $pages["Next"]=$page + 1;
-                                    $pages["Last"]=$max_pages;
-                                }
-
-
-                                foreach ($pages as $name=>$pagenum) {
-                                    $tmp_page = $base_url . $pagenum;
-                                    if($search_str != ""){
-                                        $tmp_page = $tmp_page . "&search=" . $search_str;
-                                    }
-                                    $page_array[] = "<a href={$tmp_page}>{$name}</a>";
-                                }
-
-
-
-                                $res_str = $res_str . implode(" ", $page_array);
-                                $res_str = $res_str . "</div>";
-                                echo $res_str;
-                                $html = str_get_html($tablecode);
-
-
-
-                                header('Content-type: application/ms-excel');
-                                header('Content-Disposition: attachment; filename=sample.csv');
-
-                                $fp = fopen("php://output", "w");
-
-                                foreach($html->find('tr') as $element)
+                            
+                                $export = mysql_query ( $select ) or die ( "Sql error : " . mysql_error( ) );
+                                
+                                $fields = mysql_num_fields ( $export );
+                                
+                                for ( $i = 0; $i < $fields; $i++ )
                                 {
-                                    $td = array();
-                                    foreach( $element->find('th') as $row)  
-                                    {
-                                        $td [] = $row->plaintext;
-                                    }
-                                    fputcsv($fp, $td);
-
-                                    $td = array();
-                                    foreach( $element->find('td') as $row)  
-                                    {
-                                        $td [] = $row->plaintext;
-                                    }
-                                    fputcsv($fp, $td);
+                                    $header .= mysql_field_name( $export , $i ) . "\t";
                                 }
-
-
-                                fclose($fp);
-
+                                
+                                while( $row = mysql_fetch_row( $export ) )
+                                {
+                                    $line = '';
+                                    foreach( $row as $value )
+                                    {                                            
+                                        if ( ( !isset( $value ) ) || ( $value == "" ) )
+                                        {
+                                            $value = "\t";
+                                        }
+                                        else
+                                        {
+                                            $value = str_replace( '"' , '""' , $value );
+                                            $value = '"' . $value . '"' . "\t";
+                                        }
+                                        $line .= $value;
+                                    }
+                                    $data .= trim( $line ) . "\n";
+                                }
+                                $data = str_replace( "\r" , "" , $data );
+                                
+                                if ( $data == "" )
+                                {
+                                    $data = "\n(0) Records Found!\n";                        
+                                }
+                                
+                                header("Content-type: application/octet-stream");
+                                header("Content-Disposition: attachment; filename=year.xls");
+                                header("Pragma: no-cache");
+                                header("Expires: 0");
+                                print "$header\n$data";
+                                
+                            }
+                            else{
+                                echo "type a year";
+                            }
 ?>
