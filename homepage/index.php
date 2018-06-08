@@ -189,34 +189,48 @@
               $num_rows = $result->num_rows;
               if ($num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
-                    if(($row['id']/2)==0){
+                      if($row['id']%3==0){
                       ?>
                           <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax1">
-                            <div class="col-md-12 p-lg-5 mx-auto my-5">
-                            <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
-                            <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                            <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
-                            </div>
-                            <div class="product-device box-shadow d-none d-md-block"></div>
-                            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-                        </div>
-                        <br>
+                              <div class="col-md-12 p-lg-5 mx-auto my-5">
+                              <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
+                              <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
+                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              </div>
+                              <div class="product-device box-shadow d-none d-md-block"></div>
+                              <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                          </div>
+                          <br>
                       <?php
                       }
-                      else {
+                      else if($row['id']%3==2){
                         ?>
-                            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax1">
-                            <div class="col-md-12 p-lg-5 mx-auto my-5">
-                            <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
-                            <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
-                            <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
-                            </div>
-                            <div class="product-device box-shadow d-none d-md-block"></div>
-                            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-                        </div>
-                        <br>
+                            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax2">
+                              <div class="col-md-12 p-lg-5 mx-auto my-5">
+                              <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
+                              <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
+                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              </div>
+                              <div class="product-device box-shadow d-none d-md-block"></div>
+                              <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                          </div>
+                          <br>
                         <?php
                         }
+                        else if($row['id']%3==1){
+                          ?>
+                              <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax3">
+                              <div class="col-md-12 p-lg-5 mx-auto my-5">
+                              <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
+                              <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
+                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              </div>
+                              <div class="product-device box-shadow d-none d-md-block"></div>
+                              <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                          </div>
+                          <br>
+                          <?php
+                          }
                   }
               }
 
@@ -248,9 +262,9 @@
                           <br>
                         <?php
                         }
-                        else {
+                        else if($row['id']%3==2){
                           ?>
-                              <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax1">
+                              <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax2">
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
                               <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
@@ -262,6 +276,20 @@
                           <br>
                           <?php
                           }
+                          else if($row['id']%3==1){
+                            ?>
+                                <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax3">
+                              <div class="col-md-12 p-lg-5 mx-auto my-5">
+                              <h1 class="display-5 font-weight-normal"><span-white><?php echo $row['title']; ?></span-white></h1>
+                              <p class="lead font-weight-normal"><span-white><?php echo $row['about']; ?></span-white></p>
+                              <a class="btn btn-outline-secondary" href="#">Click here for a location</a>
+                              </div>
+                              <div class="product-device box-shadow d-none d-md-block"></div>
+                              <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                          </div>
+                          <br>
+                            <?php
+                            }
                     }
                   }
               }
