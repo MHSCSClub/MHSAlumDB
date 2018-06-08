@@ -4,6 +4,7 @@
     include( '../php/rds.php' );
     include("../php/signal.class.php");
     include("../php/auth.php");
+    include("simple_html_dom.php");
     session_start();
     if(!isset($_COOKIE['alumdbauth_admin'])){
         echo "you do not have access to this page";
