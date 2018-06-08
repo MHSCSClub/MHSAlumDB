@@ -60,7 +60,7 @@
       <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
             <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img src="/resources/img/logo.jpg" width="30" height="30" alt="">
+                <img src="/resources/img/logo.jpg" width="100" height="30" alt="">
             </a>
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
