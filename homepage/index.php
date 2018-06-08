@@ -307,7 +307,7 @@
             <p>Go to your profile and click edit information to update us and the alumni community</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
             <br>
-            <p><a class="btn btn-lg btn-primary" href="/homepage/index.php#newsfeed" role="button">Browse gallery</a></p>
+            <p><a class="btn btn-lg btn-primary" href="/auth/logout" role="button">Logout</a></p>
         </div><!-- /.col-lg-4 -->
             
       </div><!-- /.container -->
