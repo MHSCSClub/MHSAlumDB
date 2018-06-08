@@ -102,10 +102,12 @@ body {
 
 span-black {
   background-color: black;
+  display:block;
 }
 
 span-white {
   background-color: white;
+  display:block;
 }
 
 /* RESPONSIVE CSS
