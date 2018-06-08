@@ -65,7 +65,7 @@
                         </div>
                         <div class="product-device box-shadow d-none d-md-block"></div>
                         <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-                        <a href=https://alumdb.mamaroneckschoolsfoundation.org/admin/removedevent.php?id= . $row["id"]. >
+                        <a href=https://alumdb.mamaroneckschoolsfoundation.org/admin/removedevent.php?id= . $row["id"]. >Remove</a>
                     </div>
                     <br>
                 <?php
