@@ -226,29 +226,8 @@
       //echo "html : " . $html;
       if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['test']))
       {
-
-      header('Content-type: application/ms-excel');
-      header('Content-Disposition: attachment; filename=sample.csv');
-
-      $fp = fopen("php://output", "w");
-
-      foreach($html->find('tr') as $element)
-      {
-          $td = array();
-          foreach( $element->find('th') as $row)
-          {
-              $td [] = $row->plaintext;
-          }
-          fputcsv($fp, $td);
-
-          $td = array();
-          foreach( $element->find('td') as $row)
-          {
-              $td [] = $row->plaintext;
-          }
-          fputcsv($fp, $td);
-        }
-        fclose($fp);
+          echo "Successful entry";
+          makeCSV($html);
       }
     ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
