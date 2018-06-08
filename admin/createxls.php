@@ -222,6 +222,7 @@
     </form>
     <?php
       $html = str_get_html($tablecode);
+      include("createcsv.php");
       //echo "tablecode : " . $tablecode;
       //echo "html : " . $html;
       if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['test']))
