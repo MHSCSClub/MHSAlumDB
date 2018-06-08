@@ -64,7 +64,9 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Homepage</a>
+                  <a class="navbar-brand" href="#">
+                      <img src="/resources/img/logo.jpg" width="30" height="30" alt="">
+                  </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My Profile</a>
@@ -188,7 +190,7 @@
               if ($num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                       ?>
-                          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+                          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax">
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
                               <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
@@ -218,7 +220,7 @@
                   while($row = $result->fetch_assoc()) {
                     if($row['approved']==1){
                       ?>
-                          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
+                          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-parallax">
                               <div class="col-md-12 p-lg-5 mx-auto my-5">
                               <h1 class="display-5 font-weight-normal"><?php echo $row['title']; ?></h1>
                               <p class="lead font-weight-normal"><?php echo $row['about']; ?></p>
