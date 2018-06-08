@@ -18,9 +18,5 @@ $rows = mysql_query('SELECT field1,field2,field3 FROM table');
 while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);*/
 
 $data = array('hello', 'my', 'name','is','pablo');
-$counter = 0;
-while($counter < count($data)){
-	fputcsv($output, $data[$counter]);
-	$counter = $counter + 1;
-}
+fputcsv($output, $data);
 ?>
