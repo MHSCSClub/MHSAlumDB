@@ -218,12 +218,14 @@
         </a>
     </div>
     <form method="post">
-      <input type="submit" name="test" id="test" value="RUN"/><br/>
+      <input type="submit" name="test" id="test" value="Create Spreadsheet"/><br/>
     </form>
     <?php
       $html = str_get_html($tablecode);
-      echo "tablecode : " . $tablecode;
-      echo "html : " . $html;
+      //echo "tablecode : " . $tablecode;
+      //echo "html : " . $html;
+      if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['test']))
+      {
 
       header('Content-type: application/ms-excel');
       header('Content-Disposition: attachment; filename=sample.csv');
@@ -247,6 +249,7 @@
           fputcsv($fp, $td);
         }
         fclose($fp);
+      }
     ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../resources/js/jquery-slim.min.js"><\/script>')</script>
