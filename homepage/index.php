@@ -57,10 +57,10 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
+      <nav class="navbar navbar-expand-sm bg-light-nav fixed-top navbar-dark">
             <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img src="/resources/img/logo.jpg" width="100" height="30" alt="">
+                <img src="/resources/img/logo.jpg" width="250" height="50" alt="">
             </a>
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
