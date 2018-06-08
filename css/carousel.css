@@ -102,11 +102,13 @@ body {
 
 span-black {
   background-color: black;
+  padding-left:10px; 
   display:block;
 }
 
 span-white {
   background-color: white;
+  padding-left:10px; 
   display:block;
 }
 
