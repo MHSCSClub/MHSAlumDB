@@ -59,14 +59,14 @@
     <header>
       <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">MHS Alumni Database</a>
+            <a class="navbar-brand" href="#">
+                <img src="/resources/img/logo.jpg" width="30" height="30" alt="">
+            </a>
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="navbar-brand" href="#">
-                      <img src="/resources/img/logo.jpg" width="30" height="30" alt="">
-                  </a>
+                    <a class="nav-link" href="#">Homepage</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My Profile</a>
