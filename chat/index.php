@@ -1,6 +1,9 @@
 <form>
 <input type="button" value="Put Your Text Here" onclick="window.location.href='https://alumdb.mamaroneckschoolsfoundation.org/chat/convo.html'" />
 </form>
+<form>
+  <input type="button" value="Speadsheet" onclick="window.location.href='https://alumdb.mamaroneckschoolsfoundation.org/spreadsheet/index.php'"/>
+</form>
 <?
 ini_set('display_errors', 1);
 include('../php/rds.php');
