@@ -221,6 +221,8 @@
     </form>
     <?php
       $html = str_get_html($tablecode);
+      echo "tablecode : " . $tablecode;
+      echo "html : " . $html;
 
       header('Content-type: application/ms-excel');
       header('Content-Disposition: attachment; filename=sample.csv');
