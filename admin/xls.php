@@ -29,7 +29,7 @@
     }
     $select = "";
 
-    $result = $db_con->query('SELECT firstName, lastName, graduationYear FROM alum_info WHERE graduationYear = 2018');
+    $result = $conn->query('SELECT firstName, lastName, graduationYear FROM alum_info WHERE graduationYear = 2018');
     if (!$result) die('Couldn\'t fetch records');
     $num_fields = mysql_num_fields($result);
     $headers = array();
