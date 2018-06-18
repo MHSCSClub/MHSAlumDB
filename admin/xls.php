@@ -42,6 +42,7 @@
                         $search_str = "";
                             if(isset($_GET['search'])) {
                                 $search_str = $_GET['search'];
+                                echo $search_str;
                                 $query_parts = explode(" ", $search_str);
                                 $cols = array("lastName", "firstName", "graduationYear");
                                 $query_full = array();
