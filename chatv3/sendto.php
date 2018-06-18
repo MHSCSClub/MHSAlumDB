@@ -88,7 +88,7 @@
                     <a class="nav-link" href="/events">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/chat">Chat</a>
+                    <a class="nav-link" href="/chatv3">Chat</a>
                 </li>
 
                 </ul>
@@ -226,9 +226,6 @@
                 </div>
         </div>
     </section>
-    <form>
-    <input type="button" value="Speadsheet" onclick="window.location.href='https://alumdb.mamaroneckschoolsfoundation.org/spreadsheetsphp/index.php'"/>
-    </form>
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
         <a class="btn btn-primary" href="#page-top">
