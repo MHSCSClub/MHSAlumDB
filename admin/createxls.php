@@ -5,6 +5,10 @@
     include("../php/signal.class.php");
     include("../php/auth.php");
     include("simple_html_dom.php");
+    include("createcsv.php");
+    header('Content-type: application/ms-excel');
+    header('Content-Disposition: attachment; filename=sample.csv');
+    
     session_start();
     if(!isset($_COOKIE['alumdbauth_admin'])){
         echo "you do not have access to this page";
@@ -206,7 +210,6 @@
 
                             $conn->close();
                         ?>
-                        <hr>
                     </div>
                 </div>
         </div>
@@ -222,8 +225,7 @@
     </form>
     <?php
       $html = str_get_html($tablecode);
-      //echo "tablecode : " . $tablecode;
-      //echo "html : " . $html;
+
       if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['test']))
       {
           echo "Successful entry";
