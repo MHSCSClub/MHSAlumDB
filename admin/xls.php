@@ -31,10 +31,10 @@
 
     $result = $conn->query('SELECT firstName, lastName, graduationYear FROM alum_info WHERE graduationYear = 2018');
     if (!$result) die('Couldn\'t fetch records');
-    $num_fields = mysql_num_fields($result);
+    $num_fields = mysqli_num_fields($result);
     $headers = array();
     for ($i = 0; $i < $num_fields; $i++) {
-        $headers[] = mysql_field_name($result , $i);
+        $headers[] = mysqli_field_name($result , $i);
     }
     $fp = fopen('php://output', 'w');
     if ($fp && $result) {
