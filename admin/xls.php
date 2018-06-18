@@ -27,77 +27,45 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    ?>
-    <html>
-        <body>
-                <form class="form-inline my-2 my-lg-0" method="GET">
-                    <input type="text" id="search" class="form-control mr-sm-2"  name="search" placeholder="Search for graduation year"/>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Submit">Search</button>
-                </form>
-</body>
-</html>
-<?
-                        echo "Welcome to the create file page";
-                        $select = "SELECT firstName,lastName,email FROM `alum_info`";
-                        $search_str = "";
-                            if(isset($_GET['search'])) {
-                                $search_str = $_GET['search'];
-                                echo $search_str;
-                                $query_parts = explode(" ", $search_str);
-                                $cols = array("lastName", "firstName", "graduationYear");
-                                $query_full = array();
-                                foreach($query_parts as &$part){
-                                    $subquery = array();
-                                    $part = "'%" . mysqli_real_escape_string($conn, $part) . "%'";
-                                    foreach($cols as &$col){
-                                        $a = "({$col} LIKE {$part})";
-                                        $subquery[] = $a;
-                                    }
-                                    $query_full[] = "(" . implode(" OR ", $subquery) . ")";
-                                }
-                                $userQuery = implode(" AND ", $query_full);
-                                $select = $select . " WHERE " . $userQuery;
-                            
+    $select = "SELECT firstName, lastName, graduationYear FROM alum_info WHERE graduationYear = 2018";
 
-                            
-                                $export = $conn->query($select);
-                                
-                                $fields = $export->num_rows;
-                                
-                                
-                                while( $row = $export->fetch_assoc())
-                                {
-                                    $line = '';
-                                    foreach( $row as $value )
-                                    {                                            
-                                        if ( ( !isset( $value ) ) || ( $value == "" ) )
-                                        {
-                                            $value = "\t";
-                                        }
-                                        else
-                                        {
-                                            $value = str_replace( '"' , '""' , $value );
-                                            $value = '"' . $value . '"' . "\t";
-                                        }
-                                        $line .= $value;
-                                    }
-                                    $data .= trim( $line ) . "\n";
-                                }
-                                $data = str_replace( "\r" , "" , $data );
-                                
-                                if ( $data == "" )
-                                {
-                                    $data = "\n(0) Records Found!\n";                        
-                                }
-                                
-                                header("Content-type: application/octet-stream");
-                                header("Content-Disposition: attachment; filename=year.xls");
-                                header("Pragma: no-cache");
-                                header("Expires: 0");
-                                print "$header\n$data";
-                                
-                            }
-                            else{
-                                echo "type a year";
-                            }
+    $export = mysql_query ( $select ) or die ( "Sql error : " . mysql_error( ) );
+
+    $fields = mysql_num_fields ( $export );
+
+    for ( $i = 0; $i < $fields; $i++ )
+    {
+        $header .= mysql_field_name( $export , $i ) . "\t";
+    }
+
+    while( $row = mysql_fetch_row( $export ) )
+    {
+        $line = '';
+        foreach( $row as $value )
+        {                                            
+            if ( ( !isset( $value ) ) || ( $value == "" ) )
+            {
+                $value = "\t";
+            }
+            else
+            {
+                $value = str_replace( '"' , '""' , $value );
+                $value = '"' . $value . '"' . "\t";
+            }
+            $line .= $value;
+        }
+        $data .= trim( $line ) . "\n";
+    }
+    $data = str_replace( "\r" , "" , $data );
+
+    if ( $data == "" )
+    {
+        $data = "\n(0) Records Found!\n";                        
+    }
+
+    header("Content-type: application/octet-stream");
+    header("Content-Disposition: attachment; filename=your_desired_name.xls");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+    print "$header\n$data";
 ?>
