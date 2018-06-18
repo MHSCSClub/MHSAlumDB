@@ -133,7 +133,7 @@
     $sendto = $_GET['alumniid'];
     
     $body = $_POST['body'];
-    $stmt = $conn->prepare("INSERT INTO inbox (fromuser, recipid, body, timereceived) VALUES (?, ?,  NOW(), ?)");
+    $stmt = $conn->prepare("INSERT INTO inbox (fromuser, recipid, body, timereceived) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param('sis', $indivUser, $sendto, $body);
     $stmt->execute();
     $stmt->close();
