@@ -109,13 +109,14 @@
     $res = $stmt->get_result();
 	$stmt->close();
     $num_rows = $res->num_rows;
+
     if ($num_rows > 0) {
         // output data of each row
         
         $tablecode = "<table class=\"table table-hover\"><thead><tr><th>From User</th><th>Message</th><th>Time Received</th></tr></thead><tbody>";
         while($row = $res->fetch_assoc()) {
             //rename all to chat id
-            $tablecode = $tablecode . '<tr><td><a href="https://alumdb.mamaroneckschoolsfoundation.org/chatv3/indivmessages.php?chatid=' . $row["chainid"]. '">' . $row["fromuser"]. "</td><td>" . $row["timereceived"]. "</td></tr>";
+            $tablecode = $tablecode . "<tr><td>" . $row["fromuser"]. "</td><td>" . $row["body"]. "</td><td>" . $row["timereceived"]. "</td></tr>";
         }
         $tablecode = $tablecode . "</tbody></table>";
     }

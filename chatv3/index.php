@@ -88,7 +88,7 @@
         </nav>
         <a href="/chatv3/inbox.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">My inbox</a>
         <br>
-        <a href="/chatv3/sendmail.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">My outbox</a>
+        <a href="/chatv3/sendto.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">My outbox</a>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../resources/js/jquery-slim.min.js"><\/script>')</script>
         <script src="../resources/js/popper.min.js"></script>

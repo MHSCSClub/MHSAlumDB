@@ -38,7 +38,7 @@
 
     $sql = "SELECT userid FROM users WHERE username = '$indivUser'";
     $result = $conn->query($sql);
-    $id;
+
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $id = $row["userid"];
@@ -46,6 +46,18 @@
     } else {
         echo "0 results";
     }
+
+    $recip = $_GET['alumniid'];
+    $sql = "SELECT username FROM users WHERE userid = $recip";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $username = $row["username"];
+            
+    } else {
+        echo "0 results";
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +109,7 @@
 		<form method="post" class = "form-signin">
             <div class="form-group">
                 <label for="eventtitle">Send to</label>
-                <input type="text" class="form-control" id="sendto" name = "sendto">
+                <input type="text" class="form-control" id="sendto" name = "sendto" placeholder="<?php $username?>" readonly>
             </div>
             <div class="form-group">
                 <label for="body">Message body</label>
@@ -118,21 +130,11 @@
 
 <?php
     //unique value for the conversation
-    $sendto = $_POST['sendto'];
-    $stmt = $conn->prepare("SELECT userid FROM `users` WHERE username = ?");
-    $stmt->bind_param('s', $sendto);
-    $stmt->execute();
-    $res = $stmt->get_result();
-    $stmt->close();
-    $row = $res->fetch_assoc();
-    $sendto = $row['userid'];
-
-    
-    $unique = $id+$sendto;
+    $sendto = $_GET['alumniid'];
     
     $body = $_POST['body'];
-    $stmt = $conn->prepare("INSERT INTO inbox (fromuser, recipid, body, timereceived, chainid) VALUES (?, ?, ?, NOW(), ?)");
-    $stmt->bind_param('sisi', $indivUser, $sendto, $body, $unique);
+    $stmt = $conn->prepare("INSERT INTO inbox (fromuser, recipid, body, timereceived) VALUES (?, ?,  NOW(), ?)");
+    $stmt->bind_param('sis', $indivUser, $sendto, $body);
     $stmt->execute();
     $stmt->close();
 
