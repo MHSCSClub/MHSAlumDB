@@ -49,9 +49,9 @@
             fputcsv($fp, array_values($row));
         }
         die;
+        }
         
-    }
-    else{
+    } else{
         echo "success 3";
         readfile("csv.html");
     }
