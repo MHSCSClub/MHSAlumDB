@@ -103,13 +103,14 @@ body {
 span-black {
   background-color: black;
   padding-left:10px; 
-  display:block;
+  padding-right:10px; 
+  
 }
 
 span-white {
   background-color: white;
   padding-left:10px; 
-  display:block;
+  padding-right:10px; 
 }
 
 /* RESPONSIVE CSS
