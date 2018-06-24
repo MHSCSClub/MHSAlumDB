@@ -100,6 +100,7 @@
         <br>
         <br>
         <br>
+        <br>
         <a href="/chatv3/inbox.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">My inbox</a>
         <br>
         <a href="/chatv3/sendto.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">My outbox</a>
