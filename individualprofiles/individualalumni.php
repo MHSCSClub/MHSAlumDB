@@ -89,11 +89,13 @@
     </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">MHS Alumni Database</a>
+            <a class="navbar-brand" href="#">
+                <img src="/resources/img/logo.jpg" width="250" height="50" alt="">
+            </a>
             </div>
-              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/homepage">Homepage</a>
@@ -101,21 +103,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/mainprofile">My Profile</a>
                 </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="/ui" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Directories
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/ui">Main Directory</a>
-                        <a class="dropdown-item" href="/internshipui">Internship Directory</a>
-                    </div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/ui">Main Directory</a>
+                    <a class="dropdown-item" href="/internshipui">Internship Directory</a>
+                  </div>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/events">Events</a>
                 </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="/chat">Chat</a>
-                </li>  
+                    <a class="nav-link" href="/chatv3">Chat</a>
+                </li>
                 
                 </ul>
                 <ul class="nav navbar-nav ml-auto">

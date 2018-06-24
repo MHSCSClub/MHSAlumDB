@@ -75,7 +75,7 @@
 	            <div class="row">
                     <div class="col-lg-12">
                         <h3>Use the Searchbar below to locate yourself in the database</h3>
-                        <a href="https://alumdb.mamaroneckschoolsfoundation.org/pairIDnonexisting/">If you are unable to find yourself click here</a>
+                        <a href="https://alumdb.mamaroneckschoolsfoundation.org/pairIDnonexisting/" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">If you are unable to find yourself click here</a>
                     </div>
                 </div>
                 <div class="row">
