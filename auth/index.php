@@ -10,7 +10,7 @@
     } else {
         $resp = auth::check_auth($_COOKIE['alumdbauth']);
         if($resp->isError()){
-            header("location: /auth/login");
+            header("location: /auth/welcome");
             exit;
         } else {
             //echo $_COOKIE['alumdbauth'];
