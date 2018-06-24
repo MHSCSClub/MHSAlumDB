@@ -1,9 +1,9 @@
 <?php
     ini_set('display_errors', 1);
     echo 'You have successfully logged into the admin page ';
-    include( '../php/rds.php' );
-    include("../php/signal.class.php");
-    include("../php/auth.php");
+    include( '../../php/rds.php' );
+    include("../../php/signal.class.php");
+    include("../../php/auth.php");
     session_start();
     if(!isset($_COOKIE['alumdbauth_admin'])){
         echo "you do not have access to this page";
@@ -33,7 +33,6 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $gyear = $_POST['gyear'];
         echo "success";
-        include ('../php/rds.php');
         $conn = new mysqli($dbhost, $username, $password, $dbname);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
