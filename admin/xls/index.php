@@ -51,12 +51,13 @@
         die;
         }
         
-    } else{
+    } 
+    else{
         echo "success 3";
         readfile("csv.html");
     }
     
-}
+
 function mysqli_field_name($result, $field_offset)
 {
     $properties = mysqli_fetch_field_direct($result, $field_offset);
