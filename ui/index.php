@@ -175,7 +175,7 @@
 
 
 
-                            $query = $query .  " ORDER BY graduationYear LIMIT {$start}, 100";
+                            $query = $query .  " ORDER BY graduationYear DESC LIMIT {$start}, 100";
                             $result = $conn->query($query);
                             $tablecode = "";
                             $num_rows = $result->num_rows;

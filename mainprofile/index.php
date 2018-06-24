@@ -143,6 +143,9 @@
                 </ul>
             </div>  
         </nav>
+        <br>
+        <br>
+        <br>
 
         <div class="jumbotron text-center" style="margin-bottom:0">
         <h1><?php echo $firstname . " " . $lastname . "'s Profile"; ?></h1>
