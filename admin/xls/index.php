@@ -38,7 +38,7 @@
   	<body>
 		<form method="post" class = "form-search">
             <div class="form-group">
-                <label for="gyear">Spreadsheet by graudation year</label>
+                <label for="gyear">Spreadsheet by graduation year</label>
                 <input type="text" class="form-control" id="gyear" name = "gyear">
             </div>
             <div class="form-group row">
