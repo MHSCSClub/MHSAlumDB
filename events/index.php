@@ -98,6 +98,9 @@
                 </ul>
             </div>  
         </nav>
+        <br>
+        <br>
+        <br>
     <?php
 
         $query = "SELECT title, about, link, id FROM `events`";

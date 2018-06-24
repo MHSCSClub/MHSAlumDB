@@ -117,6 +117,9 @@
             </div>  
         </nav>
         
+        <br>
+        <br>
+        <br>
 		<form method="post" class = "form-signin">
             <div class="form-group">
                 <label for="eventtitle">Send to</label>
