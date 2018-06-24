@@ -54,6 +54,8 @@
     <a href="/admin/confirmposts.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Confirm posts submitted by alumni</a>
     <br>
     <a href="/admin/removealumpost.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Remove posts submitted by alumni</a>
+    <br>
+    <a href="/admin/xls.php" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Create a csv file based off graduation year</a>
    
 
 </body>
