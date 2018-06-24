@@ -22,6 +22,49 @@
         }
 
     }
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>MHS Alum DB - Log-in</title>
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+  	</head>
+
+  	<body>
+		<form method="post" class = "form-search">
+            <div class="form-group">
+                <label for="gyear">Spreadsheet by graudation year</label>
+                <input type="text" class="form-control" id="gyear" name = "gyear">
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+		</form>
+		
+	</body>
+</html>
+
+<?php
+    $conn = new mysqli($dbhost, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $gyear = $_POST['gyear'];
+        
+        
+    }
+    echo "success";
+
+
     include ('../php/rds.php');
     $conn = new mysqli($dbhost, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -29,7 +72,7 @@
     }
     $select = "";
 
-    $result = $conn->query('SELECT firstName, lastName, graduationYear FROM alum_info WHERE graduationYear = 2018');
+    $result = $conn->query("SELECT firstName, lastName, graduationYear FROM alum_info WHERE graduationYear = $gyear");
     if (!$result) die('Couldn\'t fetch records');
     $num_fields = mysqli_num_fields($result);
     $headers = array();
