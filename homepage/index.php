@@ -301,10 +301,11 @@
         <!-- Add a footnote -->
 
         <div>
-            <h2>Edit and update your own information</h2>
-            <p>Go to your profile and click edit information to update us and the alumni community</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-            <br>
+            <h2>From the schools foundation</h2>
+            <p>This MHS Alumni website has been created by MHS alumni while they were students at MHS in the computer science program and as part of their senior internships. </p>
+            <p>The former students are Max Bobby, Pablo Garza, and Andrew Katz. The MHS Alumni Association and the Mamaroneck Schools Foundation are extremely grateful for the talents and efforts of these alums!</p>
+            
+            
             <p><a class="btn btn-lg btn-primary" href="/auth/logout" role="button">Logout</a></p>
         </div><!-- /.col-lg-4 -->
             
@@ -314,7 +315,7 @@
       <!-- FOOTER -->
       <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>
-        <p>© 2017-2018 Max-Pablo, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        <p> <a href="#">Privacy</a> · <a href="#">Terms</a></p>
       </footer>
     </main>
 
