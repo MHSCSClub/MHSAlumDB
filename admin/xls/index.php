@@ -22,14 +22,11 @@
         }
 
     }
-?>
-
-
-<?php
     $conn = new mysqli($dbhost, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $gyear = $_POST['gyear'];
         echo "success";
