@@ -15,7 +15,7 @@
     } else {
         echo "Error updating record: " . $conn->error;
     }
-    $sql = "UPDATE `users` SET userid = (userid+29000) WHERE username = '$indivUser'";
+    //$sql = "UPDATE `users` SET userid = (userid+29000) WHERE username = '$indivUser'";
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
     } else {
