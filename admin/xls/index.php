@@ -30,7 +30,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
         $select = "";
-        $result = $conn->query("SELECT firstName, lastName, graduationYear FROM alum_info WHERE graduationYear = $gyear");
+        $result = $conn->query("SELECT firstName, lastName, graduationYear, email FROM alum_info WHERE graduationYear = $gyear");
         if (!$result) die('Couldn\'t fetch records');
         $num_fields = mysqli_num_fields($result);
         $headers = array();
